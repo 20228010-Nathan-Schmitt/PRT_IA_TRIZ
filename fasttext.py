@@ -1,6 +1,6 @@
 import io
 import scipy as sp
-import numpy as np
+
 def load_vectors(fname):
     fin = io.open(fname, 'r', encoding='utf-8', newline='\n', errors='ignore')
     n, d = map(int, fin.readline().split())
