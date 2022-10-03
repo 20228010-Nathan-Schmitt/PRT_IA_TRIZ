@@ -6,7 +6,7 @@ import tensorflow_text as text
 tfhub_handle_preprocess  ="https://tfhub.dev/tensorflow/bert_en_uncased_preprocess/3"
 tfhub_handle_encoder    = "https://tfhub.dev/tensorflow/bert_en_uncased_L-12_H-768_A-12/3"
 
-f=open("vocab_bert.txt", "r", encoding="utf8")
+f=open("tests_technos/vocab_bert.txt", "r", encoding="utf8")
 vocab = [line.rstrip('\n') for line in f]
 f.close()
 def get_vocab_by_id(id):
@@ -52,10 +52,10 @@ if __name__=="__main__":
         print()
     """
 
-    #cosineDistance(embeddings, 0,6,1,2)
-    cosineDistance(embeddings, 0,3,1,1)
-    cosineDistance(embeddings, 0,3,2,3)
-    cosineDistance(embeddings, 1,1,2,3)
-    """cosineDistance(embeddings, 0,1,1,2)
-    cosineDistance(embeddings, 0,1,2,2)
-    cosineDistance(embeddings, 1,2,2,2)"""
+    #cosineDistanceWord(embeddings, 0,6,1,2)
+    cosineDistanceWord(embeddings, 0,3,1,1)
+    cosineDistanceWord(embeddings, 0,3,2,3)
+    cosineDistanceWord(embeddings, 1,1,2,3)
+    """cosineDistanceWord(embeddings, 0,1,1,2)
+    cosineDistanceWord(embeddings, 0,1,2,2)
+    cosineDistanceWord(embeddings, 1,2,2,2)"""
