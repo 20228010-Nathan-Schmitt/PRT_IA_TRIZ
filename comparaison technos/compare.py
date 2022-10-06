@@ -1,9 +1,10 @@
 import embeddings.simCSE as simCSE
 import modeles.cosine as cosine
+import modeles.euclide as euclide
 from compare_tools import load_sentences, makePairsToCompare
 
 embeddings = {"simCSE":simCSE.embeddings_simcse}
-models = {"cosine":cosine.cos_sim}
+models = {"cosine":cosine.cos_sim, "euclide":euclide.euc_dist}
 
 sentences =makePairsToCompare(load_sentences())
 for embedding in embeddings:
