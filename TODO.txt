@@ -1,0 +1,27 @@
+Fichier de méthodologie
+    - Liste des embeddings
+    - Liste des comparaisons d'embeddings
+    - Protocole de Comparaison
+
+Dataset manuel de comparaisons
+    - 100 phrases issues de brevets
+    - 100 phrases correspondantes
+    - les phrases correspondantes reformulées
+
+Embeddings à comparer
+    - word2vec
+    - BERT
+    - simCSE
+    - RoBERTa
+    - BERT for patents
+
+Modèles à comparer
+    - Cosine distance
+    - WMD
+    - Distance euclidienne
+
+
+Idées à explorer
+    - rephrasing automatique
+    - simplification des phrases
+    - plusieurs modèles en parallèle
