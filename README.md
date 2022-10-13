@@ -28,3 +28,8 @@
 
 ### Sentence Tranformers
 - [x] https://www.sbert.net/
+
+### word Mover Distance
+- [x] https://radimrehurek.com/gensim/auto_examples/tutorials/run_wmd.html
+- [x] https://vene.ro/blog/word-movers-distance-in-python.html
+- [x] https://pypi.org/project/word-mover-distance/
