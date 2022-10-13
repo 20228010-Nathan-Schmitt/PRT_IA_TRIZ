@@ -367,8 +367,8 @@ def find_rankings(
 
 MAX_SEQ_LENGTH = 512
 MAX_PREDS_PER_SEQUENCE = 45
-MODEL_DIR = 'comparaison_technos/embeddings/bertForPatent'
-VOCAB = 'comparaison_technos/embeddings/bertForPatent/vocab.txt'
+MODEL_DIR = 'embeddings/bertForPatent'
+VOCAB = 'embeddings/bertForPatent/vocab.txt'
 
 tokenizer = FullTokenizer(VOCAB, do_lower_case=True)
 

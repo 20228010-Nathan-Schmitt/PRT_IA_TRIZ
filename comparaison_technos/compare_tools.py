@@ -1,5 +1,5 @@
 def load_sentences():
-    f=open("tools/dataset.txt", "r", encoding="utf8")
+    f=open("dataset.txt", "r", encoding="utf8")
     lines = [line.rstrip('\n') for line in f]
     f.close()
 
