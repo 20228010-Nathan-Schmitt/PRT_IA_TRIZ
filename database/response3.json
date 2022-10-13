@@ -1,0 +1,2633 @@
+{
+    "took": 479,
+    "timed_out": false,
+    "_shards": {
+        "total": 5,
+        "successful": 5,
+        "skipped": 0,
+        "failed": 0
+    },
+    "hits": {
+        "total": {
+            "value": 582,
+            "relation": "eq"
+        },
+        "max_score": null,
+        "hits": [
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11220629-20220111",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Generally, however, these imaging techniques suffer from complicated procedures, poor cellular permeability, and interfere with cell function."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "quenching",
+                        "unfavorable background staining",
+                        "broad emission,",
+                        "limits its application in multicolor imaging",
+                        "Stokes shifts",
+                        "nonradiative energy",
+                        "interference from scattered light",
+                        "signal-to-noise ratio"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Side Effects"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.50892514
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9535353
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "complicated procedures, poor cellular permeability,",
+                        "interfere with cell function"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Brightness",
+                        "Energy Spent by Stationary Object",
+                        "Accuracy of Measurement"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.514304
+                    ],
+                    "S_SENTS": [
+                        "These conventional organic fluorophores also encounter the detrimental phenomenon of aggregation-caused quenching ACQ at such high concentrations.",
+                        "Nile Red shows unfavorable background staining and broad emission, which limits its application in multicolor imaging.",
+                        "BODIPY 493/503 exhibits very small Stokes shifts and, thus, induces nonradiative energy and interference from scattered light.",
+                        "The few dyes which have previously been synthesized for LDs imaging at nano-molar concentrations showed non-specific staining and exhibited blue emission in live cells, resulting in low signal-to-noise ratio."
+                    ]
+                },
+                "sort": [
+                    1.514304
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11239346-20220201",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Various factors, such as scaling of split-gate flash cells, have decreased the access gate oxide thickness from thicker high-voltage oxides to thinner low-voltage , core oxides.",
+                        "The thinner lower voltage oxide introduces a new vulnerability to the data state stored in the cell during programming or once the data is so stored, particularly when the cell is part of a memory array and while programming other cells in the same array."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "thermal activation energy,",
+                        "damage to the semiconductor substrate",
+                        "disturbs the transistor threshold voltage",
+                        "alters its data state",
+                        "alter the data state to indeterminate,",
+                        "vulnerable to change full binary state 0 to 1, or 1 to 0 without a full and intended programming action"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Loss of Information"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.49690473
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9036774
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "access gate oxide thickness",
+                        "oxides to thinner low-voltage",
+                        "vulnerability to the data state"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Temperature",
+                        "Harmful Factors Acting on Object",
+                        "Loss of Information"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5143548
+                    ],
+                    "S_SENTS": [
+                        "However, extrinsic fast disturb bits show much lower thermal activation energy, suggesting local gate oxide thinning in the passage of charge that may arise from earlier etching and resulting damage to the semiconductor substrate.",
+                        "For example, during an access to a row of cells, where voltage is applied to a word line connected to the access gate of each cell in the line or row, charge can tunnel from the access gate to the channel below the floating gate, and such charge can pass further via injection to the floating gate itself, for example by hot electron injection HEI. Such a possibility is sometimes referred to in the art as a programming disturb mechanism, as it undesirably or unintentionally disturbs the transistor threshold voltage and correspondingly alters its data state.",
+                        "Or, short of fully changing state, a disturb can alter the data state to indeterminate, rendering it vulnerable to change full binary state 0 to 1, or 1 to 0 without a full and intended programming action."
+                    ],
+                    "A_PARAMS": [
+                        "scaling of split-gate flash cells,"
+                    ]
+                },
+                "sort": [
+                    1.5143548
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11408938-20220809",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "While more closely representing chips with real circuit designs, the logic test chips are not as easily testable or diagnosable as the SRAM test chips."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "faulty behavior intermittent faulty behavior",
+                        "difficult to apply these methods to chips with embedded compression circuits"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Reliability"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47433242
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9201462
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "easily testable or diagnosable"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Reliability",
+                        "Complexity of Device"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.51516
+                    ],
+                    "S_SENTS": [
+                        "While conventional methods may achieve satisfactory results for a defect behaving exactly like a modeled fault stuck-at-0 fault at a scan cell's output, a defect in a scan chain often exhibits un-modeled faulty behavior intermittent faulty behavior.",
+                        "Further, it is difficult to apply these methods to chips with embedded compression circuits without resorting to a bypass mode."
+                    ]
+                },
+                "sort": [
+                    1.51516
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11363413-20220614",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "This may involve higher-layer protocols, for example on an application layer or transport layer, such as TCP/IP for flow control, TLS for privacy and the like, and entail excess signaling and excess power consumption of the terminal, as the terminal may need to remain active until the server has responded accordingly."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "efficient network signaling",
+                        "low energy consumption,",
+                        "overhead",
+                        "signaling load",
+                        "terminal power consumption"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Loss of Information",
+                        "Waste of Energy"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5249636
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.93593454
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "higher-layer protocols,",
+                        "privacy",
+                        "excess signaling",
+                        "power consumption"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Complexity of Device",
+                        "Waste of Energy",
+                        "Productivity",
+                        "Energy Spent by Stationary Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5164757
+                    ],
+                    "S_SENTS": [
+                        "Evidently, for a solution targeting efficient network signaling and low energy consumption, 3GPP-based approaches are superior to over the top solutions, due to less overhead in the involved signaling procedures.",
+                        "Nevertheless, a signaling load and terminal power consumption is still considerable."
+                    ],
+                    "A_PARAMS": [
+                        "3GPP-based"
+                    ]
+                },
+                "sort": [
+                    1.5164757
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11282979-20220322",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Compared to silicon, III-V compound semiconductor multijunction devices have greater energy conversion efficiencies and generally more radiation resistance, although they tend to be more complex to properly specify and manufacture."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "decrease in current,",
+                        "lower power output",
+                        "interdependent and interact in complex and often unpredictable ways,",
+                        "optimize performance",
+                        "efficiency and power output"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Temperature",
+                        "Manufacturability"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5067019
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9327296
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "energy conversion efficiencies",
+                        "radiation resistance,",
+                        "complex to properly specify and manufacture"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Power",
+                        "Speed"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5172077
+                    ],
+                    "S_SENTS": [
+                        "However, in reality, changing a material parameter that increases the voltage may result in a decrease in current, and therefore a lower power output.",
+                        "Such material design parameters are interdependent and interact in complex and often unpredictable ways, and for that reason are not result effective variables that those skilled in the art confronted with complex design specifications and practical operational considerations can easily adjust to optimize performance.",
+                        "Electrical properties such as the short circuit current density Jsc, the open circuit voltage Voc, and the fill factor FF, which determine the efficiency and power output of the solar cell, are affected by the slightest change in such design variables, and as noted above, to further complicate the calculus, such variables and resulting properties also vary, in a non-uniform manner, over time i. e. during the operational life of the system.",
+                        "Since the power output is a function of both the voltage and the current produced by a subcell, a simplistic view may seek to maximize both parameters in a subcell by increasing a constituent element, or the doping level, to achieve that effect."
+                    ],
+                    "A_PARAMS": [
+                        "short circuit current density Jsc,",
+                        "fill factor FF,",
+                        "design variables,"
+                    ]
+                },
+                "sort": [
+                    1.5172077
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10881124-20210105",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "When external ambient light is very strong, the PIN tends to be saturated and an image of the fingerprint valley ridge is blurred.",
+                        "Reducing integration time is a way to slow down saturation of the PIN, but it will cause that a difference between light intensities reflected by the valley ridges is very small, so that a difference between images formed by the valley ridges becomes smaller, even to an extreme noise level, which makes it impossible to distinguish."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "integration time is very small,",
+                        "PIN will reach the saturation",
+                        "understanding of the background"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Area of Stationary Object",
+                        "Brightness",
+                        "Reparability"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.46601725
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.94208187
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "saturated",
+                        "image of the fingerprint valley ridge is blurred",
+                        "integration time",
+                        "slow down saturation",
+                        "difference between light intensities",
+                        "impossible to distinguish"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Time"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5176215
+                    ],
+                    "S_SENTS": [
+                        "At the same time, under the strong ambient light, even if the integration time is very small, the PIN will reach the saturation.",
+                        "The information disclosed above in the background section is only used to enhance the understanding of the background of the present disclosure, so it may include information that does not constitute the prior art known to those of ordinary skill in the art."
+                    ]
+                },
+                "sort": [
+                    1.5176215
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10894941-20210119",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, such an approach is dependent on the collection of statistically valid data rather than on changes of single cells, and requires a long incubation time usually 16-24 hours because at least a predetermined number of cells should grow usually one million cells per ml in order to obtain statistic results."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "time",
+                        "labor is required",
+                        "minimize testing time,",
+                        "requires a relatively long time of about 12 hours"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Reliability",
+                        "Temperature"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47646308
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.95998776
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "collection of statistically valid data",
+                        "requires a long incubation time"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Speed",
+                        "Productivity",
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5181911
+                    ],
+                    "S_SENTS": [
+                        "Further, a great deal of time and labor is required to test the large number of drugs because the individual drugs are injected separately.",
+                        "The KB-test for antibiotic susceptibility testing in solid media basically requires a large number of agar medium plates to test the susceptibility of tens of antibiotics due to the limited number of the drugs that can be placed on the solid media.",
+                        "VITEK, an automated system developed to minimize testing time, also requires a relatively long time of about 12 hours because the turbidity of bacteria should increase above a predetermined level."
+                    ],
+                    "A_PARAMS": [
+                        "KB-test",
+                        "large number of agar medium plates"
+                    ]
+                },
+                "sort": [
+                    1.5181911
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11248215-20220215",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Two common goals in improving a biorefining process include achieving a lower cost of production and reducing carbon dioxide emissions."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "low yielding, environmentally damaging, dependent upon non-renewable feedstocks,",
+                        "expensive treatment of wastewater and exhaust gas"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Productivity",
+                        "Waste of Energy"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47650716
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9105851
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "lower cost of production",
+                        "reducing carbon dioxide emissions"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Waste of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5185148
+                    ],
+                    "S_SENTS": [
+                        "The existing, petrochemical-based production routes to the malonate and malonate-derived compounds are low yielding, environmentally damaging, dependent upon non-renewable feedstocks, and require expensive treatment of wastewater and exhaust gas.",
+                        "Thus, there remains a need for methods and materials for biocatalytic conversion of renewable feedstocks into malonate, purification of biosynthetic malonate, and subsequent preparation of downstream chemicals and products."
+                    ],
+                    "A_PARAMS": [
+                        "materials for biocatalytic conversion of renewable feedstocks into malonate,"
+                    ]
+                },
+                "sort": [
+                    1.5185148
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11319671-20220503",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Due to a low dewatering speed, which is related to MFC fineness, charge and quantity, there are problems when releasing the material from the wire of the paper machine.",
+                        "One solution would be to reduce machine speeds, but then the production of the film is not economically attractive."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "porosity, uneven",
+                        "flocculation,",
+                        "dimensional stability",
+                        "uneven product quality",
+                        "dewatering is limited to evaporation and/or contact drying",
+                        "film quality",
+                        "manufacturing rate"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Speed",
+                        "Productivity"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.50837016
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.95961094
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "low dewatering speed,",
+                        "fineness, charge and quantity,",
+                        "reduce machine speeds,",
+                        "economically attractive"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Shape",
+                        "Amount of Substance",
+                        "Stability of Object",
+                        "Accuracy of Manufacturing"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5201051
+                    ],
+                    "S_SENTS": [
+                        "An overdose of retention chemicals in papermaking would lead to increased porosity, uneven and stronger flocculation, two-sideness, problem with dimensional stability and subsequently uneven product quality.",
+                        "In many cases, the dewatering is limited to evaporation and/or contact drying which influences both film quality and manufacturing rate."
+                    ]
+                },
+                "sort": [
+                    1.5201051
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10909298-20210202",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Miniaturization in general allows for increased performance more processing per clock cycle and less heat generated at lower power levels and lower cost."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "occupy space",
+                        "surface area of the transistor meets design requirements",
+                        "preserves the area of a cell,"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Strength",
+                        "Complexity of Device",
+                        "Temperature",
+                        "Power",
+                        "Productivity"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.44833514
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9254324
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "performance",
+                        "processing per clock cycle",
+                        "heat",
+                        "power levels",
+                        "cost"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Shape",
+                        "Area of Stationary Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5205815
+                    ],
+                    "S_SENTS": [
+                        "However, the addition of such electrical biasing taps may occupy space that is otherwise used for ensuring that the surface area of the transistor meets design requirements for the layout.",
+                        "Conventional cell layouts sometimes fail to accommodate electrical biasing taps in a way that preserves the area of a cell, particularly when multiple biasing taps are located near each other."
+                    ]
+                },
+                "sort": [
+                    1.5205815
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10916781-20210209",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "In order for polymer electrolyte membrane fuel cells to normally exert a high power of at least several tens of kW under various driving conditions, they stably operate within a wide current density range."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "manufacturing costs",
+                        "unsuitability for mass-production",
+                        "complicated process",
+                        "electrochemical reaction rate loss,",
+                        "electrical contact resistance",
+                        "mass transport loss",
+                        "mass transport capability",
+                        "voltage loss",
+                        "mass transport loss"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Power"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.50943977
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9369228
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "high power of at least several tens of kW",
+                        "operate within a wide current density range"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Accuracy of Manufacturing",
+                        "Manufacturability",
+                        "Amount of Substance",
+                        "Tension Pressure",
+                        "Energy Spent by Moving Object",
+                        "Weight of Moving Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5206984
+                    ],
+                    "S_SENTS": [
+                        "However, these methods may be associated with increased manufacturing costs and unsuitability for mass-production due to additional manufacturing process and complicated process.",
+                        "First is an activation loss region caused by electrochemical reaction rate loss, second is an Ohmic loss region resulting from increased electrical contact resistance at the interface of each element and ionic resistance of the polymer electrolyte membrane, and third is a mass transport loss or concentration loss region caused by limited mass transport capability of reactive gases.",
+                        "For example, when water produced by electrochemical reaction is present in an appropriate amount in the electrode, the water maintains humidification of MEA. However, if excess water is not properly removed, flooding may occur.",
+                        "The flooded water prevents reactive gases from being effectively supplied into the fuel cell, thus causing voltage loss by mass transport loss."
+                    ],
+                    "A_PARAMS": [
+                        "electrochemical reaction is present in an appropriate amount in the electrode,",
+                        "flooding"
+                    ]
+                },
+                "sort": [
+                    1.5206984
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10894748-20210119",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Related art 3D-printing techniques permit manufacturing thicker structures, but require long print times and have limited sizes in their production beds.",
+                        "Other related art methods for manufacturing polymer structures include the cumbersome and time-consuming tasks of laminating sheets with targeted bonding, cutting, and then expansion of the material."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "limited control over cell size",
+                        "spacing uniformity",
+                        "require many processing tasks"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Accuracy of Manufacturing",
+                        "Amount of Substance",
+                        "Waste of Time",
+                        "Productivity"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.42079458
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.97813547
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "permit manufacturing thicker structures,",
+                        "require long print times",
+                        "limited sizes",
+                        "cumbersome",
+                        "time-consuming tasks"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Loss of Information"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5210873
+                    ],
+                    "S_SENTS": [
+                        "However, these related art methods have limited control over cell size and spacing uniformity.",
+                        "Additionally, these related art methods may require many processing tasks to create a substrate and convert it to ceramic."
+                    ]
+                },
+                "sort": [
+                    1.5210873
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10976258-20210413",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "These industries require frequent, accurate, and sensitive testing for the presence of microbial contaminants to meet certain standards, for example, standards imposed by the United States Food and Drug Administration or Environmental Protection Agency.",
+                        "Depending upon the situation, the ability to distinguish between viable and non-viable cells can also be important."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "spoiled",
+                        "safe of human consumption",
+                        "assessing the presence of microbial contamination",
+                        "take several days to perform,",
+                        "quarantined"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Reliability"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47989652
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.95511025
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "frequent, accurate,",
+                        "sensitive testing",
+                        "ability to distinguish between viable and non-viable cells"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Time",
+                        "Harmful Side Effects",
+                        "Harmful Factors Acting on Object",
+                        "Strength"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5211545
+                    ],
+                    "S_SENTS": [
+                        "However, once those levels have been exceeded the food or drink may be considered to have spoiled and no longer be safe of human consumption.",
+                        "Traditional cell culture methods for assessing the presence of microbial contamination and/or the extent of microbial contamination can take several days to perform, which can depend upon the organisms that are being tested for.",
+                        "During this period, the products in question for example, the food, drink, or medical products may be quarantined until the results are available and the product can be released."
+                    ]
+                },
+                "sort": [
+                    1.5211545
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10903514-20210126",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "While such coatings provide a useful acid barrier and serve as a dielectric barrier on the metal manifold pan, utilizing such coatings introduces additional expense.",
+                        "Multiple coating and sintering steps typically are required to develop a coating that is thick enough to be an effective barrier."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "installation technique can be cumbersome",
+                        "dimensional relationship",
+                        "thermal expansions"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Productivity",
+                        "Shape",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5051423
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9732661
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "useful acid barrier",
+                        "dielectric barrier",
+                        "expense",
+                        "thick",
+                        "effective barrier"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Convenience of Use",
+                        "Amount of Substance",
+                        "Temperature"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.521214
+                    ],
+                    "S_SENTS": [
+                        "That approach is not without difficulties because the installation technique can be cumbersome and the dimensional relationship of the resin sheet to the manifold pan has to accommodate for different thermal expansions of the materials."
+                    ]
+                },
+                "sort": [
+                    1.521214
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11252721-20220215",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "As data traffic on mobile networks increases, there is a need to effectively use the radio resources on the air interface."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "avoid making unnecessary blind decoding attempts",
+                        "save battery power"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Energy"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.4861361
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.92886186
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "data traffic",
+                        "effectively use the radio resources"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Reparability",
+                        "Waste of Energy"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5213518
+                    ],
+                    "S_SENTS": [
+                        "Using this approach, UEs can avoid making unnecessary blind decoding attempts of the PDCCH for each sub-frame, and save battery power.",
+                        "Although a general concept of a group common PDCCH has been described for next-generation networks, problems still remain as to how the group common PDCCH is implemented."
+                    ]
+                },
+                "sort": [
+                    1.5213518
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11291747-20220405",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "<s> Patients with prolonged air leaks greater than seven days duration, such as from septum rupture, following lung resection often suffer prolonged hospitalization up to weeks and are most commonly managed with tube thoracostomy i. e. , a chest tube placed into the thoracic cavity to drain air/fluid while the lung heals."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "for the complex dynamics of the lung,",
+                        "unable to accommodate mechanical changes in the lung during ventilation",
+                        "poor sealants",
+                        "contain no organ- or tissue-specificity in properties or composition",
+                        "reducing air leaks, length of hospital stay,",
+                        "cost",
+                        "no routine use of any lung sealant"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Side Effects"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.45333475
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9596487
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "hospitalization"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object",
+                        "Productivity"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5232353
+                    ],
+                    "S_SENTS": [
+                        "Their adhesive and mechanical properties are not well-suited for the complex dynamics of the lung, and they are unable to accommodate mechanical changes in the lung during ventilation.",
+                        "They serve as very poor sealants and contain no organ- or tissue-specificity in properties or composition.",
+                        "Metaanalysis data has shown little evidence that any of these products are effective in reducing air leaks, length of hospital stay, or cost.",
+                        "As a result, there is no routine use of any lung sealant today."
+                    ],
+                    "A_PARAMS": [
+                        "adhesive"
+                    ]
+                },
+                "sort": [
+                    1.5232353
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11317464-20220426",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "In order to achieve rapid recovery of the Scell, a mechanism similar to the dormant state in LTE needs to be introduced in NR."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "complicated",
+                        "long time delay"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Strength"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.52129257
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9159594
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "rapid recovery"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Power",
+                        "Speed"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5236025
+                    ],
+                    "S_SENTS": [
+                        "However, the mechanism of the dormant state in LTE is more complicated and has a long time delay."
+                    ]
+                },
+                "sort": [
+                    1.5236025
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11384330-20220712",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "When cells require a strict anaerobic environment, visually inspecting the cells entails exposing them even if for a limited period of time to air, which may delay their growth or lead to their death."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "impossible for humans to continuously monitor cells in a culture",
+                        "number of cells to be accumulated"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Substance",
+                        "Waste of Time"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47023594
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9314002
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "strict anaerobic environment,",
+                        "delay their growth",
+                        "death"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5237706
+                    ],
+                    "S_SENTS": [
+                        "However, it is practically impossible for humans to continuously monitor cells in a culture.",
+                        "Moreover, for microorganism growth to be visually evident to the naked eye takes an extremely high number of cells to be accumulated."
+                    ]
+                },
+                "sort": [
+                    1.5237706
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11334705-20220517",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "A user , a mask designer, however, must make many design choices that often generate errors.",
+                        "Due to the sensitive nature of these designs, many of which are running at 5 to 10 times that of digital clock rates, the generation of mixed-signal analog circuit layouts is performed by users using an EDA system, and involves manually arranging and interconnecting the various devices in a layout description based on details provided in a schematic."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "electromigration, performance,",
+                        "design rule check DRC issues,",
+                        "reduce the number of design choices"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Reliability",
+                        "Strength"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47500157
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.90841496
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "errors",
+                        "sensitive"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Convenience of Use"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5248605
+                    ],
+                    "S_SENTS": [
+                        "The user, however, may make non-optimal choices that create electromigration, performance, and design rule check DRC issues, and these non-optimal choices must later be corrected.",
+                        "Because the shorts are detected across large portions of a row, it is not clear where a cut layer should be drawn to remove the short between devices.",
+                        "Some users may attempt to reduce the number of design choices by placing metallization that extends across an entire row of PCELLs or finFETs.",
+                        "A typical EDA system, however, considers this metallization to be part of one net and so, when the different PCELLs in the row couple to this metallization, the EDA system may detect connectivity shorts across entire metal lines of the metallization."
+                    ],
+                    "A_PARAMS": [
+                        "design choices",
+                        "placing metallization that extends across an entire row of PCELLs or finFETs"
+                    ]
+                },
+                "sort": [
+                    1.5248605
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10991957-20210427",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "One aspect of known cooler arrangements is that they tend to provide uneven cooling throughout a cell stack assembly.",
+                        "Differing temperatures among different cells within a cell stack assembly tend to have different effects on the performance or life of the various cells."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "acid loss rate",
+                        "life",
+                        "space",
+                        "uniform cooling effect"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Temperature",
+                        "Strength",
+                        "Waste of Time"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.47795692
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9239362
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "uneven cooling",
+                        "performance",
+                        "life"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Waste of Time",
+                        "Temperature"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5249776
+                    ],
+                    "S_SENTS": [
+                        "The acid loss rate of the hot cells tends to limit the life of such a cell.",
+                        "Given the limited amount of space within a fuel cell assembly, it is not typically possible to increase the number of coolers throughout the assembly to provide more uniform cooling effect."
+                    ],
+                    "A_PARAMS": [
+                        "Differing temperatures",
+                        "number of coolers"
+                    ]
+                },
+                "sort": [
+                    1.5249776
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11309534-20220419",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "For negative electrodes, lithium titanate is an alternative to graphite with good cycling properties, but it has a lower energy density.",
+                        "Other alternatives to graphite, such as tin oxide and silicon, have the potential for providing increased energy density."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "unsuitable",
+                        "irreversible capacity loss",
+                        "poor discharge and recharge cycling",
+                        "destroy the structural integrity",
+                        "cycling efficiency"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Durability of Stationary Object",
+                        "Waste of Energy",
+                        "Energy Spent by Moving Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5027274
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.96069443
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "cycling properties,",
+                        "lower energy density",
+                        "energy density"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Time",
+                        "Loss of Information",
+                        "Harmful Factors Acting on Object",
+                        "Energy Spent by Moving Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5249823
+                    ],
+                    "S_SENTS": [
+                        "However, some high capacity negative electrode materials have been found to be unsuitable commercially due to high irreversible capacity loss and poor discharge and recharge cycling related to structural changes and anomalously large volume expansions, especially for silicon, that are associated with lithium intercalation/alloying.",
+                        "The structural changes and large volume changes can destroy the structural integrity of the electrode, thereby decreasing the cycling efficiency."
+                    ],
+                    "A_PARAMS": [
+                        "tin oxide and silicon,"
+                    ]
+                },
+                "sort": [
+                    1.5249823
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11351758-20220607",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Typically, the main function of the interlayer in the laminated safety glass is to absorb energy resulting from impact or force applied to the glass, keep the layers of glass bonded even when the force is applied and the glass is broken, and prevent the glass from breaking up into sharp pieces.",
+                        "These lighter weight laminates must still possess the desired physical and optical properties, such as having required impact protection, clarity and other properties."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "rigidity of the laminate may be compromised",
+                        "performance",
+                        "processability",
+                        "functionality",
+                        "sound insulation rating, reduces UV and/or IR light transmission,",
+                        "aesthetic appeal"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Energy Spent by Moving Object",
+                        "Harmful Factors Acting on Object",
+                        "Durability of Moving Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5193857
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.97110176
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "absorb energy",
+                        "keep the layers of glass bonded",
+                        "prevent the glass from breaking up into sharp pieces",
+                        "impact protection, clarity"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Tension Pressure",
+                        "Strength",
+                        "Manufacturability",
+                        "Convenience of Use",
+                        "Shape"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5257137
+                    ],
+                    "S_SENTS": [
+                        "However, if the thickness of glass is reduced too much, the rigidity of the laminate may be compromised.",
+                        "Consequently, higher performance interlayers are desirable as more applications requiring stiffer interlayers are emerging , single side balcony laminates, canopies, staircases, and support beams.",
+                        "However, many of the commercially-available PVB interlayers exhibit deficiencies in terms of processability and/or functionality.",
+                        "Thus, the PVB layers must also not hinder the optical properties of the structural glass articles in which they are incorporated.",
+                        "Additionally, the interlayer generally gives the glass a much higher sound insulation rating, reduces UV and/or IR light transmission, and enhances the aesthetic appeal of the associated window."
+                    ],
+                    "A_PARAMS": [
+                        "PVB layers",
+                        "interlayer"
+                    ]
+                },
+                "sort": [
+                    1.5257137
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11432258-20220830",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Since many users desire to use a location-based service immediately, the time latency caused by determination of a precise location of a user , the time required to establish a GPS location may cause user dissatisfaction.",
+                        "Additionally, there may be situations when precise location determination services are not available, such as when a user is inside of a building, underground, outside of cell network range , geographic issues, when the sky is cloudy , weather-related issues, etc.",
+                        ", and the precise location cannot be determined."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "incorrect, inaccurate"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Speed",
+                        "Reliability"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.46297887
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9595731
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "time latency",
+                        "time required to establish a GPS location",
+                        "user dissatisfaction"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Time"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5258281
+                    ],
+                    "S_SENTS": [
+                        "However, in many cases, the current location of the user may be displayed as a completely different location , incorrect, inaccurate of the mobile terminal."
+                    ]
+                },
+                "sort": [
+                    1.5258281
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11271758-20220308",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "<s> Generally, when a plurality of hardware devices is manufactured, an error out of a designer's control occurs due to various factors.",
+                        "For example, even if two chips are manufactured on the same silicon wafer, the same designed electrical path will have an error of a few nanometers or more, and there is a difference in parameters due to a difference in physical characteristics of a transistor for example, a difference in doping concentration."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "availability of the wafer is inevitably lowered",
+                        "manufacturing cost is increased"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Reliability",
+                        "Accuracy of Measurement",
+                        "Amount of Substance"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.50829506
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9109423
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "error out of a designer's control",
+                        "error",
+                        "doping concentration"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Accuracy of Manufacturing"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.526152
+                    ],
+                    "S_SENTS": [
+                        "However, in the case of the trimming method, availability of the wafer is inevitably lowered by the PUF cell-pairs discarded, which causes a problem that the manufacturing cost is increased."
+                    ]
+                },
+                "sort": [
+                    1.526152
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10975395-20210413",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "While the C. sativa plant is also a valuable source of grain, fiber, and other material, growing C. sativa for phytocannabinoid production, particularly indoors, is costly in terms of energy and labour."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "labour intensive",
+                        "costly",
+                        "taxes,",
+                        "rigorous quality control",
+                        "costs"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Productivity",
+                        "Energy Spent by Moving Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5031532
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9218515
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "valuable source of grain, fiber, and other material,",
+                        "costly",
+                        "energy",
+                        "labour"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Productivity",
+                        "Waste of Time",
+                        "Reliability"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5263765
+                    ],
+                    "S_SENTS": [
+                        "Phytocannabinoid analogues are often synthesized chemically, which can be labour intensive and costly.",
+                        "In addition, cultivation of C. sativa, where allowed, is currently subject to heavy regulation, taxes, and rigorous quality control where products prepared from the plant are for commercial use, further increasing costs."
+                    ]
+                },
+                "sort": [
+                    1.5263765
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11317623-20220503",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Compared to cell-based expression, CFPS offers advantages such as shorter process times and the direct control and monitoring of reaction conditions."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "rapid and controlled synthesis of peptides &lt;40 residues in length,",
+                        "economically feasible method for the production of larger polypeptides",
+                        "can be prepared quickly in large amounts",
+                        "cost for establishment",
+                        "inexpensive,",
+                        "without laborious cloning and transformation steps",
+                        "cost comes",
+                        "complicated",
+                        "cost-consuming procedure for preparing cell extracts"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Speed",
+                        "Complexity of Control"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5110074
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9561454
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "shorter process times",
+                        "direct control and monitoring of reaction conditions"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Productivity",
+                        "Power"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5265307
+                    ],
+                    "S_SENTS": [
+                        "Although chemical synthesis allows the rapid and controlled synthesis of peptides &lt;40 residues in length, this is not an economically feasible method for the production of larger polypeptides.",
+                        "The drawbacks of current cell-free systems have therefore created a demand for highly productive eukaryotic cell-free systems that can be prepared quickly in large amounts.",
+                        "However, the prior cell-free protein synthesis systems have been limited in their wide uses and applications owing to their high cost for establishment.",
+                        "In contrast, the preparation of the yeast extract is inexpensive, but the system produces only low target protein levels of 8 g/mL active firefly luciferase.",
+                        "PCR products can be used directly for the simultaneous expression of multiple proteins without laborious cloning and transformation steps.",
+                        "The problem of high cost comes from a complicated and cost-consuming procedure for preparing cell extracts which serve as a catalyst for cell-free protein synthesis."
+                    ],
+                    "A_PARAMS": [
+                        "preparation of the yeast extract"
+                    ]
+                },
+                "sort": [
+                    1.5265307
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10934524-20210302",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "High throughput antibody-discovery methods have been slow to develop because, based on sequence information alone, it is impossible to determine the antigen to which an antibody binds and which heavy and light chains should be paired together."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "high throughput,",
+                        "very variable results",
+                        "plagued by non-specific binding,",
+                        "purity"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Speed"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.48168984
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.93546456
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "methods have been slow to develop"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Speed",
+                        "Reliability",
+                        "Waste of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5285469
+                    ],
+                    "S_SENTS": [
+                        "Further, the number of activated B cells produced using the Lightwood method is insufficient for the production of hybridomas on a commercial scale.",
+                        "Thus, while some aspects of Reddy's method could be considered high throughput, his method is still quite limited in that it requires a particular type of plasma cell BMPCs that are isolated from the bone marrow of a euthanized animal.",
+                        "Kodituwakku concluded that, while several methods for isolating antigen-specific B cells exist, those methods provide very variable results and are plagued by non-specific binding, which in turn decreases the purity and enrichment of the desired cells in the isolated population."
+                    ],
+                    "A_PARAMS": [
+                        "heavy and light chains should be paired together"
+                    ]
+                },
+                "sort": [
+                    1.5285469
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11296340-20220405",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Due to sensitivities of fuel cells to impurities, this water supply must be purified to protect equipment from scaling, alkalinity/acidity, conductivity of dissolved solids, and to produce high quality steam.",
+                        "Further, prolonged operation of the system with a feed gas outside the desired humidity range may result in degradation of the fuel cell, thereby increasing maintenance costs and reducing the overall lifecycle of the system."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "large energy inputs",
+                        "efficiency",
+                        "bulky",
+                        "prone to mechanical failure",
+                        "frequent maintenance and repair",
+                        "require permits to operate,",
+                        "cost",
+                        "complexity"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object",
+                        "Accuracy of Manufacturing",
+                        "Waste of Energy",
+                        "Productivity",
+                        "Amount of Substance"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.54803383
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.99723166
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "protect equipment from scaling, alkalinity/acidity, conductivity of dissolved solids,",
+                        "high quality steam",
+                        "degradation of the fuel cell,",
+                        "increasing maintenance costs",
+                        "lifecycle"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Productivity",
+                        "Shape",
+                        "Durability of Stationary Object",
+                        "Reliability",
+                        "Complexity of Control"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5288061
+                    ],
+                    "S_SENTS": [
+                        "However, the process of compressing and vaporizing the steam requires large energy inputs and may also reduce the overall efficiency of the system.",
+                        "Specifically, the equipment needed to separate water in a conventional system may include several pieces of bulky and parasitic equipment, which are prone to mechanical failure and demand frequent maintenance and repair.",
+                        "Further, this water recovery method generates significant quantities of discharge waste water output from the system, which not only wastes water but may require permits to operate, increasing the cost and complexity of installing and operating the system."
+                    ],
+                    "A_PARAMS": [
+                        "compressing and vaporizing the steam"
+                    ]
+                },
+                "sort": [
+                    1.5288061
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10916764-20210209",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Among such nonaqueous electrolyte secondary cells, lithium-ion secondary cells that are lightweight and capable of obtaining high energy density have gained particular importance as high-output power sources for example, a power source for driving a motor connected to the driving wheel of a vehicle suitable for vehicles such as electric vehicles and hybrid vehicles."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "decrease in cell capacity"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Time",
+                        "Energy Spent by Moving Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.40615526
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.92310846
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "lightweight",
+                        "energy density",
+                        "high-output power sources"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5294955
+                    ],
+                    "S_SENTS": [
+                        "However, since the decomposition of the electrolytic solution is an irreversible reaction, it causes a decrease in cell capacity."
+                    ]
+                },
+                "sort": [
+                    1.5294955
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10978036-20210413",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "The Helmholtz resonator has a limitation in which it provides a sound absorbing effect only for a specific frequency, more complicated resonator structure is needed and the size thereof needs to be large."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "weak to humidity",
+                        "durability,",
+                        "environmental-friendly",
+                        "generating toxic gas in case of fire"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Shape"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.51776725
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9352874
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "sound absorbing effect only for a specific frequency,",
+                        "complicated resonator structure is needed",
+                        "size thereof needs to be large"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Temperature",
+                        "Durability of Moving Object",
+                        "Waste of Energy",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5306928
+                    ],
+                    "S_SENTS": [
+                        "Further, the conventional sound absorbing board made of a porous material is weak to humidity and has a poor durability, and it is not environmental-friendly because there is possibility of generating toxic gas in case of fire."
+                    ]
+                },
+                "sort": [
+                    1.5306928
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11442069-20220913",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, since NK cells have been reported to have defects in functions and differentiation capacities in various kinds of cancers, NK cell activity is closely associated with the survival of cancer cells."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "pain",
+                        "inconvenience,",
+                        "presence of cancer may be overlooked"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Power",
+                        "Complexity of Control"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.53780377
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9487276
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "functions",
+                        "differentiation capacities",
+                        "survival of cancer cells"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Strength",
+                        "Waste of Time"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5307307
+                    ],
+                    "S_SENTS": [
+                        "However, since these tests are generally conducted only when a patient has a strong need to undergo the tests due to pain or inconvenience, and are performed only in certain tissues, the presence of cancer may be overlooked."
+                    ],
+                    "A_PARAMS": [
+                        "NK cell activity"
+                    ]
+                },
+                "sort": [
+                    1.5307307
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11354493-20220607",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Such applications often demand user friendly feature-rich UIs that enable users to efficiently find pertinent data, make any data modifications, and then save any changes."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "quick and pertinent user selections",
+                        "suitable for selecting from among few choices,",
+                        "cumbersome",
+                        "user may lose focus",
+                        "attention gets diverted to different UIs"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Convenience of Use"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.48667505
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9780727
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "user friendly feature-rich",
+                        "efficiently find pertinent data, make any data modifications,",
+                        "save any changes"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Convenience of Use",
+                        "Waste of Time",
+                        "Loss of Information"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5315534
+                    ],
+                    "S_SENTS": [
+                        "However, conventional UIs often lack efficient mechanisms for enabling quick and pertinent user selections for fields or cells of a given UI, such as a spreadsheet UI.",
+                        "Conventional drop-down menus can be suitable for selecting from among few choices, but can become particularly problematic when selecting from many choices, , hundreds or thousands of choices.",
+                        "However, switching between UIs and associated software packages can be excessively cumbersome.",
+                        "Furthermore, the user may lose focus as their attention gets diverted to different UIs."
+                    ],
+                    "A_PARAMS": [
+                        "switching between UIs and associated software packages"
+                    ]
+                },
+                "sort": [
+                    1.5315534
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11384224-20220712",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "The films made in the past have had good transparency characteristics in combination with good dimensional stability, especially when exposed to moisture and temperature.",
+                        "Cellulose acetate also naturally is resistant to degradation by ultraviolet light and does not readily discolor over time."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "subject to optical distortions",
+                        "unusable",
+                        "optical properties are required"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Brightness",
+                        "Stability of Object",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5591252
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.95846003
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "transparency characteristics",
+                        "dimensional stability,",
+                        "resistant to degradation by ultraviolet light",
+                        "does not readily discolor over time"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Brightness",
+                        "Waste of Time"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5318847
+                    ],
+                    "S_SENTS": [
+                        "For example, cellulose acetate films are subject to optical distortions that can render the films unusable in applications where superior or high-grade optical properties are required such as when forming sports goggles, motorcycle visors, and the like."
+                    ]
+                },
+                "sort": [
+                    1.5318847
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11369683-20220628",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Regardless of the energy employed, radiofrequency, ultrasound or other, ablation techniques are severely limited by the non-specific nature of the resultant cellular damage."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "required energy amounts",
+                        "procedure times,",
+                        "ablation efficacy",
+                        "difficult to achieve",
+                        "arrhythmia recurrence"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.54069
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9261035
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "cellular damage"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Energy Spent by Moving Object",
+                        "Speed",
+                        "Power"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5319505
+                    ],
+                    "S_SENTS": [
+                        "Besides, this lack of cellular discrimination markedly increases the required energy amounts and prolongs procedure times, all of which reduces overall ablation efficacy.",
+                        "Also, trans-mural lesions in specific regions of the heart, such as the mitral isthmus of the left atrium, are difficult to achieve with radio frequency technology, and incomplete lesions may set the stage for arrhythmia recurrence Sawhney et al. , Circulation: Arrhythmia and Electrophysiology 2011."
+                    ],
+                    "A_PARAMS": [
+                        "radiofrequency, ultrasound"
+                    ]
+                },
+                "sort": [
+                    1.5319505
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11371988-20220628",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "In cell affinity assays in which increased sensitivity is required, it is common to augment the concentration of cell numbers at the proximity of the capture ligands, and to attempt to increase the frequency at which the cells collide with the capture ligands."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "utility of electrical sample concentration approaches",
+                        "onerous",
+                        "costly pre-processing steps"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Accuracy of Measurement",
+                        "Speed"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.4547866
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.96858984
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "sensitivity",
+                        "frequency"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Accuracy of Measurement",
+                        "Waste of Time",
+                        "Productivity"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5319892
+                    ],
+                    "S_SENTS": [
+                        "Such limitations impair the utility of electrical sample concentration approaches due to the onerous and costly pre-processing steps."
+                    ]
+                },
+                "sort": [
+                    1.5319892
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11362274-20220614",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "In neuromorphic computing applications, a resistive memory device can be used as a connection synapse between a pre-neuron and post-neuron, representing the connection weight in the form of device resistance."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "oxygen vacancy concentration",
+                        "prevents application to three-dimensional 3D structures"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Tension Pressure",
+                        "Complexity of Device"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.41148087
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9448422
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "connection weight",
+                        "device resistance"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5322258
+                    ],
+                    "S_SENTS": [
+                        "However, RRAM stacks are typically deposited by Physical Vapor Deposition PVD to control the oxygen vacancy concentration in the metal oxide layer and this prevents application to three-dimensional 3D structures."
+                    ],
+                    "A_PARAMS": [
+                        "resistive memory device",
+                        "RRAM stacks",
+                        "Physical Vapor Deposition PVD"
+                    ]
+                },
+                "sort": [
+                    1.5322258
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10991655-20210427",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "<s> The electrically programmable fuse e-fuse has the advantages of simple structure, low cost and high reliability, and therefore has been widely used in MOS chips as an important part of non-volatile programmable memories, for example, used to implement redundancy functions in memory arrays and permanently save information such as chip IDs."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "storage capacity"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Shape",
+                        "Productivity",
+                        "Reliability",
+                        "Complexity of Device",
+                        "Loss of Information"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.46038017
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9389689
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "simple structure,",
+                        "cost",
+                        "reliability,",
+                        "programmable memories,",
+                        "save information"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5323436
+                    ],
+                    "S_SENTS": [
+                        "As a result, the single memory cell including the e-fuse occupies a large area, which reduces the storage capacity of the memory."
+                    ]
+                },
+                "sort": [
+                    1.5323436
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11325956-20220510",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Since the filing of EP 0 738 278 it has become commonplace to substitute a single analogue tilt sensor for the mercury switches however, in common with the mercury switches, a tilt sensor only gives an output signal when the off-level limit is reached.",
+                        "Obviously, in the event of such a failure, a person seated in the chair could be injured."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "slow response time",
+                        "response time very unpredictable",
+                        "susceptible to Failure",
+                        "reduce the material between adjacent slots,",
+                        "weakening the ring itself"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.5838901
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9031661
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "person seated in the chair could be injured"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Speed",
+                        "Reliability"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.533109
+                    ],
+                    "S_SENTS": [
+                        "The slow response time has, in some instances, been due to backlash inaccuracies in one or both of the encoders, which inaccuracies are exacerbated by wear.",
+                        "This makes the response time very unpredictable.",
+                        "The consequence of this would be to leave the locking pin susceptible to Failure when subjected to the significant shock loads imposed when arresting the rotating chair.",
+                        "Similarly, adding slots to the indexing ring would reduce the material between adjacent slots, thus weakening the ring itself.",
+                        "In compact arrangements such as a stairlift carriage, significantly increasing the diameter of the indexing ring is not an option."
+                    ],
+                    "A_PARAMS": [
+                        "adding slots to the indexing ring",
+                        "diameter of the indexing ring"
+                    ]
+                },
+                "sort": [
+                    1.533109
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11426724-20220830",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, current techniques for performing these types of processes typically rely on heavy equipment such as centrifuges, utilize time consuming assays involving dialysis or ion-exchange, require multi-step complex processes, or render the cells non-functional for downstream biological assays.",
+                        "Additionally, these approaches often require relatively large sample sizes and have low cell recovery rates."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "laborious, require operator expertise,",
+                        "cell loss",
+                        "recovery",
+                        "expensive to perform",
+                        "lack separation specificity,"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Strength",
+                        "Harmful Side Effects",
+                        "Amount of Substance"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.48240268
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9843664
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "rely on heavy equipment",
+                        "time consuming assays",
+                        "require multi-step complex processes,",
+                        "render the cells non-functional",
+                        "require relatively large sample sizes",
+                        "low cell recovery rates"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Level of Automation",
+                        "Loss of Information",
+                        "Productivity"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5331914
+                    ],
+                    "S_SENTS": [
+                        "These approaches are laborious, require operator expertise, may lead to significant cell loss poor recovery and/or are expensive to perform.",
+                        "Other techniques to isolate a population of cells lack separation specificity, for example, charge flow separation."
+                    ]
+                },
+                "sort": [
+                    1.5331914
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11296342-20220405",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Because of the diverse technologies employed by SOFCs, it is challenging for new developers desiring to enter the SOFC industry, especially those developers that have technical competencies in only a limited number of areas that SOFCs encompass."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "expensive,",
+                        "testing conditions",
+                        "reproducible",
+                        "reliability",
+                        "unattractive for developers to apply their particular technical capabilities",
+                        "profitable and sustainable business model"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Productivity"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.6096382
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.91062486
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "technical competencies"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Time",
+                        "Reliability",
+                        "Reparability",
+                        "Productivity"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5340921
+                    ],
+                    "S_SENTS": [
+                        "For example, current SOFC testing protocols, including those that utilize button cell test setups, are not only very expensive, but they generally fail to provide real-life testing conditions for testing an operable SOFC.",
+                        "Furthermore, these button cell test setups yield results that are typically not reproducible in large scale cells, and therefore cannot be reliability used by developers in guiding further study or advances of SOFC technologies.",
+                        "Such barriers to entry make it unattractive for developers to apply their particular technical capabilities to SOFC technologies, and to undertake the efforts needed to make the transition from materials development in general, to the development of materials suitable for SOFCs, as well as the design of single cell SOFCs and SOFC stacks.",
+                        "Such fragmented development has also prevented a profitable and sustainable business model from emerging for the successful commercialization of SOFC technology."
+                    ],
+                    "A_PARAMS": [
+                        "button cell test setups,"
+                    ]
+                },
+                "sort": [
+                    1.5340921
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11326148-20220510",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "<s> With the rapid development of intelligent terminal products, users' requirements for display effects of the terminal products gradually increase."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "difficult to reduce a width of the edge region,",
+                        "screen-to-body ratio"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Brightness"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.44869572
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.90213645
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "users' requirements for display effects"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Shape"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5345358
+                    ],
+                    "S_SENTS": [
+                        "As a result, it is difficult to reduce a width of the edge region, and a screen-to-body ratio of the terminal is low."
+                    ]
+                },
+                "sort": [
+                    1.5345358
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11443931-20220913",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, for the fluid inclusions buried in the deep part of the minerals, generally small in volume, and, with a small amount of samples to be analyzed which contain fluid inclusion components in the form of a gas/liquid state, the fluid inclusion components are here also known as fluid inclusion constituents or as fluid inclusion species, no in-depth analytical testing, work, has been performed."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "suitable for analyzing fluid inclusion samples",
+                        "easily thermally cracked or exploded",
+                        "distorted analysis results",
+                        "ineffective fluid inclusion analysis",
+                        "uniform and stable sample signals of the fluid inclusion components in a long term"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.46432152
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9233162
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "small in volume,",
+                        "no in-depth analytical testing,"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance",
+                        "Harmful Factors Acting on Object",
+                        "Productivity"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5354685
+                    ],
+                    "S_SENTS": [
+                        "However, the conventional ablation cell is not suitable for analyzing fluid inclusion samples at present.",
+                        "Secondly, due to the difference in physical properties between, fluid inclusion components and host minerals of the fluid inclusion components the two together constitute a sample of the fluid inclusion, which is referred to as a fluid inclusion sample, the host minerals are easily thermally cracked or exploded in a laser ablation process, which would cause the fluid inclusion components to dissipate, resulting in distorted analysis results and ineffective fluid inclusion analysis.",
+                        "Thirdly, since the fluid inclusion components have a certain internal pressure in the fluid inclusion sample, they are easily vaporized in a very short time when they are opened by ablation, resulting in a failure to obtain uniform and stable sample signals of the fluid inclusion components in a long term."
+                    ]
+                },
+                "sort": [
+                    1.5354685
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10903360-20210126",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Transistor selectors enable bidirectional operation; however, such selectors introduce some asymmetry."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "asymmetry becomes more problematic for multi-state or synaptic memories",
+                        "asymmetry",
+                        "doubling of transistor count",
+                        "density of the memory array"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Complexity of Device",
+                        "Shape"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.44622052
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9936733
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "bidirectional operation;",
+                        "asymmetry"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Shape",
+                        "Complexity of Device"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5364581
+                    ],
+                    "S_SENTS": [
+                        "The issue of asymmetry becomes more problematic for multi-state or synaptic memories.",
+                        "Complementary pass transistors also known as transmission gates can be used to substantially alleviate the asymmetry issue, but the doubling of transistor count and the additional addressing lines compromise the density of the memory array."
+                    ],
+                    "A_PARAMS": [
+                        "Complementary pass transistors",
+                        "transmission gates"
+                    ]
+                },
+                "sort": [
+                    1.5364581
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11342565-20220524",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Since electricity is produced from electrochemical reactions whereby water is formed from the reaction between hydrogen and oxygen, the fuel cell is a clean energy source exhibiting higher power output and conversion efficiency as compared to the existing internal combustion engines."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "adhesivity",
+                        "nonuniform coating",
+                        "gas supply, proton ion transfer and water discharge",
+                        "activity of the membrane electrode assembly"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Power"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.49566558
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9475269
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "clean energy source",
+                        "power output",
+                        "conversion efficiency"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Power",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5372638
+                    ],
+                    "S_SENTS": [
+                        "However, the use of the polydopamine-coated support is problematic in that aggregation of catalyst particles occurs during the formation of a catalyst layer of a membrane electrode assembly due to the adhesivity of polydopamine, which results in nonuniform coating.",
+                        "The nonuniform catalyst layer hinders gas supply, proton ion transfer and water discharge in an electrode layer, consequently lowering the activity of the membrane electrode assembly."
+                    ],
+                    "A_PARAMS": [
+                        "polydopamine-coated support"
+                    ]
+                },
+                "sort": [
+                    1.5372638
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US11271127-20220308",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "From the other hand, minimizing total amount and size of the surface structures on the top surface of the photovoltaic cell will cause increased resistance and associated electricity losses for the overall cell power output."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "internal electrical resistance, transmitted electrical current",
+                        "decrease or increase in the total PV cell power output"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Power",
+                        "Waste of Energy"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.42602918
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9156959
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "resistance",
+                        "electricity losses"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Complexity of Device"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5380703
+                    ],
+                    "S_SENTS": [
+                        "Additionally, size, amount, periods and/or location of the abovementioned PV cell structures have an impact on such factors, as internal electrical resistance, transmitted electrical current and high regional doping vs.",
+                        "These factors cause decrease or increase in the total PV cell power output."
+                    ],
+                    "A_PARAMS": [
+                        "minimizing total amount and size of the surface structures",
+                        "size, amount, periods and/or location"
+                    ]
+                },
+                "sort": [
+                    1.5380703
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10887927-20210105",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "That is, some of the debris can create an obstruction or blockage resulting in slow flow or no flow in the peripheral vessel.",
+                        "In some instances, choking of the aspiration port occurs, thus inhibiting or preventing a continuous aspiration of the desired region."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "abraded or damaged",
+                        "coating fragments",
+                        "distal embolization"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Productivity",
+                        "Harmful Side Effects",
+                        "Speed"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.4358605
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9819619
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "obstruction",
+                        "blockage",
+                        "slow flow or no flow",
+                        "inhibiting or preventing a continuous aspiration"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5385183
+                    ],
+                    "S_SENTS": [
+                        "However, the coating on this first guidewire tends to become abraded or damaged during rotation of the treatment part.",
+                        "The abrasion of the rotating treatment part against the coated guidewire can produce coating fragments that may cause distal embolization."
+                    ]
+                },
+                "sort": [
+                    1.5385183
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10903508-20210126",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Variations impact process stability and can be difficult to control given the nature of the random fibre materials in typical gas diffusion layers.",
+                        "In addition, the high pressure elastomer in the mold cavity can separate the unconstrained edge of the CCM from the gas diffusion layers, either resulting in several types of failures or requiring an additional gasket to bond the gas diffusion layers to the CCM. Molding is also a high capital cost and long cycle time and thus an undesirable operation."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "cost, high parts count, complexity, long cycle times, yield risk to expensive components",
+                        "inability to scale up to high volume production",
+                        "distort dimensionally under temperature and humidity changes"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Stability of Object",
+                        "Complexity of Control",
+                        "Reliability",
+                        "Productivity",
+                        "Speed",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.51885915
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9765577
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "process stability",
+                        "difficult to control",
+                        "failures",
+                        "requiring an additional gasket",
+                        "high capital cost",
+                        "long cycle time",
+                        "undesirable operation"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Manufacturability",
+                        "Productivity",
+                        "Temperature"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5385271
+                    ],
+                    "S_SENTS": [
+                        "Problems with the sealing processes used to date are high cost, high parts count, complexity, long cycle times, yield risk to expensive components catalyst coated membranes, and inability to scale up to high volume production.",
+                        "Further, the CCMs can distort dimensionally under temperature and humidity changes."
+                    ],
+                    "A_PARAMS": [
+                        "Molding"
+                    ]
+                },
+                "sort": [
+                    1.5385271
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10903499-20210126",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "Among such nonaqueous electrolyte secondary cells, lithium-ion secondary cells that are lightweight and capable of obtaining high energy density have gained particular importance as high-output power sources for example, a power source for driving a motor connected to the driving wheel of a vehicle suitable for vehicles such as electric vehicles and hybrid vehicles."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "decrease in cell capacity"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Waste of Time",
+                        "Energy Spent by Moving Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.40615544
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.9323302
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "lightweight",
+                        "energy density",
+                        "high-output power sources"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Amount of Substance"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5387173
+                    ],
+                    "S_SENTS": [
+                        "However, since the decomposition of the electrolytic solution is an irreversible reaction, it causes a decrease in cell capacity."
+                    ]
+                },
+                "sort": [
+                    1.5387173
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10896988-20210119",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, a polyester having a fluorine resin laminated on both sides thereof may not have sufficient adhesiveness between a fluorine resin layer and a sealing material layer in some cases."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "heat-resistant",
+                        "adhesiveness",
+                        "require an extra step,",
+                        "management of the steps is also complicated",
+                        "durability, weatherability,",
+                        "adhesive strength",
+                        "environmentally friendly",
+                        "cost-effective,"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.52665526
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.99736315
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "adhesiveness"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Temperature",
+                        "Harmful Factors Acting on Object",
+                        "Waste of Time",
+                        "Complexity of Control",
+                        "Durability of Moving Object",
+                        "Durability of Stationary Object",
+                        "Waste of Energy",
+                        "Convenience of Use"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5387473
+                    ],
+                    "S_SENTS": [
+                        "However, a backsheet comprised of a heat-resistant polyolefin-based resin in the related art may not be necessarily sufficient in the interlayer adhesiveness in some cases.",
+                        "However, both of these methods require an extra step, and the management of the steps is also complicated.",
+                        "That is, there has still been a demand for a backsheet for a solar cell which has excellent durability, weatherability, and adhesive strength to a sealing material layer comprised of a resin such as EVA, and is environmentally friendly and highly cost-effective, the backsheet being formed by using only a versatile polyolefin."
+                    ],
+                    "A_PARAMS": [
+                        "polyolefin-based resin",
+                        "versatile polyolefin"
+                    ]
+                },
+                "sort": [
+                    1.5387473
+                ]
+            },
+            {
+                "_index": "patents",
+                "_type": "_doc",
+                "_id": "US10974285-20210413",
+                "_score": null,
+                "_ignored": [
+                    "IMAGE.keyword"
+                ],
+                "fields": {
+                    "F_SENTS": [
+                        "However, a protective film which has already been used for the lamination process may inevitably be contaminated with microscopic foreign substances during the heating and pressing processes."
+                    ],
+                    "S_SPEC_PARAMS": [
+                        "reduced battery capacity",
+                        "preventing the electrode assembly from being contaminated"
+                    ],
+                    "F_TRIZ_PARAMS": [
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "S_SIM_SCORE": [
+                        0.42763177
+                    ],
+                    "CONTRADICTION_SCORE": [
+                        0.90000373
+                    ],
+                    "F_SPEC_PARAMS": [
+                        "contaminated with microscopic foreign substances"
+                    ],
+                    "S_TRIZ_PARAMS": [
+                        "Waste of Energy",
+                        "Harmful Factors Acting on Object"
+                    ],
+                    "GLOBAL_SCORE": [
+                        1.5391278
+                    ],
+                    "S_SENTS": [
+                        "If the electrode assembly is contaminated by foreign substances, a fatal problem which leads to reduced battery capacity may occur.",
+                        "In particular, there is a problem in that, since the protective film 12 wound around the winding roll 17 becomes contaminated by foreign substances 19 during the lamination process, the protective film 12 is wound around the winding roll 17 in a foreign substance contaminated state.",
+                        "Therefore, there is a high need for a technique for preventing the electrode assembly from being contaminated in which the protective film used in the lamination process is rewound in a clean state in which all foreign substances have been removed, even if the protective film is reused after being used once."
+                    ]
+                },
+                "sort": [
+                    1.5391278
+                ]
+            }
+        ]
+    }
+}
