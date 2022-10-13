@@ -5,6 +5,8 @@
   Le projet est prévu pour etre utilisé via pycharm (certains IDE utilisent des chemins différents pour les fichiers référencés).
   
   Il est nécessaire d'installer les package du fichier requirements.txt : une fois dans pycharm, il suffit de faire click droit -> installer tous les packages.
+  
+  Packages à installer : numpy, scipy, scikit-learn, tensorflow, sentence_transformers, gensin, nltk, pyemd (https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyemd)
 
 ## Useful tutorials
 - [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894

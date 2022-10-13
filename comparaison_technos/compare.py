@@ -2,6 +2,7 @@ import embeddings.simCSE as simCSE
 import embeddings.bert_for_patent as bert_for_patent
 import modeles.cosine as cosine
 import modeles.euclide as euclide
+import cross_encoders.WMD as WMD
 from compare_tools import load_sentences, makePairsToCompare
 import tensorflow as tf
 
@@ -15,8 +16,17 @@ if gpus:
 
 embeddings = {"simCSE": simCSE.embeddings_simcse, "Bert For Patent": bert_for_patent.embeddings_bert_patent}
 models = {"cosine": cosine.cos_sim, "euclide": euclide.euc_dist}
+cross_encoders={"WMD":WMD.wmd_dist}
+
 
 sentences = makePairsToCompare(load_sentences())
+
+for cross_encoder in cross_encoders:
+    print(cross_encoder)
+    results = cross_encoders[cross_encoder](sentences)
+    for i in range(len(sentences)):
+        print("{:.40}  &  {:.40} =>  {}".format(sentences[i][0], sentences[i][1], results[i]))
+
 for embedding in embeddings:
     sentences_emb = embeddings[embedding](sentences)
     for model in models:
@@ -24,15 +34,3 @@ for embedding in embeddings:
         results = models[model](sentences_emb)
         for i in range(len(sentences)):
             print("{:.40}  &  {:.40} =>  {}".format(sentences[i][0], sentences[i][1], results[i]))
-"""
-
-sentences_emb = bert_for_patent.embeddings_bert_patent(sentences[:3])
-print(sentences_emb)
-for model in models:
-    results = models[model](sentences_emb)
-
-    print(model)
-    print(results)
-    for i in range(len(sentences[:3])):
-        print(results[i])
-        print("{:.40}  &  {:.40} =>  {}".format(sentences[i][0], sentences[i][1], results[i]))"""
