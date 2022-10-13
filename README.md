@@ -1,7 +1,7 @@
 # PRT_IA_TRIZ
 
 ## Useful turorials
-- [ ] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
+- [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
 - [ ] Semantic Textual Similarity (Towards Data Science) : https://towardsdatascience.com/semantic-textual-similarity-83b3ca4a840e
 - [ ] Difference between BERT and following : https://zilliz.com/learn/7-nlp-models
 

@@ -28,4 +28,4 @@ def makePairsToCompare(sentences):
 
 def transposeList(pairs):
     import numpy as np
-    return np.array(pairs).T.tolist()
+    return np.swapaxes(pairs, 0,1).tolist()

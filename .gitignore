@@ -132,3 +132,4 @@ dmypy.json
 
 #Vector file
 *.vec
+comparaison_technos/embeddings/bertForPatent*

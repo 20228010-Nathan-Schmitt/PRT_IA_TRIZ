@@ -1,7 +1,10 @@
-Fichier de méthodologie
-    - Liste des embeddings
-    - Liste des comparaisons d'embeddings
-    - Protocole de Comparaison
+TODO
+Nettoyer le git
+    - Envoyer aux profs
+    - Rendre compare executable sur pycharm
+    - README de lancement
+    - requirement
+
 
 Dataset manuel de comparaisons
     - 100 phrases issues de brevets
@@ -22,6 +25,22 @@ Modèles à comparer
 
 
 Idées à explorer
-    - rephrasing automatique
     - simplification des phrases
     - plusieurs modèles en parallèle
+
+
+
+DONE
+Fichier de méthodologie
+    - Liste des embeddings
+    - Liste des comparaisons d'embeddings
+    - Protocole de Comparaison
+
+Embeddings à comparer
+    - word2vec
+    - BERT
+    - RoBERTa
+
+
+Idées à explorer
+    - rephrasing automatique
