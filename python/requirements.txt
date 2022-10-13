@@ -1,0 +1,10 @@
+tensorflow
+
+numpy
+
+scipy
+
+sentence_transformers
+
+scikit-learn
+
