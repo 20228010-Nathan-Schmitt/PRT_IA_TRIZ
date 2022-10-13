@@ -7,15 +7,16 @@ import tensorflow as tf
 
 gpus = tf.config.experimental.list_physical_devices('GPU')
 if gpus:
-  try:
-    tf.config.experimental.set_virtual_device_configuration(gpus[0], [tf.config.experimental.VirtualDeviceConfiguration(memory_limit=2048)])
-  except RuntimeError as e:
-    print(e)
+    try:
+        tf.config.experimental.set_virtual_device_configuration(gpus[0], [
+            tf.config.experimental.VirtualDeviceConfiguration(memory_limit=2048)])
+    except RuntimeError as e:
+        print(e)
 
-embeddings = {"simCSE":simCSE.embeddings_simcse, "Bert For Patent": bert_for_patent.embeddings_bert_patent}
-models = {"cosine":cosine.cos_sim, "euclide":euclide.euc_dist}
+embeddings = {"simCSE": simCSE.embeddings_simcse, "Bert For Patent": bert_for_patent.embeddings_bert_patent}
+models = {"cosine": cosine.cos_sim, "euclide": euclide.euc_dist}
 
-sentences =makePairsToCompare(load_sentences())
+sentences = makePairsToCompare(load_sentences())
 for embedding in embeddings:
     sentences_emb = embeddings[embedding](sentences)
     for model in models:
