@@ -16,4 +16,3 @@ def embeddings_bert_patent(sentences):
     sentence1_emb = response1["cls_token"]
     sentence2_emb = response2["cls_token"]
     return np.swapaxes([sentence1_emb, sentence2_emb], 0,1)
-    return transposeList([sentence1_emb, sentence2_emb])
