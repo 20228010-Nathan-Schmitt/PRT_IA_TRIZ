@@ -5,6 +5,5 @@ def euc_dist(sentences_emb):
 
     sentence1_emb, sentence2_emb = np.swapaxes(sentences_emb,0,1)
     difference = sentence1_emb - sentence2_emb
-    print(difference)
     return np.linalg.norm(difference, axis=1)
 
