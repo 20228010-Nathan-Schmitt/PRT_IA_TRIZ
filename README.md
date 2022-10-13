@@ -1,7 +1,13 @@
 # PRT_IA_TRIZ
 
-## Useful turorials
-- [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
+## Mise en place et requirements
+  
+  Le projet est prévu pour etre utilisé via pycharm (certains IDE utilisent des chemins différents pour les fichiers référencés).
+  
+  Il est nécessaire d'installer les package du fichier requirements.txt : une fois dans pycharm, il suffit de faire click droit -> installer tous les packages.
+
+## Useful tutorials
+- [ ] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
 - [ ] Semantic Textual Similarity (Towards Data Science) : https://towardsdatascience.com/semantic-textual-similarity-83b3ca4a840e
 - [ ] Difference between BERT and following : https://zilliz.com/learn/7-nlp-models
 
