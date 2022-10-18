@@ -19,13 +19,16 @@ def load_sentences():
 
 def makePairsToCompare(sentences):
     pairs = []
-
+    import numpy as np
+    similarities=np.array([])
     for patentNumber in sentences:
         patent = sentences[patentNumber]["patent"]
-        for short in sentences[patentNumber]["short"]:
-            pairs.append((patent, short))
-    return pairs
+        for patentNumber2 in sentences:
+            for short in sentences[patentNumber2]["short"]:
+                pairs.append((patent, short))
+                similarities = np.insert(similarities, similarities.size, patentNumber==patentNumber2)
+    return pairs, similarities
 
 def transposeList(pairs):
     import numpy as np
-    return np.swapaxes(pairs, 0,1).tolist()
+    return np.swapaxes(pairs, 0,1)
