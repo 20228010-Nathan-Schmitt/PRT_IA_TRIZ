@@ -13,6 +13,32 @@
 - [x] Semantic Textual Similarity (Towards Data Science) : https://towardsdatascience.com/semantic-textual-similarity-83b3ca4a840e
 - [x] Difference between BERT and following : https://zilliz.com/learn/7-nlp-models
 
+## Stemming/lemmatisation
+
+Le stemming permet de convertir un mot en sa version la plus simple, sa racine : better -> good
+
+over-stemming : regrouper sur la meme racien des mots qui ont des sens différents.
+
+under-stemming : ne pas regrouper sur la meme racine des mots qui ont le meme sens.
+
+La racine peut ne pas etre un mot valide. Si on se limite à des mots valides, on parle de lemmisation.
+
+
+On peut retenir quelques algorithmes :
+- krovetz stemmer : convertit les noms vers leur forme au singulier, les verbes vers leur présent simple. il est plutot considéré comme un pré-stemmer
+- porter stemmer : convertit les mots vers leur racine, parfois la racine atteinte n'est pas un mot réel. est tout de meme considéré comme un des meilleurs algorithmes
+- snowball stemming : parfois appelé porter2 stemmer, il est juste mieux et multilingue. importatble par le package nltk.
+
+tutos youtube:
+- https://www.youtube.com/watch?v=HHAilAC3cXw
+- https://www.youtube.com/watch?v=tmY-G6sngk8
+- https://www.youtube.com/watch?v=p1ccbR2P_xA
+
+Articles :
+- https://www.geeksforgeeks.org/introduction-to-stemming/
+- https://en.wikipedia.org/wiki/Lemmatisation
+- https://en.wikipedia.org/wiki/Stemming
+  
 ## Useful techno
 ### Gensim
 - [x] https://pypi.org/project/gensim/
