@@ -1,0 +1,15 @@
+tensorflow
+
+numpy
+
+scipy
+
+sentence_transformers
+
+scikit-learn
+
+word_mover_distance
+
+nltk
+
+gensim
