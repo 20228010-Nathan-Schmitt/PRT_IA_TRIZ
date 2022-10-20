@@ -47,6 +47,29 @@ def makePairsToCompare(dataset, keys):
                     similarities = np.insert(similarities, similarities.size, patentNumber==patentNumber2)
                 
     return pairs, similarities
+def makePairsToCompare2():
+    f=open("response_1000.json", "r", encoding="utf8")
+    response = json.load(f)
+    f.close()
+
+    pairs = []
+    import numpy as np
+    similarities=np.array([])
+    
+    keys = response["hits"]["hits"][:100]
+    
+    for i in range(len(keys)):
+        patent1 = keys[i]
+        for j in range(len(keys)):
+            if j>i:break
+            patent2 = keys[j]
+            pairs.append((patent1["_id"], patent2["_id"]))
+            similarities = np.insert(
+                similarities, 
+                similarities.size,
+                len(list(set(patent1["fields"]["F_TRIZ_PARAMS"]).intersection(patent2["fields"]["F_TRIZ_PARAMS"]))) + len(list(set(patent1["fields"]["S_TRIZ_PARAMS"]).intersection(patent2["fields"]["S_TRIZ_PARAMS"])))
+            )
+    return pairs, similarities
 
 def transposeList(pairs):
     import numpy as np
@@ -107,6 +130,23 @@ def load_database(start):
         ))
     return np.array(patents,dtype=[("id", "U32"),("sentence",np.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
     
+def load_local_database():
+    f=open("response_1000.json", "r", encoding="utf8")
+    response = json.load(f)
+    f.close()
+        
+    
+    patents = []
+    for patent in response["hits"]["hits"]:
+        patents.append((
+            patent["_id"],
+            patent["fields"]["F_SENTS"][0] + " " +patent["fields"]["S_SENTS"][0], #contradiction
+            patent["fields"]["F_TRIZ_PARAMS"],
+            patent["fields"]["S_TRIZ_PARAMS"],
+        ))
+    return np.array(patents,dtype=[("id", "U32"),("sentence",np.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
+
+
 def merge_array(arr1, arr2,type1, type2, number2):
     a = np.concatenate((arr1, arr2), axis=1)
     return a
