@@ -33,6 +33,9 @@ def get_result(embedding, model, sentences, pairs):
 
 
 def classify(sentences,similarities,results):
+
+    print(results.shape)
+    print(similarities.shape)
     dataset_np = np.vstack([results, similarities]).T
 
     training_split = 0.8
@@ -43,13 +46,12 @@ def classify(sentences,similarities,results):
     dataset_train = dataset_full.take(training_size)
     dataset_val = dataset_full.skip(training_size).take(validation_size)
 
-    print(results.shape[0])
     model = tf.keras.Sequential([
       layers.InputLayer(input_shape=results.shape[0]),
-      layers.Dense(10),
+      layers.Dense(3),
       layers.Dense(1)])
       
-    model.compile(loss=losses.BinaryCrossentropy(from_logits=False),
+    model.compile(loss=losses.BinaryCrossentropy(from_logits=True),
                   optimizer='adam',
                   metrics=tf.metrics.BinaryAccuracy(threshold=0))
 

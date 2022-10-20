@@ -56,6 +56,8 @@ def load_database(start):
     size = 50
     
     request_body = {
+      "from": size*start,
+      "size": size,
       "query": {
         "bool": {
           "must": [
@@ -87,11 +89,12 @@ def load_database(start):
         "value": "ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw==",
         "type": "text"
     }
-    #r = requests.get("https://vm-csip-es.icube.unistra.fr/db/db_solve/patents/_search", headers = {"Authorization":"ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw=="}, json = request_body, verify=False)
-
+    r = requests.get("https://vm-csip-es.icube.unistra.fr/db/db_solve/patents/_search", headers = {"Authorization":"ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw=="}, json = request_body, verify=False)
+    response  =r.json()
+    """
     f=open("response.json", "r", encoding="utf8")
     response = json.load(f)
-    f.close()
+    f.close()"""
         
     
     patents = []
