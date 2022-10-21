@@ -47,29 +47,29 @@ def makePairsToCompare(dataset, keys):
                     similarities = np.insert(similarities, similarities.size, patentNumber==patentNumber2)
                 
     return pairs, similarities
-def makePairsToCompare2():
-    f=open("response_1000.json", "r", encoding="utf8")
-    response = json.load(f)
-    f.close()
 
+def makePairsToCompare2(dataset):
+    ids = dataset["id"]
+    
     pairs = []
-    import numpy as np
-    similarities=np.array([])
+    similarities=[]
     
-    keys = response["hits"]["hits"][:100]
-    
-    for i in range(len(keys)):
-        patent1 = keys[i]
-        for j in range(len(keys)):
+    for i in range(len(ids)):
+        for j in range(len(ids)):
             if j>i:break
-            patent2 = keys[j]
-            pairs.append((patent1["_id"], patent2["_id"]))
-            similarities = np.insert(
-                similarities, 
-                similarities.size,
-                len(list(set(patent1["fields"]["F_TRIZ_PARAMS"]).intersection(patent2["fields"]["F_TRIZ_PARAMS"]))) + len(list(set(patent1["fields"]["S_TRIZ_PARAMS"]).intersection(patent2["fields"]["S_TRIZ_PARAMS"])))
-            )
-    return pairs, similarities
+            pairs.append((i, j))
+
+            patent1_triz_f = set(dataset["F_TRIZ_PARAMS"][i])
+            patent1_triz_s = set(dataset["S_TRIZ_PARAMS"][i])
+            patent2_triz_f = set(dataset["F_TRIZ_PARAMS"][j])
+            patent2_triz_s = set(dataset["S_TRIZ_PARAMS"][j])
+            size_intersection_f = len(list(patent1_triz_f.intersection(patent2_triz_f)))
+            size_intersection_s = len(list(patent1_triz_s.intersection(patent2_triz_s)))
+            size_union_f = len(list(patent1_triz_f.union(patent2_triz_f)))
+            size_union_s = len(list(patent1_triz_s.union(patent2_triz_s)))
+
+            similarities.append((size_intersection_f+ size_intersection_s) / (size_union_f+size_union_s))
+    return np.array(pairs), np.array(similarities), ids
 
 def transposeList(pairs):
     import numpy as np

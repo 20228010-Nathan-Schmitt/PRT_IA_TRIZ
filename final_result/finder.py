@@ -19,14 +19,19 @@ def embed(sentence):
 def load_database_embed():
     sentences_emb=[]
     ids = []
+
+    filename_ids = "save/ids.npy"
+    if os.path.isfile(filename_ids):
+        ids  = np.load(filename_ids)
+    else:
+        print("Id file not found")
+        0/0
+
     for embedding in embeddings:
         filename = "save/embedding_"+embedding+".npy"
         if os.path.isfile(filename):
             current_embedding  = np.load(filename)
-            
-            ids = current_embedding[:,0]
-            database_sentences_emb = np.delete(current_embedding, 0, axis=1)
-            database_sentences_emb = database_sentences_emb.astype(float)
+            database_sentences_emb = current_embedding.astype(float)
             sentences_emb.append(database_sentences_emb)
         else:
             print("Embedding not found : ", embedding)
@@ -35,9 +40,10 @@ def load_database_embed():
 
 
 sentence_to_compare = "Batteries need to be bigger but it will be heavier"
-sentence_to_compare = "The dimensions of trench power MOSFETs metal-oxide-semiconductor field-effect transistor may be reduced for improving the electrical performance and decreasing the costs from generation to generation, which may be enabled both through better lithography systems and more powerful tools with an improved process control."
+sentence_to_compare = "A high temperature is needed for the chemical reaction but it can damage the environnement"
+#sentence_to_compare = "The dimensions of trench power MOSFETs metal-oxide-semiconductor field-effect transistor may be reduced for improving the electrical performance and decreasing the costs from generation to generation, which may be enabled both through better lithography systems and more powerful tools with an improved process control."
 
-database_emb,id = load_database_embed()
+database_emb,id_ = load_database_embed()
 sentence_emb = embed(sentence_to_compare)
 
 
@@ -45,10 +51,10 @@ results=[]
 for i in range(len(embeddings)):  
     pairs_emb = []
     for database_sentence in database_emb[i]:
-        pairs_emb.append((sentence_emb[i], database_sentence))
+        pairs_emb.append([sentence_emb[i], database_sentence])
+    pairs_emb = np.array(pairs_emb)
     for model in models:
         results.append(models[model](pairs_emb))
-        print(results)
 results = np.array(results).T
    
 from tensorflow import keras
@@ -57,9 +63,17 @@ model.summary()
 
 prediction  = model.predict(results)
 
-print(prediction)
+number_to_keep=10
+prediction = prediction[:,0]
+ind = np.argpartition(prediction, -number_to_keep)[-number_to_keep:]
+ind = ind[np.argsort(prediction[ind])]
+for index in ind:
+    print(index, prediction[index], id_[index])
+
+
+"""print(prediction)
 
 imax = np.argmax(prediction)
 print(imax)
 print(prediction[imax])
-print(id[imax])
+print(id_[imax])"""

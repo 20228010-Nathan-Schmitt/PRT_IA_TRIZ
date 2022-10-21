@@ -1,7 +1,4 @@
 import os
-import re
-import shutil
-import string
 import tensorflow as tf
 
 from tensorflow.keras import layers
@@ -15,10 +12,7 @@ from modeles.modeles import models
 from compare_tools import load_local_database, makePairsToCompare2
 
 
-def get_result(embedding, model, sentences, dico_des_ids, pairs):
-
-    
-
+def get_result(embedding, model, sentences, pairs):
     filename = "training/embedding2_"+embedding+".npy"
     if os.path.isfile(filename):
         sentences_emb = np.load(filename)
@@ -27,17 +21,15 @@ def get_result(embedding, model, sentences, dico_des_ids, pairs):
         np.save(filename, sentences_emb)
         
     
-    
     print("start compute")
     
     filename_result = "training/result2_"+embedding+"_"+model+".npy"
     if os.path.isfile(filename_result):
         results = np.load(filename_result)
     else:
-        pairs_emb = np.empty((0,2,sentences_emb.shape[1],))
-    
-        for a,b in pairs:
-            pairs_emb = np.append(pairs_emb, [[sentences_emb[dico_des_ids[a]], sentences_emb[dico_des_ids[b]]]], axis=0)
+        f = lambda pair: [sentences_emb[pair[0]], sentences_emb[pair[1]]]
+        pairs_emb = np.array(list(map(f, pairs)))
+        print("starting ", model)
         results = models[model](pairs_emb)
         np.save(filename_result, results)
 
@@ -63,19 +55,21 @@ def classify(sentences,similarities,results):
       layers.Dense(3),
       layers.Dense(1)])
       
-    model.compile(loss='mean_squared_error',
+    model.compile(loss=tf.keras.losses.MeanSquaredError(),
                   metrics=tf.keras.metrics.MeanSquaredError())
 
     model.summary()
     
-    epochs = 100
+    epochs = 10
+    print(results.dtype)
+    print(similarities.dtype)
     history = model.fit(
         x= results.T,
         y= similarities,
         validation_split = 0.3,
         epochs=epochs,
-        shuffle = True,
-        verbose=2)
+        batch_size=128,
+        shuffle = True)
 
     for i in range(len(model.layers)):
         print(model.layers[i].get_weights())
@@ -96,24 +90,20 @@ def classify(sentences,similarities,results):
 #dataset = load_training_dataset()
 dataset = load_local_database()
 ids = dataset["id"]
-pairs, similarities = makePairsToCompare2()
+pairs, similarities, ids = makePairsToCompare2(dataset)
 
 print(len(pairs))
 print(similarities.size)
 sentences = []
-dico_des_ids={}
 for i in range(len(ids)):
     sentences.append(dataset["sentence"][i])
-    dico_des_ids[ids[i]]=i
-
-print(sentences)
 
 results = np.empty((0,len(pairs)))
 for embedding in embeddings:
     print(embedding)    
     for model in models:
         print(" └",model)
-        results= np.vstack((results, get_result(embedding, model, sentences, dico_des_ids, pairs)))
+        results= np.vstack((results, get_result(embedding, model, sentences, pairs)))
         
 
 classify(sentences,similarities,results)

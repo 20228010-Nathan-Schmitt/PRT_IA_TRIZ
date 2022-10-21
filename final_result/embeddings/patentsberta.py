@@ -6,7 +6,7 @@ def embeddings_patentsberta(sentences):
     global model_patentsberta
     if model_patentsberta is None : 
         from sentence_transformers import SentenceTransformer
-        model_patentsberta = SentenceTransformer('AI-Growth-Lab/PatentSBERTa')
+        model_patentsberta = SentenceTransformer('AI-Growth-Lab/PatentSBERTa', device="cuda")
 
     sentences_emb_patentsberta = model_patentsberta.encode(sentences)
     return sentences_emb_patentsberta
