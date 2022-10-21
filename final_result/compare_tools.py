@@ -75,36 +75,23 @@ def transposeList(pairs):
     import numpy as np
     return np.swapaxes(pairs, 0,1)
     
-def load_database(start):
-    size = 50
+def load_database(from_, size):
     
     request_body = {
-      "from": size*start,
+      "from": from_,
       "size": size,
       "query": {
         "bool": {
-          "must": [
-            {
-              "match": {
-                "INVENTION_TITLE": "dev"
-              }
-            },
-            {
-              "match": {
-                "REF_PATENT": "US1"
-              }
-            },
-            {
-              "range": {
-                "PUBLICATION_DATE": {
-                  "gte": "01/01/2021",
-                  "format": "dd/MM/yyyy||yyyy"
-                }
-              }
-            }
-          ]
+          "must": []
         }
-      }
+      },
+      "sort": [
+        {
+          "GLOBAL_SCORE": {
+            "order": "asc"
+          }
+        }
+      ]
     }
     
     header = {
