@@ -5,7 +5,9 @@ import numpy as np
 from numpy.lib import recfunctions as rfn
 import os.path
 
-def compute_embedding(force_start=None):
+#os.environ['CUDA_VISIBLE_DEVICES'] = '-1' #Work on CPU
+
+def compute_embedding_batch(force_start=None):
     batch_size = 200
     filename_computed = "save/computed.txt"
 
@@ -79,6 +81,37 @@ def compute_embedding(force_start=None):
 
     print("===== STEP {} saved =====".format(start))
 
+def compute_embedding_queue():
+    print("===== START =====")
 
-for i in range(1000):
-    compute_embedding()
+    filename_computed = "save/computed.txt"
+
+    database = load_database(0, None)
+    ids = database["id"]
+    sentences = database["sentence"]
+
+    for embedding in embeddings:
+        print(embedding)
+        
+        #on esaye d'ouvrir les embeddings deja calculés
+        filename = "save/embedding_"+embedding+".npy"
+        sentences_emb = embeddings[embedding](sentences, 32)
+        
+        print("\nNumber of embeddings computed for {} : {}".format(embedding,sentences_emb.shape[0]))
+
+        #on enregistre les embeddings avec les nouveaux calculés
+        filename = "save/embedding_"+embedding+".npy"
+        np.save(filename, sentences_emb)
+
+    filename_ids = "save/ids.npy"
+    np.save(filename_ids, ids)
+
+    f = open(filename_computed, "w")
+    f.write(str(ids.shape[0]))
+    f.close()
+
+    print("===== DONE =====")
+
+"""for i in range(1000):
+    compute_embedding_batch()"""
+compute_embedding_queue()

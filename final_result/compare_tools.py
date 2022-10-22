@@ -65,17 +65,23 @@ def makePairsToCompare2(dataset):
             patent2_triz_s = set(dataset["S_TRIZ_PARAMS"][j])
             size_intersection_f = len(list(patent1_triz_f.intersection(patent2_triz_f)))
             size_intersection_s = len(list(patent1_triz_s.intersection(patent2_triz_s)))
-            size_union_f = len(list(patent1_triz_f.union(patent2_triz_f)))
+            """size_union_f = len(list(patent1_triz_f.union(patent2_triz_f)))
             size_union_s = len(list(patent1_triz_s.union(patent2_triz_s)))
 
-            similarities.append((size_intersection_f+ size_intersection_s) / (size_union_f+size_union_s))
+            similarities.append((size_intersection_f+ size_intersection_s) / (size_union_f+size_union_s))"""
+            similarities.append((size_intersection_f+ size_intersection_s) / (max(len(patent1_triz_f), len(patent2_triz_f))+ max(len(patent1_triz_s), len(patent2_triz_s))))
     return np.array(pairs), np.array(similarities), ids
 
 def transposeList(pairs):
     import numpy as np
     return np.swapaxes(pairs, 0,1)
     
+
+
+database = []
 def load_database(from_, size):
+    global database, sorted_keys
+
     
     request_body = {
       "from": from_,
@@ -87,35 +93,42 @@ def load_database(from_, size):
       },
       "sort": [
         {
-          "GLOBAL_SCORE": {
+          "_id": {
             "order": "asc"
           }
         }
-      ]
+      ],
+        "fields":[
+            "CONTRADICTION_SCORE",
+            "F_SENTS",
+            "S_SENTS",
+            "F_TRIZ_PARAMS",
+            "S_TRIZ_PARAMS"
+        ],
+        "_source": False
     }
     
-    header = {
-        "key": "Authorization",
-        "value": "ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw==",
-        "type": "text"
-    }
-    r = requests.get("https://vm-csip-es.icube.unistra.fr/db/db_solve/patents/_search", headers = {"Authorization":"ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw=="}, json = request_body, verify=False)
+    """r = requests.get("https://vm-csip-es.icube.unistra.fr/db/db_solve/patents/_search", headers = {"Authorization":"ApiKey ekRWY3ZINEI1b1ktTzQzX3ZhRGM6aTRlbVJjQXZUdzY2a3hDTmFmMVhoZw=="}, json = request_body, verify=False)
     response  =r.json()
+
     """
-    f=open("response.json", "r", encoding="utf8")
-    response = json.load(f)
-    f.close()"""
+    if not len(database):
+        f=open("response_10000.json", "r", encoding="utf8")
+        response = json.load(f)
+        f.close()
+        database = response["hits"]["hits"]
+
+    database_extract = database[from_:from_+size] if size is not None else database[from_:]
         
-    
     patents = []
-    for patent in response["hits"]["hits"]:
+    for patent in database_extract:
         patents.append((
             patent["_id"],
-            patent["_source"]["F_SENTS"][0] + " " +patent["_source"]["S_SENTS"][0], #contradiction
-            patent["_source"]["F_TRIZ_PARAMS"],
-            patent["_source"]["S_TRIZ_PARAMS"],
+            patent["fields"]["F_SENTS"][0] + " " +patent["fields"]["S_SENTS"][0], #contradiction
+            patent["fields"]["F_TRIZ_PARAMS"],
+            patent["fields"]["S_TRIZ_PARAMS"],
         ))
-    return np.array(patents,dtype=[("id", "U32"),("sentence",np.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
+    return np.array(patents,dtype=[("id", "U32"),("sentence",np.compat.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
     
 def load_local_database():
     f=open("response_1000.json", "r", encoding="utf8")

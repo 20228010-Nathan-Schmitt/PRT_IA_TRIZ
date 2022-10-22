@@ -2,7 +2,6 @@ import os
 import tensorflow as tf
 
 from tensorflow.keras import layers
-from tensorflow.keras import losses
 import tensorflow as tf
 import numpy as np
 import os.path
@@ -12,12 +11,12 @@ from modeles.modeles import models
 from compare_tools import load_local_database, makePairsToCompare2
 
 
-def get_result(embedding, model, sentences, pairs):
+def get_result(embedding, model, sentences, pairs,ids):
     filename = "training/embedding2_"+embedding+".npy"
     if os.path.isfile(filename):
         sentences_emb = np.load(filename)
     else:
-        sentences_emb = embeddings[embedding](sentences)
+        sentences_emb = embeddings[embedding](sentences, once=True)
         np.save(filename, sentences_emb)
         
     
@@ -32,56 +31,47 @@ def get_result(embedding, model, sentences, pairs):
         print("starting ", model)
         results = models[model](pairs_emb)
         np.save(filename_result, results)
-
     return results
 
 
-def classify(sentences,similarities,results):
+def classify(similarities,results):
 
     print(results.shape)
     print(similarities.shape)
-    dataset_np = np.vstack([results, similarities]).T
 
-    training_split = 0.8
-    training_size = int(training_split * len(sentences))
-    validation_size = int((1-training_split) * len(sentences))
+    validation_split = 0.3
 
-    dataset_full = tf.data.Dataset.from_tensor_slices(dataset_np).shuffle(10)
-    dataset_train = dataset_full.take(training_size)
-    dataset_val = dataset_full.skip(training_size).take(validation_size)
 
     model = tf.keras.Sequential([
       layers.InputLayer(input_shape=results.shape[0]),
-      layers.Dense(3),
+      layers.Dense(4),
       layers.Dense(1)])
       
     model.compile(loss=tf.keras.losses.MeanSquaredError(),
+                optimizer=tf.keras.optimizers.Adam(),
                   metrics=tf.keras.metrics.MeanSquaredError())
 
     model.summary()
     
     epochs = 10
-    print(results.dtype)
-    print(similarities.dtype)
+    batch_size = 128
     history = model.fit(
         x= results.T,
         y= similarities,
-        validation_split = 0.3,
+        validation_split = validation_split,
         epochs=epochs,
-        batch_size=128,
+        batch_size=batch_size,
         shuffle = True)
 
     for i in range(len(model.layers)):
         print(model.layers[i].get_weights())
         
-        
     loss, accuracy = model.evaluate(
         x= results.T,
-        y= similarities
+        y= similarities,
+        batch_size=batch_size
     )
-    
-    print(model.predict(results.T))
-    
+        
     model.save("my_model")
     print("Loss: ", loss)
     print("Accuracy: ", accuracy)
@@ -91,6 +81,7 @@ def classify(sentences,similarities,results):
 dataset = load_local_database()
 ids = dataset["id"]
 pairs, similarities, ids = makePairsToCompare2(dataset)
+
 
 print(len(pairs))
 print(similarities.size)
@@ -103,7 +94,7 @@ for embedding in embeddings:
     print(embedding)    
     for model in models:
         print(" └",model)
-        results= np.vstack((results, get_result(embedding, model, sentences, pairs)))
+        results= np.vstack((results, get_result(embedding, model, sentences, pairs,ids)))
         
 
-classify(sentences,similarities,results)
+classify(similarities, results)
