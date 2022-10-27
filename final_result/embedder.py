@@ -1,6 +1,5 @@
 from embeddings.embeddings import embeddings
 from compare_tools import makePairsToCompare, load_database, merge_array
-import tensorflow as tf
 import numpy as np
 from numpy.lib import recfunctions as rfn
 import os.path

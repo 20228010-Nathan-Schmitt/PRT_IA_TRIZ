@@ -114,10 +114,30 @@
 
     },
     {
-
+      "_id": "US11401778-20220802",
+      "contradiction": "Although this will be a less expensive system than TSE, it is still relatively expensive and increases operational complexity. In some situations, you may need to check the pressure gauges. "
     },
     {
-
-    }
+      "_id": "US11401744-20220802",
+      "contradiction":"On the other hand, these hinges have serious drawbacks. Their complex structure makes them hard to make and to repair. Inability to replace oil means the hinge will lose its capacity over time, and using a screw type hinge that did not have a specially designed oil reservoir can potentially bypass the demands of the oil system. Furthermore, accurately measuring and replacing the capacity of the oleohydraulic fluid means D1 and D2 may have to be removed from the hinge."
+    },
+    {
+      "_id": "US11401712-20220802",
+      "contradiction":"However, two walls produce any number of cold and hot bridges that weaken the thermal insulating effects of the building. Lacking heat resistance is insufficient, and lowering the cost could be done through composite use. However, there is a trade-off by using injected-resin-injected-glass technique, and its resistance is not evident. Transverse vibration is also an issue. The more the technology advances, the more it can be introduced in new buildings this cycle. Also, a generalized building point created a standard for building materials, which creates more construction"
+    },{
+      "_id": "US11401699-20220802",
+      "contradiction":" A working tool that is run, for example, by a hydraulically operated boom or arm can be difficult for an operator to set this tool at the required angle and be as perpendicular as possible to the surface, so as to avoid injury. If it is possible that the working tool sometimes faces a right angle to the surface however, the working tool will occasionally, since the operator is generally not in control of hydraulically operated tools. Dealing with this problem is present in the art but does not solve how to set the angle correctly the first time or how to automatically set the angle. This makes it difficult to put the tool in alignment correctly and stick it to the surface."
+    },{
+      "_id": "US11401658-20220802",
+      "contradiction":"Stacked warp yarns improve moulding, but change the permeability of the fabric."
+    },{
+      "_id": "US11401629-20220802",
+      "contradiction":"Graphene is a type of material with the lowest strength at room temperature. However, it is difficult to obtain graphene fibers at the nanoscale, which hinders the improvement of fiber properties."
+    },{
+      "_id": "US11401583-20220802",
+      "contradiction":"Aluminum is lighter and cheaper than copper, which makes it difficult to use in the cable field. The mechanical strength of the resulting composite material is not optimized for cable applications."
+    },{
+      
+    },{},{},{},{},{}
   ]
 }
