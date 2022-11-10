@@ -4,16 +4,23 @@ import embeddings.patentsberta as patentsberta
 import embeddings.roberta_base as roberta_base
 import embeddings.multi_qa_mpnet_base as multi_qa_mpnet_base
 import embeddings.distilroberta as distilroberta
+import embeddings.custom as custom
+import embeddings.custom_old as custom_old
 
 
 embeddings = {
-    "patentsberta": patentsberta.embeddings_patentsberta,
+    #"patentsberta": patentsberta.embeddings_patentsberta,
     "mpnet_base":mpnet_base.embeddings_mpnet_base,
-    "multi_qa_mpnet_base":multi_qa_mpnet_base.embeddings_multi_qa_mpnet_base,
-    "distilroberta":distilroberta.embeddings_distilroberta,
-    "simCSE": simCSE.embeddings_simcse,
-    "roberta_base":roberta_base.embeddings_roberta_base
+    #"multi_qa_mpnet_base":multi_qa_mpnet_base.embeddings_multi_qa_mpnet_base,
+    #"distilroberta":distilroberta.embeddings_distilroberta,
+    #"simCSE": simCSE.embeddings_simcse,
+    #"roberta_base":roberta_base.embeddings_roberta_base,
+    "custom32k_1":custom.CustomSentenceTransformer("sbert_trained_32k"),
+    "custom32k_2":custom.CustomSentenceTransformer("sbert_trained_32k_2"),
+    "custom":custom.CustomSentenceTransformer("my_model_sbert"),
+    "custom_old":custom.CustomSentenceTransformer("my_model_sbert_old")
 }
+
 
 
 embed_size = {
@@ -24,3 +31,4 @@ embed_size = {
     "simCSE": 1024,
     "roberta_base":768
 }
+

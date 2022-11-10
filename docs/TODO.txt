@@ -17,11 +17,13 @@ Embeddings à comparer
     - simCSE
     - RoBERTa
     - BERT for patents
+    - all-mpnet-base-v2 (meilleur embeddings askip)
 
 Modèles à comparer
     - Cosine distance
     - WMD
     - Distance euclidienne
+    - cross-encoder/nli-deberta-v3-base (meilleur NLI)
 
 
 Idées à explorer

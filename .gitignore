@@ -134,3 +134,6 @@ dmypy.json
 *.vec
 comparaison_technos/embeddings/bertForPatent*
 .idea
+
+#models
+my_model*

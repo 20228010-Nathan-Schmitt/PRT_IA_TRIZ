@@ -96,7 +96,7 @@ def compute_embedding_queue():
         filename = "save/embedding_"+embedding+".npy"
         sentences_emb = embeddings[embedding](sentences, 32)
         
-        print("\nNumber of embeddings computed for {} : {}".format(embedding,sentences_emb.shape[0]))
+        print("Number of embeddings computed for {} : {}\n".format(embedding,sentences_emb.shape[0]))
 
         #on enregistre les embeddings avec les nouveaux calculés
         filename = "save/embedding_"+embedding+".npy"
