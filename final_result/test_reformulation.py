@@ -16,7 +16,7 @@ def embed(sentence, embedding):
 def load_database_embed(embedding):
     ids = []
 
-    filename_ids = "save/ids.npy"
+    filename_ids = "save/ids_mesure.npy"
     if os.path.isfile(filename_ids):
         ids = np.load(filename_ids)
     else:

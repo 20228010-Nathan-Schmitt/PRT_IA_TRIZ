@@ -29,7 +29,7 @@ def compute_embedding_batch(force_start=None):
     f_triz = database["F_TRIZ_PARAMS"]
     s_triz = database["S_TRIZ_PARAMS"]
 
-    filename_ids = "save/ids.npy"
+    filename_ids = "save/ids_mesure.npy"
     filename_ids_compr = "save/ids_compr.npz"
     if os.path.isfile(filename_ids):
         prev_ids = np.load(filename_ids)
