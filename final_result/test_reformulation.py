@@ -1,9 +1,11 @@
-import numpy as np
-import os.path
-import os
-from modeles.cosine import cos_sim
-from embeddings.embeddings import embeddings
 import json
+import os
+import os.path
+
+import matplotlib.pyplot as plt
+import numpy as np
+from embeddings.embeddings import embeddings
+from modeles.cosine import cos_sim
 
 
 def embed(sentence, embedding):
@@ -21,7 +23,7 @@ def load_database_embed(embedding):
         print("Id file not found")
         0 / 0
 
-    filename = "save/embedding_" + embedding + ".npy"
+    filename = "save/embedding_mesure_" + embedding + ".npy"
     if os.path.isfile(filename):
         current_embedding = np.load(filename)
         database_sentences_emb = current_embedding.astype(float)
@@ -49,6 +51,7 @@ embedding_to_test = ["mpnet_base"]
 
 for embedding in embedding_to_test:
     print(embedding)
+    result_list = []
     database_emb, id_ = load_database_embed(embedding)
     for sentence in sentence_list:
         sentence_to_compare = sentence[1]
@@ -62,12 +65,16 @@ for embedding in embedding_to_test:
         pairs_emb = np.array(pairs_emb)
         results = cos_sim(pairs_emb)
         results = np.array(results).T
-        print(results)
+        #print(results)
 
-        number_to_keep = 10
-        ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
-        ind = ind[np.argsort(results[ind])]
-        for index in ind:
-            print(index, results[index], id_[index])
+        sorted_results = np.flip(np.argsort(results))
+        id_rank = np.where(id_ == sentence_id)[0][0]
+        print(id_rank)
+        result_list.append(np.where(sorted_results == id_rank)[0][0])
 
         print("\n\n")
+    print(embedding, ' :')
+    print(result_list)
+    plt.hist(result_list)
+    plt.show()
+
