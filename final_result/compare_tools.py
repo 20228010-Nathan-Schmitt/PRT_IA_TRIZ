@@ -129,9 +129,10 @@ def load_database(from_, size):
             patent["fields"]["S_TRIZ_PARAMS"],
         ))
     return np.array(patents,dtype=[("id", "U32"),("sentence",np.compat.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
-    
+
+
 def load_local_database():
-    f=open("response_1000.json", "r", encoding="utf8")
+    f=open("response_1000_mesure.json", "r", encoding="utf8")
     response = json.load(f)
     f.close()
         

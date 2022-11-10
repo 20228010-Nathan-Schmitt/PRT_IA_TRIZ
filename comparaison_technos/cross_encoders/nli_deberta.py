@@ -1,12 +1,14 @@
 from compare_tools import transposeList
 import numpy as np
+
 model_nli_deberta = None
-#label_mapping = ['contradiction', 'entailment', 'neutral']
+# label_mapping = ['contradiction', 'entailment', 'neutral']
 label_mapping = [0, 1, 0.3]
+
 
 def dist_nli_deberta(sentences):
     global model_nli_deberta
-    if model_nli_deberta is None : 
+    if model_nli_deberta is None:
         from sentence_transformers import CrossEncoder
         model_nli_deberta = CrossEncoder('cross-encoder/nli-deberta-v3-base')
 
