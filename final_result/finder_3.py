@@ -41,12 +41,13 @@ sentence_to_compare = "Batteries need to be bigger but it will be heavier"
 
 
 
-embedding_to_test=["custom32k_1","custom32k_2","custom", "mpnet_base", "deberta"]
+embedding_to_test=["custom_mpnet", "mpnet_base","deberta"]
 
 for embedding in embedding_to_test:
     print(embedding)
     database_emb,id_ = load_database_embed(embedding)
     sentence_emb = embed(sentence_to_compare, embedding)
+    sentence_emb/=np.linalg.norm(sentence_emb)
     results=[]
     pairs_emb = []
     for database_sentence in database_emb:
@@ -55,6 +56,14 @@ for embedding in embedding_to_test:
     results = cos_sim(pairs_emb)
     results = np.array(results).T
     print(results)
+    
+    print(np.average(results))
+    print(np.min(results))
+    print(np.max(results))
+    
+    print(np.linalg.norm(sentence_emb))
+    print(np.min(sentence_emb))
+    print(np.max(sentence_emb))
 
     number_to_keep=10
     ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]

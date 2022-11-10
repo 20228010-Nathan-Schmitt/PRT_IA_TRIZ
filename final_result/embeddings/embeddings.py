@@ -17,10 +17,12 @@ embeddings = {
     #"distilroberta":distilroberta.embeddings_distilroberta,
     #"simCSE": simCSE.embeddings_simcse,
     #"roberta_base":roberta_base.embeddings_roberta_base,
-    "custom32k_1":custom.CustomSentenceTransformer("my_model_sbert_trained_32k"),
-    "custom32k_2":custom.CustomSentenceTransformer("my_model_sbert_trained_32k_2"),
-    "custom":custom.CustomSentenceTransformer("my_model_sbert"),
-    "custom_old":custom.CustomSentenceTransformer("my_model_sbert_old")
+    #"custom32k_1":custom.CustomSentenceTransformer("my_model_sbert_trained_32k"),
+    #"custom32k_2":custom.CustomSentenceTransformer("my_model_sbert_trained_32k_2"),
+    #"custom":custom.CustomSentenceTransformer("my_model_sbert"),
+    #"custom_old":custom.CustomSentenceTransformer("my_model_sbert_old")"""
+    "custom_deberta" : custom.CustomSentenceTransformer("my_model_deberta_3"),
+    "custom_mpnet" : custom.CustomSentenceTransformer("my_model_mpnet")
 }
 
 

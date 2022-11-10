@@ -80,7 +80,7 @@ def compute_embedding_batch(force_start=None):
 
     print("===== STEP {} saved =====".format(start))
 
-def compute_embedding_queue():
+def compute_embedding_queue(embedding_to_compute):
     print("===== START =====")
 
     filename_computed = "save/computed.txt"
@@ -89,7 +89,7 @@ def compute_embedding_queue():
     ids = database["id"]
     sentences = database["sentence"]
 
-    for embedding in embeddings:
+    for embedding in embedding_to_compute:
         print(embedding)
         
         #on esaye d'ouvrir les embeddings deja calculés
@@ -113,4 +113,6 @@ def compute_embedding_queue():
 
 """for i in range(1000):
     compute_embedding_batch()"""
-compute_embedding_queue()
+embedding_to_compute=["custom_mpnet"]
+
+compute_embedding_queue(embedding_to_compute)
