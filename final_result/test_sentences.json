@@ -133,7 +133,7 @@
     },
     {
       "_id": "US11297775-20220412",
-      "contradiciton": "Creates hot spots, bright light in a small area, especially near the center of the lamp. The input of light requires stronger light, which includes greater energy consumption, which increases production costs and the company increases energy consumption."
+      "contradiction": "Creates hot spots, bright light in a small area, especially near the center of the lamp. The input of light requires stronger light, which includes greater energy consumption, which increases production costs and the company increases energy consumption."
     },
     {
       "_id": "US11301595-20220412",
@@ -152,7 +152,25 @@
       "contradiction": "However, these independent gas monitoring systems, which use the gas sensor, are complex and cumbersome and can significantly increase the costs, working time and technical requirements of system usability. They generally require the use of calibration gases and certified regulators, which make the use of monitoring units difficult by increasing the risks for the safety of handling potentially high pressure gas cylinders."
     },
     {
+      "_id": "US10915141-20210209",
+      "contradiction": "However, the soft bandana can apply pressure to the head due to bandana buildup, which can cause discomfort and weakness over time. However, bandana is still dealing with problems such as disadvantages during tightening adjustment."
+    },
+    {
+      "_id": "US11402656-20220802",
+      "contradiction": "Among these, the type of lighting that can be steered requires a system of propagation of light sources with complex and poor 3D effects. The paradigm barrier type is less than 50% transmission, high costs, high volume, high weight and low commercialization."
+    },
+    {
+      "_id": "US11288996-20220329",
+      "contradiction": "Each time the switch is on or off, the power grows or drops and the voltage is lost when the voltage passes through the switch. If the DC-DC converter creates a constant drive voltage regardless of the screen load, unnecessary voltage loss may result, reducing the performance of a DC-DC converter and increasing heat production."
+    },
 
+    {
+      "_id": "US11342433-20220524",
+      "contradiction": "You can reduce the conversion of semi-metal museum field connectors to increase productivity and reduce costs from generation to generation, which can be operated through the best stone printing and powerful tools with improved technological control. Although resistance on the field panel can be quite tactical due to its direct connection to the metal source, resistance at the gate can be difficult, as the gate will be arranged between the field plate cord columns."
+    },
+    {
+     "_id": "US11317453-20220426",
+      "contradiction": "In contrast to traditional methods for sending and receiving data via LTE base stations for long-term development, the midrange uses an end-to-end approach with higher spectral efficiency and lower transmission latency. In this way, the undetected device is not aware of the use of other peripherals. You can stop device traffic using Transfer Mode 3."
     },
     {
       "_id": "US11401778-20220802",
@@ -165,21 +183,26 @@
     {
       "_id": "US11401712-20220802",
       "contradiction":"However, two walls produce any number of cold and hot bridges that weaken the thermal insulating effects of the building. Lacking heat resistance is insufficient, and lowering the cost could be done through composite use. However, there is a trade-off by using injected-resin-injected-glass technique, and its resistance is not evident. Transverse vibration is also an issue. The more the technology advances, the more it can be introduced in new buildings this cycle. Also, a generalized building point created a standard for building materials, which creates more construction"
-    },{
+    },
+    {
       "_id": "US11401699-20220802",
       "contradiction":" A working tool that is run, for example, by a hydraulically operated boom or arm can be difficult for an operator to set this tool at the required angle and be as perpendicular as possible to the surface, so as to avoid injury. If it is possible that the working tool sometimes faces a right angle to the surface however, the working tool will occasionally, since the operator is generally not in control of hydraulically operated tools. Dealing with this problem is present in the art but does not solve how to set the angle correctly the first time or how to automatically set the angle. This makes it difficult to put the tool in alignment correctly and stick it to the surface."
-    },{
+    },
+    {
       "_id": "US11401658-20220802",
       "contradiction":"Stacked warp yarns improve moulding, but change the permeability of the fabric."
-    },{
+    },
+    {
       "_id": "US11401629-20220802",
       "contradiction":"Graphene is a type of material with the lowest strength at room temperature. However, it is difficult to obtain graphene fibers at the nanoscale, which hinders the improvement of fiber properties."
-    },{
+    },
+    {
       "_id": "US11401583-20220802",
       "contradiction":"Aluminum is lighter and cheaper than copper, which makes it difficult to use in the cable field. The mechanical strength of the resulting composite material is not optimized for cable applications."
-    },{
+    },
+    {
       "_id": "US11353099-20220607",
-      "contradiciton":"Differential drive axles must meet the requirements of complex working conditions. However, the placement of the small gears in the gear train and the positioning of the rack must be accurate when mounted to avoid reassembly."
-    },{},{},{},{}
+      "contradiction":"Differential drive axles must meet the requirements of complex working conditions. However, the placement of the small gears in the gear train and the positioning of the rack must be accurate when mounted to avoid reassembly."
+    }
   ]
 }

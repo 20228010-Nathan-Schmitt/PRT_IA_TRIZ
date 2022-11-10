@@ -79,7 +79,7 @@ def classify(similarities,results):
 
 #dataset = load_training_dataset()
 dataset = load_local_database()
-ids = dataset["id"]
+#ids = dataset["id"]
 pairs, similarities, ids = makePairsToCompare2(dataset)
 
 

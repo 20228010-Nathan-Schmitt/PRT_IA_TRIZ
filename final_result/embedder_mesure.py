@@ -1,5 +1,5 @@
 from embeddings.embeddings import embeddings
-from compare_tools import makePairsToCompare, load_database, merge_array
+from compare_tools import makePairsToCompare, load_local_database, merge_array
 import numpy as np
 from numpy.lib import recfunctions as rfn
 import os.path
@@ -23,7 +23,7 @@ def compute_embedding_batch(force_start=None):
 
     print("\n===== STEP {} started =====".format(start))
 
-    database = load_database(start, batch_size)
+    database = load_local_database()
     ids = database["id"]
     sentences = database["sentence"]
     f_triz = database["F_TRIZ_PARAMS"]
@@ -48,7 +48,7 @@ def compute_embedding_batch(force_start=None):
         print(embedding)
 
         # on esaye d'ouvrir les embeddings deja calculés
-        filename = "save/embedding_" + embedding + ".npy"
+        filename = "save/embedding_mesure_" + embedding + ".npy"
         if os.path.isfile(filename):
             # si on les trouve, on les charge
             prev_sentences_emb = np.load(filename)
@@ -69,7 +69,7 @@ def compute_embedding_batch(force_start=None):
     print("===== DON'T STOP until save =====")
     # on enregistre les embeddings avec les nouveaux calculés
     for embedding in embeddings:
-        filename = "save/embedding_" + embedding + ".npy"
+        filename = "save/embedding_mesure_" + embedding + ".npy"
         np.save(filename, sentences_emb_dict[embedding])
     np.save(filename_ids, ids)
     np.savez_compressed(filename_ids_compr, ids=ids)
@@ -86,7 +86,7 @@ def compute_embedding_queue():
 
     filename_computed = "save/computed.txt"
 
-    database = load_database(0, None)
+    database = load_local_database()
     ids = database["id"]
     sentences = database["sentence"]
 
@@ -94,13 +94,13 @@ def compute_embedding_queue():
         print(embedding)
 
         # on esaye d'ouvrir les embeddings deja calculés
-        filename = "save/embedding_" + embedding + ".npy"
+        filename = "save/embedding_mesure_" + embedding + ".npy"
         sentences_emb = embeddings[embedding](sentences, 32)
 
         print("Number of embeddings computed for {} : {}\n".format(embedding, sentences_emb.shape[0]))
 
         # on enregistre les embeddings avec les nouveaux calculés
-        filename = "save/embedding_" + embedding + ".npy"
+        filename = "save/embedding_mesure_" + embedding + ".npy"
         np.save(filename, sentences_emb)
 
     filename_ids = "save/ids.npy"
