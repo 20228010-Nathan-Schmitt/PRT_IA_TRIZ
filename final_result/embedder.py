@@ -114,6 +114,6 @@ def compute_embedding_queue(embedding_to_compute):
 """for i in range(1000):
     compute_embedding_batch()"""
 
-embedding_to_compute=["custom32k_1","custom32k_2","custom", "mpnet_base", "deberta"]
+embedding_to_compute=["custom_mpnet"]
 
 compute_embedding_queue(embedding_to_compute)

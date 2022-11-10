@@ -8,6 +8,17 @@
   
   Packages à installer : numpy, scipy, scikit-learn, tensorflow, sentence_transformers, gensin, nltk, pyemd (https://www.lfd.uci.edu/~gohlke/pythonlibs/#pyemd)
 
+
+## Installation en L1.12
+
+Dans le cmd
+
+cd C:\Users\nschmitt01\Downloads\PortableGit\PRT_IA_TRIZ\final_result
+python.exe -m venv C:\Users\nschmitt01\Downloads\PortableGit\PRT_IA_TRIZ\final_result\myvenv
+"myvenv\Scripts\activate.bat"
+pip3 install torch --extra-index-url https://download.pytorch.org/whl/cu117
+pip3 install numpy sentence_transformers
+
 ## Useful tutorials
 - [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
 - [x] Semantic Textual Similarity (Towards Data Science) : https://towardsdatascience.com/semantic-textual-similarity-83b3ca4a840e
