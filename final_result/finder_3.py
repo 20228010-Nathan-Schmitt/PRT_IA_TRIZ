@@ -41,7 +41,7 @@ sentence_to_compare = "Batteries need to be bigger but it will be heavier"
 
 
 
-embedding_to_test=["custom32k_1","custom32k_2","custom", "mpnet_base"]
+embedding_to_test=["custom32k_1","custom32k_2","custom", "mpnet_base", "deberta"]
 
 for embedding in embedding_to_test:
     print(embedding)
