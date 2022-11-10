@@ -9,7 +9,7 @@ from modeles.cosine import cos_sim
 
 
 def embed(sentence, embedding):
-    sentences_emb = embeddings[embedding](sentence, once=True)
+    sentences_emb = embeddings[embedding](sentence, once=False)
     return sentences_emb
 
 
@@ -47,7 +47,7 @@ for sentence in response["hits"]:
     ))
 
 
-embedding_to_test = ["mpnet_base"]
+embedding_to_test = ["custom_mpnet","mpnet_base"]
 
 for embedding in embedding_to_test:
     print(embedding)
@@ -56,7 +56,6 @@ for embedding in embedding_to_test:
     for sentence in sentence_list:
         sentence_to_compare = sentence[1]
         sentence_id = sentence[0]
-        print(sentence_to_compare, '\n', sentence_id, '\n')
         sentence_emb = embed(sentence_to_compare, embedding)
         results = []
         pairs_emb = []
@@ -69,10 +68,8 @@ for embedding in embedding_to_test:
 
         sorted_results = np.flip(np.argsort(results))
         id_rank = np.where(id_ == sentence_id)[0][0]
-        print(id_rank)
         result_list.append(np.where(sorted_results == id_rank)[0][0])
 
-        print("\n\n")
     print(embedding, ' :')
     print(result_list)
     plt.hist(result_list)

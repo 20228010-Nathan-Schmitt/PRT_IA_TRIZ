@@ -103,7 +103,7 @@ def compute_embedding_queue():
         filename = "save/embedding_mesure_" + embedding + ".npy"
         np.save(filename, sentences_emb)
 
-    filename_ids = "save/ids.npy"
+    filename_ids = "save/ids_mesure.npy"
     np.save(filename_ids, ids)
 
     f = open(filename_computed, "w")
