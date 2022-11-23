@@ -23,7 +23,7 @@ def compute_embedding_batch(force_start=None):
 
     print("\n===== STEP {} started =====".format(start))
 
-    database = load_local_database()
+    database = load_local_database(filename="response_1000_mesure.json")
     ids = database["id"]
     sentences = database["sentence"]
     f_triz = database["F_TRIZ_PARAMS"]
@@ -81,16 +81,16 @@ def compute_embedding_batch(force_start=None):
     print("===== STEP {} saved =====".format(start))
 
 
-def compute_embedding_queue():
+def compute_embedding_queue(embedding_to_compute):
     print("===== START =====")
 
     filename_computed = "save/computed.txt"
 
-    database = load_local_database()
+    database = load_local_database(filename="response_1000_mesure.json")
     ids = database["id"]
     sentences = database["sentence"]
 
-    for embedding in embeddings:
+    for embedding in embedding_to_compute:
         print(embedding)
 
         # on esaye d'ouvrir les embeddings deja calculés
@@ -115,4 +115,6 @@ def compute_embedding_queue():
 
 """for i in range(1000):
     compute_embedding_batch()"""
-compute_embedding_queue()
+embedding_to_compute=["custom_mpnet_ultime"]
+
+compute_embedding_queue(embedding_to_compute)

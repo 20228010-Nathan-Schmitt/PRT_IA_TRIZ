@@ -21,8 +21,12 @@ embeddings = {
     #"custom32k_2":custom.CustomSentenceTransformer("my_model_sbert_trained_32k_2"),
     #"custom":custom.CustomSentenceTransformer("my_model_sbert"),
     #"custom_old":custom.CustomSentenceTransformer("my_model_sbert_old")"""
-    "custom_deberta" : custom.CustomSentenceTransformer("my_model_deberta_3"),
-    "custom_mpnet" : custom.CustomSentenceTransformer("my_model_mpnet")
+    "custom_deberta" : custom.CustomSentenceTransformer("my_models/my_model_deberta_3"),
+    "custom_mpnet" : custom.CustomSentenceTransformer("my_models/my_model_mpnet"),
+    "custom_mpnet_2" : custom.CustomSentenceTransformer("my_models/my_model_mpnet_2"),
+    "custom_mpnet_3" : custom.CustomSentenceTransformer("my_models/my_model_mpnet_3"),
+    "custom_mpnet_4" : custom.CustomSentenceTransformer("my_models/my_model_mpnet_4"),
+    "custom_mpnet_ultime" : custom.CustomSentenceTransformer("my_models/my_model_mpnet_200_ultime")
 }
 
 

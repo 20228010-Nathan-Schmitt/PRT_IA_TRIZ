@@ -18,7 +18,8 @@ def get_result(embedding, model, sentences, pairs,ids):
         sentences_emb = embeddings[embedding](sentences, once=True)
         np.save(filename, sentences_emb)
         
-    
+    print(sentences_emb[0][:6])
+    print(sentences_emb[1][:6])
     print("start compute")
     
     filename_result = "training/result2_"+embedding+"_"+model+".npy"
@@ -30,6 +31,7 @@ def get_result(embedding, model, sentences, pairs,ids):
         print("starting ", model)
         results = models[model](pairs_emb)
         np.save(filename_result, results)
+    print(results[1])
     return results
 
 
@@ -39,16 +41,18 @@ def classify(similarities,results):
     results = torch.from_numpy(results.T).float().to(device)
     similarities = torch.from_numpy(np.expand_dims(similarities, axis=1)).float().to(device)
 
-    n_input, n_hidden, n_out, batch_size, learning_rate, epochs = results.shape[1], 4, 1, 128, 0.01,10
+    n_input, n_hidden, n_hidden2, n_out, batch_size, learning_rate, epochs = results.shape[1], 4,4, 1, 128, 0.01,4
 
     dataset = TensorDataset(results, similarities)
-    kwargs = {'num_workers': 2, 'pin_memory': False} if device=='cuda' else {}
+    kwargs = {'num_workers': 0, 'pin_memory': False} if device=='cuda' else {}
     dataloader = DataLoader(dataset, batch_size=batch_size, shuffle=True, **kwargs)
 
     model = nn.Sequential(
         nn.Linear(n_input, n_hidden),
         nn.Sigmoid(),
-        nn.Linear(n_hidden, n_out),
+        nn.Linear(n_hidden, n_hidden2),
+        nn.Sigmoid(),
+        nn.Linear(n_hidden2, n_out),
         nn.Sigmoid())
     model.to(device)
 
@@ -56,10 +60,10 @@ def classify(similarities,results):
     optimizer = torch.optim.Adam(model.parameters(), lr=learning_rate)
 
     losses = []
-    """pred_y = model(results.to)
+    pred_y = model(results)
     loss = loss_function(pred_y, similarities)
     print("Loss : ",loss.item())
-    losses.append(loss.item())"""
+    losses.append(loss.item())
 
     for epoch in range(epochs):
         print("Epoch ",epoch)
@@ -74,20 +78,13 @@ def classify(similarities,results):
         loss = loss_function(pred_y, similarities)
         print("Loss : ",loss.item())
         losses.append(loss.item())
-    torch.save(model, "my_model")
-
-    """for i in range(len(model.layers)):
-        print(model.layers[i].get_weights())
+    torch.save(model, "my_models/my_model_mpnet_and_mpnet_custom")
+    print(results)
+    print(results.shape)
+    print(model(results))
+    print(similarities)
+    print(similarities[:10])
         
-    loss, accuracy = model.evaluate(
-        x= results.T,
-        y= similarities,
-        batch_size=batch_size
-    )
-        
-    model.save("my_model")
-    print("Loss: ", loss)
-    print("Accuracy: ", accuracy)"""
     import matplotlib.pyplot as plt
     plt.plot(losses)
     plt.ylabel('loss')
@@ -109,8 +106,10 @@ sentences = []
 for i in range(len(ids)):
     sentences.append(dataset["sentence"][i])
 
+embedding_to_test = ["custom_mpnet_ultime", "mpnet_base"]
+
 results = np.empty((0,len(pairs)))
-for embedding in embeddings:
+for embedding in embedding_to_test:
     print(embedding)    
     for model in models:
         print(" └",model)

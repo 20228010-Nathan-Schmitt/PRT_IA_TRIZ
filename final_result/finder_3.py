@@ -32,16 +32,16 @@ def load_database_embed(embedding):
     return sentences_emb,ids
 
 
-sentence_to_compare = "Batteries need to be bigger but it will be heavier"
+#sentence_to_compare = "Batteries need to be bigger but it will be heavier"
 #sentence_to_compare = "Big wheels are better for comfort but it will be harder to push."
 #sentence_to_compare = "A high temperature is needed for the chemical reaction but it can damage the environnement"
 #sentence_to_compare = "The dimensions of trench power MOSFETs metal-oxide-semiconductor field-effect transistor may be reduced for improving the electrical performance and decreasing the costs from generation to generation, which may be enabled both through better lithography systems and more powerful tools with an improved process control. While the field plate resistance may be rather uncritical due to its direct connection to the source metal, the gate resistance may provide difficulties as the gate trench is arranged between the columns of the field plate electrode."
 #sentence_to_compare = "Sharing server improve server usage and reduce cost but do not allow to share common data. "
+sentence_to_compare = "For CAD applications, it can be long and tedious to manually display the two or three dimensions of each component in a new design. It can also be difficult for designers who choose the right combination of components for the first time."
 
 
 
-
-embedding_to_test=["custom_mpnet", "mpnet_base","deberta"]
+embedding_to_test=["custom_mpnet_ultime", "mpnet_base"]
 
 for embedding in embedding_to_test:
     print(embedding)

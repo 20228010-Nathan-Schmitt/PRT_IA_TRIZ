@@ -47,7 +47,7 @@ for sentence in response["hits"]:
     ))
 
 
-embedding_to_test = ["custom_mpnet","mpnet_base"]
+embedding_to_test = ["custom_mpnet_ultime", "mpnet_base"]
 
 for embedding in embedding_to_test:
     print(embedding)
@@ -68,7 +68,21 @@ for embedding in embedding_to_test:
 
         sorted_results = np.flip(np.argsort(results))
         id_rank = np.where(id_ == sentence_id)[0][0]
-        result_list.append(np.where(sorted_results == id_rank)[0][0])
+        rank_orignal_sentence = np.where(sorted_results == id_rank)[0][0]
+        result_list.append(rank_orignal_sentence)
+        """
+        #to print more informations
+        if rank_orignal_sentence:
+            print("----> ",rank_orignal_sentence, results[sorted_results[rank_orignal_sentence]]," <----")
+
+        #print top 3
+        number_to_keep=3
+        ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
+        ind = ind[np.argsort(results[ind])]
+        for index in ind:
+            print(index, id_rank, results[index], id_[index], sentence_id)
+        """
+
 
     print(embedding, ' :')
     print(result_list)
