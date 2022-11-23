@@ -19,6 +19,35 @@ python.exe -m venv C:\Users\nschmitt01\Downloads\PortableGit\PRT_IA_TRIZ\final_r
 pip3 install torch --extra-index-url https://download.pytorch.org/whl/cu117
 pip3 install numpy sentence_transformers
 
+## Utilisation de `final_result`
+Tout fonctionne avec `pytorch` et `sentence_transformers`
+
+3 types de réseaux
+ 1. Embedding + pooling + distance
+ 2. Embedding + pooling + dense Layer + distance
+ 3. Embeddings + pooling + distances + classifier (plusieurs embeddings en parallèle)
+
+### Entrainement
+ 1. trainer.py embedding_name --type 1 --output output_name
+ 2. trainer.py embedding_name --type 2 --layers 256_40 --output output_name
+ 3. 3 étapes
+    1. Pour les embeddings : trainer.py embedding_name --type 1 --output output_name
+    2. Calcule de chaque [embedding](#Embedding)
+    3. Pour le classifier : trainer_classifier.py embedding1_name [embedding2_name] [embedding1_name] ...  --output output_name
+
+### Embedding
+embedder.py embedding1_name [embedding2_name] [embedding1_name]
+
+### Test de performance
+ 1. test_reformulation.py embedding_name --type 1 
+ 2. test_reformulation.py embedding_name --type 2
+ 3. test_reformulation.py model_name --type 3
+
+### Recherche dans la bdd
+ 1. finder.py embedding_name --type 1
+ 2. finder.py embedding_name --type 2
+ 3. finder.py model_name --type 3
+
 ## Useful tutorials
 - [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
 - [x] Semantic Textual Similarity (Towards Data Science) : https://towardsdatascience.com/semantic-textual-similarity-83b3ca4a840e
