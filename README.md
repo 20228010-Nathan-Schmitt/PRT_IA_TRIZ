@@ -28,25 +28,25 @@ Tout fonctionne avec `pytorch` et `sentence_transformers`
  3. Embeddings + pooling + distances + classifier (plusieurs embeddings en parallèle)
 
 ### Entrainement
- 1. trainer.py embedding_name --type 1 --output output_name
- 2. trainer.py embedding_name --type 2 --layers 256_40 --output output_name
+ 1. trainer.py --type 1 --loss loss_name --epochs 10 --output output_name embedding_name
+ 2. trainer.py --type 2 --loss loss_name --layers 256_40 --epochs 10 --output output_name embedding_name
  3. 3 étapes
-    1. Pour les embeddings : trainer.py embedding_name --type 1 --output output_name
+    1. Pour les embeddings : trainer.py --type 1 --loss loss_name --epochs 10 --output output_name embedding_name
     2. Calcule de chaque [embedding](#Embedding)
-    3. Pour le classifier : trainer_classifier.py embedding1_name [embedding2_name] [embedding1_name] ...  --output output_name
+    3. Pour le classifier : trainer_classifier.py --output output_name embedding1_name [embedding2_name] [embedding1_name] ... 
 
 ### Embedding
 embedder.py embedding1_name [embedding2_name] [embedding1_name]
 
 ### Test de performance
- 1. test_reformulation.py embedding_name --type 1 
- 2. test_reformulation.py embedding_name --type 2
- 3. test_reformulation.py model_name --type 3
+ 1. test_reformulation.py --type 1  embedding_name
+ 2. test_reformulation.py --type 2 embedding_name
+ 3. test_reformulation.py --type 3 model_name
 
 ### Recherche dans la bdd
- 1. finder.py embedding_name --type 1
- 2. finder.py embedding_name --type 2
- 3. finder.py model_name --type 3
+ 1. finder.py --type 1 embedding_name
+ 2. finder.py --type 2 embedding_name
+ 3. finder.py --type 3 model_name
 
 ## Useful tutorials
 - [x] Text Similarities (Medium) : https://medium.com/@adriensieg/text-similarities-da019229c894
