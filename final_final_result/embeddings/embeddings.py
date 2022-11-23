@@ -9,13 +9,14 @@ import embeddings.deberta as deberta
 
 
 embeddings = {
-    #"patentsberta": patentsberta.embeddings_patentsberta,
     "mpnet_base":mpnet_base.embeddings_mpnet_base,
     "deberta":deberta.embeddings_deberta,
     "multi_qa_mpnet_base":multi_qa_mpnet_base.embeddings_multi_qa_mpnet_base,
     "distilroberta":distilroberta.embeddings_distilroberta,
     "simCSE": simCSE.embeddings_simcse,
-    "roberta_base":roberta_base.embeddings_roberta_base
+    "patentsberta": patentsberta.embeddings_patentsberta,
+    "roberta_base":roberta_base.embeddings_roberta_base,
+    "mpnet_200_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_200_ultime")
 }
 
 

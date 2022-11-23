@@ -1,0 +1,332 @@
+{
+  "hits": [
+    {
+      "_id": "US11329581-20220510",
+      "contradiction": "However, connected chopper switching components are expensive, and the maximum output current of choppers used in high-performance motors available in the market is less than 1000 amps, which severely limits and affects product development. Low to high current shunt series wound DC motor. Therefore, to reduce the output current, torque and speed ripple of the motor, the carrier frequency must be increased."
+    },{
+      "_id": "US11329798-20220510",
+      "contradiction":"However, data owners or collectors face some problems in providing or using services with relevant information without such privacy concerns. However, in these prior arts, as the number of objects to be compared increases, the amount of data transfer and calculation between two entities in the intersection set operation increases."
+    },{
+      "_id": "US11330054-20220510",
+      "contradiction":"Unlike traditional data storage systems, they try to manage both the development and availability of online storage assets; however, these traditional data storage systems are usually too complex or too large compared to the number of data storage assets required by the system."
+    }, {
+      "_id": "US11330207-20220510",
+      "contradiction": "Delivering pixels with a high dynamic range is expensive, complex and has many limitations. However, such sensors are limited to photodiodes that are attached and require accurate transmission speeds and control."
+    },{
+      "_id": "US11270124-20220308",
+      "contradiction": "However, '2D NS performs a step-by-step operation on the video clip and does not investigate the spatial relationship between the frames. It may take some time to describe individual frames. Usually, human experience is required to mark an image."
+    },{
+      "_id": "US11267767-20220308",
+      "contradiction": "As the atomic composition of wood and other forms of biomass shows, there is usually a lack of hydrogen to convert all carbon into methane as carbon dioxide and carbon dioxide emissions increase, These factors must be taken into account in the overall economy of the process. In addition, the use of fossil methane to produce hydrogen excludes natural gas from purely renewable sources."
+    },{
+      "_id": "US11268208-20220308",
+      "contradiction": "The edges of the wafer pattern often have significant coating defects. However, the electric field label can protrude from the plate in the wing, reducing the movement of the electrolyte and reducing the distribution of coating uniformity near the edge of the wafer."
+    },{
+      "_id": "US11266152-20220308",
+      "contradiction":"Such ovens are often used to prepare commercial quantities of pizza because the cooking process requires minimal user intervention once the conditions in the cooking room and the speed of the conveyor belt have been set. In addition, belt furnaces tend to have a large footprint."
+    },{
+      "_id": "US11266247-20220308",
+      "contradiction": "However, the handrails are too large to be ideal for packaging and/or shipping when the handrails and armrest supports are pre-assembled at the end of manufacture and delivered to customer or consumer sales. When the components at the end of manufacture are not well designed, structural strength and/or handrails can be reduced, while handrails are mounted on the customer side."
+    },{
+      "_id": "US11270786-20220308",
+      "contradiction": "High temperatures can cause a variety of heat-related diseases, such as heat emissions and warm temperatures, while very cold temperatures can cause diseases such as hypothermia. Low temperatures can cause muscle density, resulting in unnecessary muscle tension."
+    },
+    
+    {
+      "_id": "US11299935-20220412",
+      "contradiction": "Developing ocean drilling equipment requires more efficient and reliable drilling operations. However, due to the design of the induction motor and the shape of the speed reduction mechanism, existing drilling tools have flaws such as complex design, Low efficiency, low reliability and easy wear of speed reduction mechanism and are not suitable for ocean diving machines."
+    },{
+      "_id": "US11302047-20220412",
+      "contradiction": "One of the disadvantages of the above process is that a storyboard can contain dozens of images on a script page, and the generation and update of each image typically requires a lot of manual effort, tens of if not hundreds of minutes. As there is only a limited number of storyboard artists, you will not normally be able to increase the number of people assigned to the storyboard for a specific media title in order to speed up production."
+    },{
+      "_id": "US11302445-20220412",
+      "contradiction": "Differences between patients may require different doses of medication. Slow feedback often causes diagnostic tags to wriggle around the desired value, while most of the time is outside the desired range of the cursor, which may result in poor processing."
+    },{
+      "_id": "US11302754-20220412",
+      "contradiction": "In addition, the sensor electrodes of the touch sensitive display panel in the battery are placed inside or on the package layer, reducing the likelihood of touch electrode damage from scratches. The low-strength transition part can block the light-emitting area of the device’s OLED layer, affecting the brightness of the touch panel unit type."
+    },{
+      "_id": "US11303152-20220412",
+      "contradiction": "However, this method may be impractical, and it requires that the user physically insert or engage in electrical physical contact. However, small signals usually have a low signal/noise ratio, so the accuracy of the measurement is reduced."
+    },{
+      "_id": "US11303166-20220412",
+      "contradiction": "However, because the nucleus includes parts of the tooth on both ends, if the shape or size of the nucleus is to be changed, production formats and/or corresponding sperm must also be changed, resulting in a significant increase in costs. However, because the nucleus includes parts of the tooth on both ends, if the shape or size of the nucleus is to be changed, production formats and/or corresponding sperm must also be changed, resulting in a significant increase in costs."
+    },{
+      "_id": "US11303366-20220412",
+      "contradiction": "When testing and operating a radio system, it is often required to identify and limit the sources of interference in the radio system. This pin arises due to infertility in the form of multiple signal modulation in the negative components of the system."
+    },{
+      "_id": "US11303404-20220412",
+      "contradiction": "These systems share the resources, time, frequency and power of the system. They can communicate with multiple users. In traditional signalling and reference systems that support short communication intervals, significant overheads can be introduced by reducing the amount of data that can be transmitted via the radio channel."
+    },{
+      "_id": "US11303663-20220412",
+      "contradiction": "However, all this convenience is associated with a cost that can expose the vehicle user to a high risk of security and/or data theft. This leads to the risk of the next tenant storing information in the information system and, worse, allows the hacker to put his hand on it."
+    },{
+      "_id": "US11301129-20220412",
+      "contradiction": "However, manipulating UI objects is cumbersome and not effective. It is also inefficient to continuously display metadata associated with UI content modules, which can draw attention from users and reduce user efficiency when using the device."
+    },
+
+    {
+      "_id": "US11299819-20220412",
+      "contradiction": "However, it is not suitable for volatile fumes, as they are fully equipped and uncontrolled in the environment and create oxidation that is an oxidation that can be combined with crystal. However, the cutting should be done manually on these systems whenever tightening is performed."
+    },{
+      "_id": "US11301282-20220412",
+      "contradiction": "In addition, because VMM computers have the highest priority on the system, if a vulnerability or error occurs on a VMM computer or VMM, the entire physical host, such as a denial-of-service attack, VM escape, or information disclosure, poses a serious security threat. However, since insulation between virtual machine chains is applied through hardware functionality, relatively large limits are used."
+    },{
+      "_id": "US11300545-20220412",
+      "contradiction": "In particular, due to plant effects, it is difficult to reliably detect small cracks during visual detection. A large number of desired measuring points allows longer test times."
+    },{
+      "_id": "US11297764-20220412",
+      "contradiction": "Recently, many people have been from local mowers or robots, but they do not adopt in dealing with harsh and difficult environments, which are usually strong and difficult, and are often characterized by cutting and shrinking in the country. These well-known problems with devices are the difficulty of mechanical positioning and managing electronic devices."
+    },{
+      "_id": "US11297952-20220412",
+      "contradiction": "The design of the current chair often feels discomfort, as a person sits and places the injured limb in an uncomfortable position, reducing blood circulation in the limb. Therefore, the chair should be placed in such a way that the injured part is comfortably seated. It also ensures that the coach or trainer is comfortable during the treatment of injuries."
+    },{
+      "_id": "US11298021-20220412",
+      "contradiction": "This disease can be harmful to patients, especially in surgical environments where distraction of the guard's attention can be fatal. It also includes restoring and monitoring environments where recovery time and costs are increasing due to distraction or disability. However, as medical technology evolves, these multi-monitor devices often require specific hardware and dimensional configurations that can limit the number of integrated monitors."
+    },{
+      "_id": "US11298822-20220412",
+      "contradiction": "However, as the fuel reduction mechanism is very hard among other things, it vibrates easily when accelerating and slows down abruptly. Therefore, since acceleration and acceleration control is not optimized for actual operation, the operating time is longer when the margins are too wide."
+    },{
+      "_id": "US11302476-20220412",
+      "contradiction": "Condenser components include small size, large capacity, easy installation and more multi-layer ceramic condensers MLCCs. However, external electrodes resulting from the immersion method may be uneven thickness, external electrodes may be too thin at the angles of the fuselage, and external electrodes may have unnecessary thickness elsewhere."
+    }, {
+      "_id": "US11303134-20220412",
+      "contradiction": "However, the use of small Ohmic resistors to form a potential fission circle often causes heavy losses in resistances and thus reduces the age and reliability of the system. But sometimes more energy is generated than the house really needs."
+    },{
+      "_id": "US11303532-20220412",
+      "contradiction": "CDN convergence technology is a technology that provides network services through another CDN system. This means that incoming requests are switched to another CDN, which not only reduces the response time of users visiting your site, but also significantly reduces the cost of building their own nodes. Traditional methods of detecting service quality are manual traffic creation and require time and effort. Traffic and monotonous data are reduced and detection accuracy cannot be guaranteed."
+    },
+
+    {
+      "_id": "US11303861-20220412",
+      "contradiction": "The system calibrates with a valid combination of primary colors and produces accurate images. However, depending on the desired color range (i.e. the established range recorded in 2020), the color range of the result may be significantly limited."
+    },{
+      "_id": "US11304060-20220412",
+      "contradiction": "Using this technology, the network can be divided into logically separate sections of the network, each of which can serve a service in a particular scenario, greatly increasing the flexibility of the network. This reduces the user experience."
+    },{
+      "_id": "US11297775-20220412",
+      "contradiction": "Creates hot spots, bright light in a small area, especially near the center of the lamp. The input of light requires stronger light, which includes greater energy consumption, which increases production costs and the company increases energy consumption."
+    },{
+      "_id": "US11301595-20220412",
+      "contradiction": "For CAD applications, it can be long and tedious to manually display the two or three dimensions of each component in a new design. It can also be difficult for designers who choose the right combination of components for the first time."
+    },{
+      "_id": "US11297950-20220412",
+      "contradiction": "For example, when sending goods it is desirable to minimize the total size. However, the length of the bar on a conventional spreader for suspended chairs requires large and heavy packing."
+    },{
+      "_id": "US11298094-20220412",
+      "contradiction": "In addition, the remote control is a high-performance device because it takes time to perform operations such as image processing. Therefore, when using multiple portable information terminals, the number of console units increases with the number of portable information terminals, which reduces portability."
+    },{
+      "_id": "US11298481-20220412",
+      "contradiction": "However, these independent gas monitoring systems, which use the gas sensor, are complex and cumbersome and can significantly increase the costs, working time and technical requirements of system usability. They generally require the use of calibration gases and certified regulators, which make the use of monitoring units difficult by increasing the risks for the safety of handling potentially high pressure gas cylinders."
+    },{
+      "_id": "US11401778-20220802",
+      "contradiction": "Although this will be a less expensive system than TSE, it is still relatively expensive and increases operational complexity. In some situations, you may need to check the pressure gauges. "
+    },{
+      "_id": "US11401744-20220802",
+      "contradiction": "On the other hand, these hinges have serious drawbacks. Their complex structure makes them hard to make and to repair. Inability to replace oil means the hinge will lose its capacity over time, and using a screw type hinge that did not have a specially designed oil reservoir can potentially bypass the demands of the oil system. Furthermore, accurately measuring and replacing the capacity of the oleohydraulic fluid means D1 and D2 may have to be removed from the hinge."
+    },{
+      "_id": "US11401712-20220802",
+      "contradiction": "However, two walls produce any number of cold and hot bridges that weaken the thermal insulating effects of the building. Lacking heat resistance is insufficient, and lowering the cost could be done through composite use. However, there is a trade-off by using injected-resin-injected-glass technique, and its resistance is not evident. Transverse vibration is also an issue. The more the technology advances, the more it can be introduced in new buildings this cycle. Also, a generalized building point created a standard for building materials, which creates more construction"
+    },
+    
+    {
+      "_id": "US11401699-20220802",
+      "contradiction": " A working tool that is run, for example, by a hydraulically operated boom or arm can be difficult for an operator to set this tool at the required angle and be as perpendicular as possible to the surface, so as to avoid injury. If it is possible that the working tool sometimes faces a right angle to the surface however, the working tool will occasionally, since the operator is generally not in control of hydraulically operated tools. Dealing with this problem is present in the art but does not solve how to set the angle correctly the first time or how to automatically set the angle. This makes it difficult to put the tool in alignment correctly and stick it to the surface."
+    },{
+      "_id": "US11401658-20220802",
+      "contradiction": "Stacked warp yarns improve moulding, but change the permeability of the fabric."
+    },{
+      "_id": "US11401629-20220802",
+      "contradiction": "Graphene is a type of material with the lowest strength at room temperature. However, it is difficult to obtain graphene fibers at the nanoscale, which hinders the improvement of fiber properties."
+    },{
+      "_id": "US11401583-20220802",
+      "contradiction": "Aluminum is lighter and cheaper than copper, which makes it difficult to use in the cable field. The mechanical strength of the resulting composite material is not optimized for cable applications."
+    },{
+      "_id": "US11353099-20220607",
+      "contradiction": "Differential drive axles must meet the requirements of complex working conditions. However, the placement of the small gears in the gear train and the positioning of the rack must be accurate when mounted to avoid reassembly."
+    },{
+      "_id": "US11320121-20220503",
+      "contradiction": "Vehicle lighting systems require more electrical connections for new operations and provide more secure and improved performance. However, these harnesses are released and the final deployment of these packages is unclear after the lamp module is connected, as the lamp installation is manually performed with reduced visibility and easy access."
+    },{
+      "_id": "US11320446-20220503",
+      "contradiction": "Many applications have the desire to automatically track one or more Misbys for several years. The development of autonomous, compact and energy-efficient public surveillance systems is a constant challenge."
+    },{
+      "_id": "US11320758-20220503",
+      "contradiction": "However, as with JP 2012-203870 a, tandem machines can cause problems that cannot occur with the same imaging unit. However, this increases the size and cost of the entire system."
+    },{
+      "_id": "US11323360-20220503",
+      "contradiction": "Links may fail for any number of reasons, such as physical infrastructure, pipe connections, or router failure, to connect to the channel. However, updating the topology that responds to each section can cause 'enormous' as a result of a section that contains incomplete information about the connection status for different links. If this process may require a router topology update to specify one or more links that are not available only for another section that contains link status information indicating that the link exists."
+    },{
+      "_id": "US11336362-20220517",
+      "contradiction": "For example, a beam of RF signals transmitted in a traditional system can inherently have many directions and have a limited range of transmission or coverage. In these cases, it is very difficult and technical to support these end-user devices to deliver data at many gigabit speeds."
+    },
+    
+    {
+      "_id": "US11336470-20220517",
+      "contradiction": "Many improved vehicle safety systems, such as telecommunications and information systems, require faster transmission speeds and system scalability. However, applying most networks to the vehicle network can be expensive."
+    },{
+      "_id": "US11331472-20220517",
+      "contradiction": "In particular, conductive clothing makes contact weakly or intermittently on the body or parts of the body, and this contact can lead to painful sensations and, accordingly, cause inconvenience. Also, these methods do not explain how parts are processed or processed, such as hands and joints in case of overhydration."
+    },{
+      "_id": "US11331639-20220517", 
+      "contradiction": "For example, fragrant household and household cleaners containing a high level of aggressive surfactants are very difficult for the stability of such a system. However, the hydrogel beads listed in these documents show that they are less resistant in complex environments."
+    },{
+      "_id": "US11331724-20220517",
+      "contradiction": "However, the quality of metal powders in the Chinese market is currently low, and there is a big gap with foreign technology level. Powders on the market cannot meet the needs of added technologies, seriously limiting the development of added technologies in our country."
+    },{
+      "_id": "US11333386-20220517",
+      "contradiction": "However, in order to get the value of a warm and warm feeling, you need to install an additional cold, hot feel detector, which increases the cost of air conditioning. However, external temperatures and internal environmental parameters should not be considered (such as internal humidity versus internal temperature or internal temperature impact compared to target temperature). Internal temperature control accuracy may not be accurate, and the temperature rise rate may not meet user needs. Guests can therefore enjoy maximum comfort when using the air-conditioning."
+    },{
+      "_id": "US11332395-20220517",
+      "contradiction": "Along with dirt, stones and debris, the costume system accumulates a significant amount of sugar, from remodeling to water. This improves viscosity when combined with a low temperature of 3-5 C. Creamy water creates an environment in which the liquid can ventilate and cause problems."
+    },{
+      "_id": "US11332578-20220517",
+      "contradiction": "Polyemides can usually be mixed from aromatic and aromatic drugs, and polycystic molecules make it difficult for grief, comfort and strong chemical lubrication. Excellent heat resistance, chemical resistance, mechanical properties and electrical properties. However, water absorption rates are high and low-dimensional stability, even when used as thin membranes."
+    },{
+      "_id": "US11333462-20220517",
+      "contradiction": "But the bar is fixed to overcome Lorentz’s power, and the shield can accelerate. Rail design is inefficient with means to move bullets through the barrel, creating a large amount of friction."
+    },{
+      "_id": "US11332883-20220517",
+      "contradiction": "Without the costs associated with such high-tech celluloid, cellulose compositions are required with preferred features of Cellulose-alpha compositions. The processing required to create a high alpha pulse significantly increases the cost of fiber and textiles."
+    },{
+      "_id": "US11333107-20220517",
+      "contradiction": "This solves a number of quality issues associated with the high pressure HP EGR system. This force flows parallel to the surface of the component, which can damage surface changes and cause bullets, cracks, etc."
+    },
+    
+    {
+      "_id": "US11335030-20220517",
+      "contradiction": "The development of vehicle technology facilitates long-distance movement and makes life easier. However, if two cameras are used, there may be areas that cannot be captured using the camera, there may be blind spots that cannot be captured by the camera, and information about the body may not be fully available."
+    },{
+      "_id": "US11335205-20220517",
+      "contradiction": "However, this selection has generally not been improved to reduce the overall operating costs of the aircraft. However, these solutions only take into account the braking force required and, depending on the runway excursion chosen, do not provide an ideal runway excursion or a reduction in the overall operating cost of the aircraft."
+    },{
+      "_id": "US11335455-20220517",
+      "contradiction": "Because the annotation is usually done manually, it takes a long time to generate a large amount of training data. That is, different processes, such as medical picture classification, appointment to duty, the designation of the annotation zone, etc., are performed manually by the manager, leading to a significant amount of time and manpower to work with annotations."
+    },{
+      "_id": "US11335531-20220517",
+      "contradiction": "Changing the intense angles of structures produced on the beam requires significant changes in the hardware configuration of the Lion light element. But gray lithography is a complex process, time consuming and quite expensive for every device that breaks down through the process."
+    },{
+      "_id": "US11335924-20220517",
+      "contradiction": "Some fuel cells, such as CFCs, can operate in large power systems that supply electricity to meet industry and municipal needs. As a result, the hose may be made of more insulation, which may require more expensive materials or additional heating components."
+    },{
+      "_id": "US11336118-20220517",
+      "contradiction": "The quality factor is used in wireless chargers to determine whether a UFO is unfriendly, in other words, there is a metal object in the charging area because the charger can heat the metal causing the UFO damage. Although this method is easy to implement on low-power charging systems using an LC series of resonance circuits, it cannot be easily implemented in charging systems using a more complex ring circuit."
+    },{
+      "_id": "US11336229-20220517",
+      "contradiction": "An indicative approach to extending the adjustment range is to use two independent RF circuits, separate life circuits and a high-frequency multiplier. This increases energy consumption and floor noise, which may require large death areas. Standard radio frequency schemes with a wide tuning range are subject to increased noise and excessive noise, especially when implemented as radio frequency integrated circuits in semiconductor parcels."
+    },{
+      "_id": "US11336332-20220517",
+      "contradiction": "Specifically, in addition to the large cost and quantity of handle units, power cables are significant mechanical integration restrictions during the production of vehicles. However, the number of such devices in the electronic door handle module is inconsistent with their downsizing and low complexity and cost."
+    },{
+      "_id": "US11336593-20220517",
+      "contradiction": "However, because the length of data that is sent from the top block and received by the data link layer may vary, the performance of the data link is inferred/collected and transmitted data over a different length of time. However, due to reasons such as time closure or chip area, the amount of data received in the clock cycle and the workers are limited."
+    },{
+      "_id": "US11336731-20220517",
+      "contradiction": "However, additional devices to identify devices of interest to the user cause increased costs. In this case, the user may not be provided with many interesting devices to perform a particular operation."
+    },
+    
+    {
+      "_id": "US11333267-20220517",
+      "contradiction": "Unintended movement of the locking/unlocking mechanism is more dangerous if the valve can be opened to release the gas before moving the control. However, the working environment in which valves are available can be affected."
+    },{
+      "_id": "US11333496-20220517",
+      "contradiction": "However, in many cases a clear view is not available. Such angle detectors require high precision and must be safely balanced when installed, and are not suitable for frequently changing installation locations."
+    },{
+      "_id": "US11333530-20220517",
+      "contradiction": "Sensors are known to be used in different types of devices to measure and monitor system features in different applications. In addition to multi-angle sensor systems, separate sensor errors can be installed and distributed on the system, which negatively affects overall accuracy and performance of the system."
+    },{
+      "_id": "US11333694-20220517",
+      "contradiction": "However, there are problems that lead to an increase in chip size and cost. However, it is not possible to identify the stage at which the error occurred, but you can verify that the error occurred."
+    },{
+      "_id": "US11334032-20220517",
+      "contradiction": "In some cases, the components must be exposed to the environment in order to operate effectively. However, if you sign the device, it may be exposed to the surrounding environment and prevent functional components from functioning correctly."
+    },{
+      "_id": "US11334390-20220517",
+      "contradiction": "As assessed through one of the existing technical skills, HCl cannot be sure that HCl's workload performance requirements limit its use if it is able to provide full workload. These storage performance changes can cause problems due to the standard performance of unsafe media. Obtain workload from storage requirements provided by dedicated servers/system devices. Instead of the workload carried out/delivered through the HCl system, HCl systems also implement a perishable computing structure. Additional workloads can be provided because HCl does not guarantee that workload storage meets the requirements of workload performance."
+    },{
+      "_id": "US11334551-20220517",
+      "contradiction": "However, in actual storage operations, data expands significantly and the duration of recovery is long. Second, the specific text is stored in a sequence, but the specific text stored in a sequence has insufficient pressure ratios, leading to too many redundant fields and low latency efficiency."
+    },{
+      "_id": "US11330877-20220517",
+      "contradiction": "In many applications, there is a constant relationship between the weight of a product and its strength. However, these materials can add significant weight."
+    },{
+      "_id": "US11331200-20220517",
+      "contradiction": "There are various diseases and injuries that limit the range of movement of the oven or interfere with important elements of the venous system. However, injury, gradual drop, disease, etc. because of this, the interference area between adjacent backbone is reduced because the breakage, fragmentation and/or violation of these disks has lost at least part of the disk support functions."
+    },{
+      "_id": "US11355246-20220607",
+      "contradiction": "Patients may be associated with different measurable factors in different situations, which may be directly or indirectly related to the risk of developing or causing the condition. However, current solutions using this trained forecasting model do not take into account how new or changing risk factor values can lead to changes in forecasting risks."
+    },
+    
+    {
+      "_id": "US11299569-20220412",
+      "contradiction": "This printing technology does not require complex patterns and processes compared to traditional styling techniques. The device is small, the program is controlled by a computer, the process is simple. As a result, it attracts attention and is gradually used in biological fields. In the medical, architectural, and aerospace sectors, we can achieve small, personalized and complex structures, especially with hollow components. However, these thermoplastics have low modeling speed, low productivity, It is prone to chemical reactions such as oxidative decomposition, harmful toxic gases are harmful to the environment and human body, and the heat resistance and rigidity of printed products are inferior." 
+    },
+    {
+      "_id": "US11318712-20220503",
+      "contradiction": "In this context, thickness and increased scarring negatively affect the ridiculous properties of unwoven fabrics. In addition to high resistance to high stress on uninterwoven or uninterwoven surfaces, it is often desirable to maximize the blur of uninterwoven fabrics."
+    },
+    {
+      "_id": "US11323258-20220503",
+      "contradiction": "For example, if all networks used to deliver mobile minutes are integrated into a single global network, this could facilitate the migration process. However, combining registration networks can cause new problems."
+    },
+    {
+      "_id": "US11331322-20220517",
+      "contradiction": "In the event of the tear quality, failure to normalize tear materials containing a small amount of oil or protein in their tears may damage the tear membrane and cause drying even if tears are torn on the surface of the eyes. Reportedly, there was no effect on dry eye care, while patent literature increased in 3."
+    },
+    {
+      "_id": "US11332577-20220517",
+      "contradiction": "Phenolformaldehyde transitions provide the right assets for the final product, but more patience and environmental considerations will drive the development of alternative transitions. However, this balance is relatively expensive compared to the industry of phenolic formaldehyde, is derived primarily from oil-based resources, and has a lower reaction speed than the producer of compolphenolformaldehyde, which requires a long or higher temperature."
+    },
+    {
+      "_id": "US11356874-20220607",
+      "contradiction": "Resource distribution networks (such as electricity, gas or water distribution networks) can use smart meters to collect and collect data on resource consumption. However, the existing diagnostic tools are defective."
+    },
+    {
+      "_id": "US11266272-20220308",
+      "contradiction": "However, most of the available mechanical solutions are easily in contact with blends of material processed in liquids, food matrices and other food processing rooms. As a result, food and water can get stuck in this mechanical locking mechanism, which improves locking and makes cleaning difficult."
+    },
+    {
+      "_id": "US11404078-20220802",
+      "contradiction": "Any difference between nominal values, for example, the virtual and actual length of these elements and the central line, makes data tracks misleading when replacing the tape, reducing margins on this tape drive. For example, if the connectors are damaged by corrosion, their width may seem low and/or the central line moves."
+    },
+    {
+      "_id": "US11403590-20220802",
+      "contradiction": "The availability of modern e-mail can be particularly difficult in populated urban areas. It has high supply requirements, high labor costs, fixed supply times, and complex transportation systems. Because the road conditions are changing rapidly. However, the usual rear-end system is not optimized to include certain features and conditions of tasks in the delivery of parcels and collection of spoon solutions."
+    },
+    {
+      "_id": "US11403578-20220802",
+      "contradiction": "While the chaos is predictable, the results are often alarming. However, access to information needed to make informed decisions or to chose the most effective actions can be more complex, difficult and time-consuming."
+    },
+    
+    {
+      "_id": "US11301084-20220412",
+      "contradiction": "The benefit of reciprocal capacity recognition technology is that there are multiple connections with a relatively high level of accuracy, while the downside is that time consumption is longer. However, energy consumption and response speed are important factors for touch screen products."
+    },{
+      "_id": "US11271717-20220308",
+      "contradiction": "However, these systems can make multiple chains or forks, and there is no objective choice between them. The slow speed adds complexity to many critical applications, especially smart contract applications."
+    },{
+      "_id": "US11302042-20220412",
+      "contradiction": "Hardening occurs, in particular, with computed tomography with multicolored x-rays. The reason is that the lower energy portion of the X-ray spectrum moves the specimen more than the higher energy portion, resulting in more powerful innovations. However, a major disadvantage of this method is that the empirical progress of the unflicking correction polynomial depends on the selection set."
+    },{
+      "_id": "US11401513-20220802",
+      "contradiction": "Inadequate regulation of this process (usually inadequate activation) may be part or developed of a variety of diseases with inadequate inflammatory and immune responses, including acute and chronic inflammatory diseases and other diseases with inadequate immune responses."
+    },{
+      "_id": "US11351596-20220607",
+      "contradiction": "One of the reasons for degradation in productivity and disrupted the system is the invasion of animals and plants into a photovoltaic system. Some of the existing metal copy methods include a wide surface contact and friction between the tool and materials, making it inappropriate for manual engine work."
+    },{
+      "_id": "US11308827-20220419",
+      "contradiction": "Improving the user experience, increasing product competitiveness, and adopting large screens has become a trend. In addition, a curved part of the folding flexible imaging device is driven by a hinge. In a scoliate state to help display the screen during entertainment. It is part of a foldable display device in a flexible support array. Therefore, when the flexible folding screen is ignored, the effects of shaft damage on flexible display devices and the full fold feature are fatal."
+    },{
+      "_id": "US11335510-20220517",
+      "contradiction": "Due to the technological miniaturization of the group's products, the growing area of negative ingredients such as capacitors, catalysts and the need for smaller and thinner negative components has been reduced. However, small electrodes applied to thin condensers with very small thickness, such as compact and surface-mounted condensers, have poor adhesion between the bottom pole and the metal coating layer."
+    },{
+      "_id": "US11337143-20220517",
+      "contradiction": "For example, multiple multiplexing can cause increased system load. Repeat up/down therefore increases/decreases system load."
+    },{
+      "_id": "US11267558-20220308",
+      "contradiction": "These electric wires are integrated into the aircraft belt to contain 1, making them traditional and heavy. The filtering chip adds weight, complexity and cost to computer 3, which adds to the containment system."
+    },{
+      "_id": "US11399740-20220802",
+      "contradiction": "Despite this information, it is known that people are having trouble changing their lifestyle and avoiding long-term adverse effects on health. Despite commercial success, modern fitness practices and mobile games do not take into account the psychological factors associated with the process of changing the behavior of stable people."
+    }
+  ]
+}

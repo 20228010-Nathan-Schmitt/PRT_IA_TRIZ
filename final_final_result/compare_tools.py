@@ -1,12 +1,17 @@
-import requests
 import json
 import numpy as np
+import os
+import sys
 
 def load_local_database(filename="response_1000.json"):
     #import json file as dictionary
-    f=open(filename, "r", encoding="utf8")
-    response = json.load(f)
-    f.close()    
+    try:
+        f=open(filename, "r", encoding="utf8")
+        response = json.load(f)
+        f.close()    
+    except:
+        print("Can't load file ", filename)
+        sys.exit(2)
     
     #extract only id, sentences and triz parameters fromeach patent
     patents = []
@@ -47,3 +52,21 @@ def make_pairs_to_compare(dataset):
 
     return np.array(pairs), np.array(similarities_int),np.array(similarities_float).astype("f4"), ids
 
+def load_embed(base_name, embedding, filename_ids):
+    ids = []
+
+    if os.path.isfile(filename_ids):
+        ids = np.load(filename_ids)
+    else:
+        print("Id file not found")
+        0 / 0
+
+    filename = base_name + embedding + ".npy"
+    if os.path.isfile(filename):
+        current_embedding = np.load(filename)
+        database_sentences_emb = current_embedding.astype(float)
+        sentences_emb = database_sentences_emb
+    else:
+        print("Embedding not found : ", embedding)
+        0 / 0
+    return sentences_emb, ids

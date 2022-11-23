@@ -19,8 +19,7 @@ def parse_args_trainer(argv):
     arg_epochs = ""
     arg_output = ""
     arg_embedding_name = ""
-    arg_help = "{0} <embedding_name> -t <type (1/2)> [-l <layer1_layer2>] -o <output_name>".format(
-        argv[0])
+    arg_help = "{0} -t <type (1/2)> [-l <layer1_layer2>] -o <output_name> <embedding_name>".format(argv[0])
 
     try:
         opts, args = getopt.getopt(argv[1:], "ht:L:l:e:o:", ["help", "type=", "loss=", "layers=", "epochs=", "output="])
