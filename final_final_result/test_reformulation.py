@@ -63,6 +63,14 @@ def test(embedding_to_test, model_type):
         # chargement des embeddings
         database_emb, id_ = load_embed("save/embedding_mesure_", embedding, "save/ids_mesure.npy")
 
+        # afin de calculer le F1 score, on va enregistrer pour chaque embedding les vais positifs etc.
+        true_positive = 0
+        false_positive = 0
+        false_negative = 0
+        #on souhaite aussi calculer le score d'exact match en considérant successivement qu'exact signifie retrouver le brevet original dans les 5 premiers et en premier
+        EM_1 = 0
+        EM_5 = 0
+
         for sentence in test_sentences:
             sentence_id = sentence[0]
             sentence_to_compare = sentence[1]
@@ -85,8 +93,36 @@ def test(embedding_to_test, model_type):
             sorted_results = np.flip(np.argsort(results))
             id_rank = np.where(id_ == sentence_id)[0][0]
             rank_orignal_sentence = np.where(sorted_results == id_rank)[0][0]
+            if rank_orignal_sentence <= 4:
+                EM_5 += EM_5
+                if rank_orignal_sentence == 0:
+                    EM_1 += EM_1
             result_list.append(rank_orignal_sentence)
+
+            # pour le F1score, on choisit de considérer un résultat comme positif s'il a une similarité de plus de 70%
+            #pour chaque phrase on incrément le nombre de vrais/faux positifs et negatifs
+            p_or_n = sorted_results > 0.7
+            for i in range(p_or_n):
+                if i == id_rank:
+                    if p_or_n[i]:
+                        true_positive += true_positive
+                    else:
+                        false_negative += false_negative
+                elif p_or_n[i]:
+                    false_positive += false_positive
+
         embeddings[embedding]("remove", once=True)  # once=True remove the model from the GPU
+
+        #compute metrics
+        MRR = np.mean(np.reciprocal(result_list+1))
+
+        precision = true_positive/(true_positive+false_positive)
+        recall = true_positive/(true_positive+false_negative)
+        F1score = 2 * precision * recall /(precision + recall)
+
+        print(embedding + ":\n MRR = " + MRR + ":\n F1 score = " + F1score + ":\n exact match in 5 = " + EM_5 + ":\n exact match in 1 = " + EM_1)
+
+        #plot histogram
         plt.hist(result_list, bins=range(0, 1+np.amax(result_list)))
         plt.xlabel('Rank')
         plt.ylabel('Occurences')
