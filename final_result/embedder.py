@@ -113,6 +113,6 @@ def compute_embedding_queue(embedding_to_compute):
 
 """for i in range(1000):
     compute_embedding_batch()"""
-embedding_to_compute=["custom_mpnet"]
+embedding_to_compute=["roberta_base"]
 
 compute_embedding_queue(embedding_to_compute)

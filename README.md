@@ -19,7 +19,7 @@ python.exe -m venv C:\Users\nschmitt01\Downloads\PortableGit\PRT_IA_TRIZ\final_r
 pip3 install torch --extra-index-url https://download.pytorch.org/whl/cu117
 pip3 install numpy sentence_transformers
 
-## Utilisation de `final_result`
+## Utilisation de `final_final_result`
 Tout fonctionne avec `pytorch` et `sentence_transformers`
 
 3 types de réseaux
@@ -33,7 +33,7 @@ Tout fonctionne avec `pytorch` et `sentence_transformers`
  3. 3 étapes
     1. Pour les embeddings : trainer.py --type 1 --loss loss_name --epochs 10 --output output_name embedding_name
     2. Calcule de chaque [embedding](#Embedding)
-    3. Pour le classifier : trainer_classifier.py --output output_name embedding1_name [embedding2_name] [embedding1_name] ... 
+    3. Pour le classifier : trainer_type3.py --epochs 10 --layers 256_40_3 --output output_name embedding1_name [embedding2_name] [embedding1_name] ... 
 
 ### Embedding
 embedder.py embedding1_name [embedding2_name] [embedding1_name]

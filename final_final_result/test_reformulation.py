@@ -94,33 +94,35 @@ def test(embedding_to_test, model_type):
             id_rank = np.where(id_ == sentence_id)[0][0]
             rank_orignal_sentence = np.where(sorted_results == id_rank)[0][0]
             if rank_orignal_sentence <= 4:
-                EM_5 += EM_5
+                EM_5 += 1
                 if rank_orignal_sentence == 0:
-                    EM_1 += EM_1
+                    EM_1 += 1
             result_list.append(rank_orignal_sentence)
 
             # pour le F1score, on choisit de considérer un résultat comme positif s'il a une similarité de plus de 70%
             #pour chaque phrase on incrément le nombre de vrais/faux positifs et negatifs
-            p_or_n = sorted_results > 0.7
-            for i in range(p_or_n):
+            p_or_n = results > 0.7
+            for i in range(p_or_n.shape[0]):
                 if i == id_rank:
                     if p_or_n[i]:
-                        true_positive += true_positive
+                        true_positive += 1
                     else:
-                        false_negative += false_negative
+                        false_negative += 1
                 elif p_or_n[i]:
-                    false_positive += false_positive
+                    false_positive += 1
+                    #print(id_[i], id_[id_rank], results[i])
 
         embeddings[embedding]("remove", once=True)  # once=True remove the model from the GPU
 
+        print(true_positive,false_positive, false_negative)
         #compute metrics
-        MRR = np.mean(np.reciprocal(result_list+1))
+        MRR = np.mean(np.reciprocal(np.array(result_list)+1))
 
         precision = true_positive/(true_positive+false_positive)
         recall = true_positive/(true_positive+false_negative)
         F1score = 2 * precision * recall /(precision + recall)
 
-        print(embedding + ":\n MRR = " + MRR + ":\n F1 score = " + F1score + ":\n exact match in 5 = " + EM_5 + ":\n exact match in 1 = " + EM_1)
+        print(embedding + ":\n MRR = " + str(MRR) + ":\n F1 score = " + str(F1score) + ":\n exact match in 5 = " + str(EM_5) + ":\n exact match in 1 = " + str(EM_1))
 
         #plot histogram
         plt.hist(result_list, bins=range(0, 1+np.amax(result_list)))

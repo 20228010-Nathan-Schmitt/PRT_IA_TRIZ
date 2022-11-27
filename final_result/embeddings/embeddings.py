@@ -16,7 +16,7 @@ embeddings = {
     #"multi_qa_mpnet_base":multi_qa_mpnet_base.embeddings_multi_qa_mpnet_base,
     #"distilroberta":distilroberta.embeddings_distilroberta,
     #"simCSE": simCSE.embeddings_simcse,
-    #"roberta_base":roberta_base.embeddings_roberta_base,
+    "roberta_base":roberta_base.embeddings_roberta_base,
     #"custom32k_1":custom.CustomSentenceTransformer("my_model_sbert_trained_32k"),
     #"custom32k_2":custom.CustomSentenceTransformer("my_model_sbert_trained_32k_2"),
     #"custom":custom.CustomSentenceTransformer("my_model_sbert"),

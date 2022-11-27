@@ -16,7 +16,8 @@ embeddings = {
     "simCSE": simCSE.embeddings_simcse,
     "patentsberta": patentsberta.embeddings_patentsberta,
     "roberta_base":roberta_base.embeddings_roberta_base,
-    "mpnet_200_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_200_ultime")
+    "mpnet_200_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_200_ultime"),
+    "mpnet_000_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_0")
 }
 
 

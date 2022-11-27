@@ -100,14 +100,14 @@ def train(sentences, pairs, similarities_int,similarities_float, model_name,  ou
     random.shuffle(train_data)
     random.shuffle(test_data)
 
-    training_data_size = 8192
+    training_data_size = 8#192
     test_data_size = 8#192
 
     sentences1,sentences2,similarities_trunc = zip(*test_data[:test_data_size])
 
 
     batch_size = 4
-    epochs = 5
+    epochs = 1
 
     kwargs = {'num_workers': 0, 'pin_memory': False} if device == 'cuda' else {}
     dataloader = DataLoader(
@@ -138,17 +138,17 @@ ids = dataset["id"]
 pairs, similarities_int, similarities_float, ids = makePairsToCompare3(dataset)
 
 
-#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",200 )
+train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",000 )
 #train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",201 )
 ####train(dataset["sentence"], pairs, similarities_int,similarities_float, 'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",202 )
 #train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",203 )
 #train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",300 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",301 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",302 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",303 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",000)
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",1 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",2 )
-train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",3 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",301 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",302 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",303 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",000)
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",1 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",2 )
+#train(dataset["sentence"], pairs, similarities_int,similarities_float,'sentence-transformers/all-mpnet-base-v2', "./my_models/my_model_mpnet",3 )
 
 print("end", __name__)
