@@ -120,7 +120,7 @@ venv.bak/
 # mkdocs documentation
 /site
 
-# mypy
+# mypy 
 .mypy_cache/
 .dmypy.json
 dmypy.json
@@ -138,3 +138,6 @@ comparaison_technos/embeddings/bertForPatent*
 #models
 my_model*
 *.pyc
+
+save
+training
