@@ -14,14 +14,24 @@ def load_local_database(filename="response_1000.json"):
         sys.exit(2)
     
     #extract only id, sentences and triz parameters fromeach patent
+
     patents = []
-    for patent in response["hits"]["hits"]:
-        patents.append((
-            patent["_id"],
-            patent["fields"]["F_SENTS"][0] + " " +patent["fields"]["S_SENTS"][0], #contradiction
-            patent["fields"]["F_TRIZ_PARAMS"],
-            patent["fields"]["S_TRIZ_PARAMS"],
-        ))
+    if filename=="databases/all_database.json":
+        for patent in response:
+            patents.append((
+                patent["id"],
+                patent["contradiction"],
+                patent["F_TRIZ_PARAMS"],
+                patent["S_TRIZ_PARAMS"]
+            ))
+    else:
+        for patent in response["hits"]["hits"]:
+            patents.append((
+                patent["_id"],
+                patent["fields"]["F_SENTS"][0] + " " +patent["fields"]["S_SENTS"][0], #contradiction
+                patent["fields"]["F_TRIZ_PARAMS"],
+                patent["fields"]["S_TRIZ_PARAMS"],
+            ))
     return np.array(patents,dtype=[("id", "U32"),("sentence",np.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
 
 def make_pairs_to_compare(dataset):

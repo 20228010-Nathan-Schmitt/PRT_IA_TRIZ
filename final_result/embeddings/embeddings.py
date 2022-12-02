@@ -10,7 +10,7 @@ import embeddings.deberta as deberta
 
 
 embeddings = {
-    #"patentsberta": patentsberta.embeddings_patentsberta,
+    "patentsberta": patentsberta.embeddings_patentsberta,
     "mpnet_base":mpnet_base.embeddings_mpnet_base,
     "deberta":deberta.embeddings_deberta,
     #"multi_qa_mpnet_base":multi_qa_mpnet_base.embeddings_multi_qa_mpnet_base,

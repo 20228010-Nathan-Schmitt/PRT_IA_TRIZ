@@ -46,6 +46,40 @@ def load_test_sentence():
 
     return [(sentence["_id"], sentence["contradiction"]) for sentence in response["hits"]]
 
+def find_best_f1_and_threshold(scores, labels, high_score_more_similar: bool):
+        assert len(scores) == len(labels)
+
+        scores = np.asarray(scores)
+        labels = np.asarray(labels)
+
+        rows = list(zip(scores, labels))
+
+        rows = sorted(rows, key=lambda x: x[0], reverse=high_score_more_similar)
+
+        best_f1 = best_precision = best_recall = 0
+        threshold = 0
+        nextract = 0
+        ncorrect = 0
+        total_num_duplicates = sum(labels)
+
+        for i in range(len(rows)-1):
+            score, label = rows[i]
+            nextract += 1
+
+            if label == 1:
+                ncorrect += 1
+
+            if ncorrect > 0:
+                precision = ncorrect / nextract
+                recall = ncorrect / total_num_duplicates
+                f1 = 2 * precision * recall / (precision + recall)
+                if f1 > best_f1:
+                    best_f1 = f1
+                    best_precision = precision
+                    best_recall = recall
+                    threshold = (rows[i][0] + rows[i + 1][0]) / 2
+
+        return best_f1, best_precision, best_recall, threshold
 
 def test(embedding_to_test, model_type):
 
@@ -55,26 +89,26 @@ def test(embedding_to_test, model_type):
         sys.exit(2)
 
     test_sentences = load_test_sentence()
+    sentence_ids, sentences = zip(*test_sentences)
 
     for embedding in embedding_to_test:
         print(embedding)
         result_list = []
+        all_results = []
+        all_labels = []
 
         # chargement des embeddings
         database_emb, id_ = load_embed("save/embedding_mesure_", embedding, "save/ids_mesure.npy")
 
-        # afin de calculer le F1 score, on va enregistrer pour chaque embedding les vais positifs etc.
-        true_positive = 0
-        false_positive = 0
-        false_negative = 0
-        #on souhaite aussi calculer le score d'exact match en considérant successivement qu'exact signifie retrouver le brevet original dans les 5 premiers et en premier
+        #on souhaite calculer le score d'exact match en considérant successivement qu'exact signifie retrouver le brevet original dans les 5 premiers et en premier
         EM_1 = 0
         EM_5 = 0
 
-        for sentence in test_sentences:
-            sentence_id = sentence[0]
-            sentence_to_compare = sentence[1]
-            sentence_emb = embeddings[embedding](sentence_to_compare, once=False)
+        sentences_emb = embeddings[embedding](sentences, once=True)
+
+        for i in range(len(sentence_ids)):
+            sentence_id = sentence_ids[i]
+            sentence_emb = sentences_emb[i]
 
             # construct all the pairs to compare : current reformulation vs whole database
             pairs_emb = []
@@ -99,30 +133,27 @@ def test(embedding_to_test, model_type):
                     EM_1 += 1
             result_list.append(rank_orignal_sentence)
 
-            # pour le F1score, on choisit de considérer un résultat comme positif s'il a une similarité de plus de 70%
-            #pour chaque phrase on incrément le nombre de vrais/faux positifs et negatifs
-            p_or_n = results > 0.7
-            for i in range(p_or_n.shape[0]):
-                if i == id_rank:
-                    if p_or_n[i]:
-                        true_positive += 1
-                    else:
-                        false_negative += 1
-                elif p_or_n[i]:
-                    false_positive += 1
-                    #print(id_[i], id_[id_rank], results[i])
+            #on sauvegarde les similaritées calculées et theorique pour le calcul de f1            
+            all_results+=list(results)
+            all_labels+=[0 if j!=id_rank else 1 for j in range(results.shape[0])]
+        F1score, _, _, F1_threshold = find_best_f1_and_threshold(all_results, all_labels, True)
 
-        embeddings[embedding]("remove", once=True)  # once=True remove the model from the GPU
-
-        print(true_positive,false_positive, false_negative)
         #compute metrics
         MRR = np.mean(np.reciprocal(np.array(result_list)+1))
 
-        precision = true_positive/(true_positive+false_positive)
-        recall = true_positive/(true_positive+false_negative)
-        F1score = 2 * precision * recall /(precision + recall)
+        print(embedding + ":")
+        print("MRR =",MRR)
+        print("F1 score =",F1score ,"(",F1_threshold,")")
+        print("Exact match in 5 =",EM_5)
+        print("Exact match in 1 =",EM_1)
 
-        print(embedding + ":\n MRR = " + str(MRR) + ":\n F1 score = " + str(F1score) + ":\n exact match in 5 = " + str(EM_5) + ":\n exact match in 1 = " + str(EM_1))
+        f = open("test_results/metrics_"+embedding+".txt", "w")
+        f.write("MRR = "+str(MRR)+"\n")
+        f.write("F1 score = "+str(F1score) +" ("+str(F1_threshold)+")"+"\n")
+        f.write("Exact match in 5 = "+str(EM_5)+"\n")
+        f.write("Exact match in 1 = "+str(EM_1)+"\n")
+        f.close()
+
 
         #plot histogram
         plt.hist(result_list, bins=range(0, 1+np.amax(result_list)))

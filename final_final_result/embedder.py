@@ -65,7 +65,7 @@ if __name__ == "__main__":
         basename = "save/embedding_mesure_"
         id_basename = "save/ids_mesure"
     else:
-        sentences_file = "databases/response_10000.json"
+        sentences_file = "databases/all_database.json"
         basename = "save/embedding_"
         id_basename = "save/ids"
 

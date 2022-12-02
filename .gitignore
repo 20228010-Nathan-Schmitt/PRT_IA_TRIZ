@@ -137,3 +137,4 @@ comparaison_technos/embeddings/bertForPatent*
 
 #models
 my_model*
+*.pyc

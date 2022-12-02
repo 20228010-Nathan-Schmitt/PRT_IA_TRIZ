@@ -1,1 +1,6 @@
 save
+test_results
+
+all_database.json
+f_parameters_list.npy
+s_parameters_list.npy

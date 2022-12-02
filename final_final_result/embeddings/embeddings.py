@@ -17,7 +17,12 @@ embeddings = {
     "patentsberta": patentsberta.embeddings_patentsberta,
     "roberta_base":roberta_base.embeddings_roberta_base,
     "mpnet_200_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_200_ultime"),
-    "mpnet_000_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_0")
+    "mpnet_000_ultime": custom.CustomSentenceTransformer("my_models/my_model_mpnet_0"),
+    "patentsberta_410_V1": custom.CustomSentenceTransformer("my_models/my_model_PatentSBERTa_410_V1"),
+    "patentsberta_410_V0": custom.CustomSentenceTransformer("my_models/my_model_PatentSBERTa_410_V0"),
+    "patentsberta_410_V2": custom.CustomSentenceTransformer("my_models/my_model_PatentSBERTa_410_V2"),
+    "mpnet_410": custom.CustomSentenceTransformer("my_models/my_model_mpnet_410"),
+    "deberta_410": custom.CustomSentenceTransformer("my_models/my_model_deberta_410")
 }
 
 
