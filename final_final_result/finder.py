@@ -34,6 +34,48 @@ def parse_args_finder(argv):  # récupération des arguments dans l'appel de la 
 
     return arg_embedding_names, arg_sentence, arg_type
 
+triz_parameters = {
+    1:"Weight of Moving Object", 
+    2:"Weight of Stationary Object",
+    3:"Length of Moving Object",
+    4:"Length of Stationary Object",
+    5:"Area of Moving Object",
+    6:"Area of Stationary Object",
+    7:"Volume of Moving Object",
+    8:"Volume of Stationary Object",
+    9:"Speed",
+    10:"Force Torque",
+    11:"Tension Pressure",
+    12:"Shape",
+    13:"Stability of Object",
+    14:"Strength",
+    15:"Durability of Moving Object",
+    16:"Durability of Stationary Object",
+    17:"Temperature",
+    18:"Brightness",
+    19:"Energy Spent by Moving Object",
+    20:"Energy Spent by Stationary Object",
+    21:"Power",
+    22:"Waste of Energy",
+    23:"Waste of Substance",
+    24:"Loss of Information",
+    25:"Waste of Time",
+    26:"Amount of Substance",
+    27:"Reliability",
+    28:"Accuracy of Measurement",
+    29:"Accuracy of Manufacturing",
+    30:"Harmful Factors Acting on Object",
+    31:"Harmful Side Effects",
+    32:"Manufacturability",
+    33:"Convenience of Use",
+    34:"Reparability",
+    35:"Adaptability",
+    36:"Complexity of Device",
+    37:"Complexity of Control",
+    38:"Level of Automation",
+    39:"Productivity",
+}
+
 def interface():
     print("Bonjour.")
     validation = "False"
@@ -42,12 +84,16 @@ def interface():
 
         param = "1"
         param_list = []
+        print("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
+                      "\nIl doit y avoir au moins un parametre \n")
+        print("Voici la liste des parametres : \n")
+        for key in triz_parameters:
+            print(key, "-", triz_parameters[key])
+
+        param = input("entrez le nombre correspondant au premier parametre souhaité : ")
         while param != "":
-            print()
-            param = input("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
-                          "\nIl doit y avoir au moins un parametre \n"
-                          "appuyez sur entrée pour cesser d'ajouter des parametres : ")
-            if param != "": param_list.append(param)
+            param_list.append(triz_parameters[param])
+            param = input("faites entrée pour cesser d'ajouter des parametres. \nNouveau parametre : ")
 
         print()
         model_type = int(input("quel type de modèle souhaitez vous utiliser ? (1 ou 2)"))
@@ -238,53 +284,47 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
     print("\n\n")
 
 
+def interface():
+    print("Bonjour.")
+    validation = "False"
+    while validation != "":
+        sentence = input("Enoncez votre problème (contradiction) :")
+
+        param = "1"
+        param_list = []
+        print("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
+                      "\nIl doit y avoir au moins un parametre \n")
+        print("Voici la liste des parametres : \n")
+
+        param = input("entrez le nombre correspondant au premier parametre souhaité : ")
+        while param != "":
+            param_list.append(triz_parameters[param])
+            param = input("faites entrée pour cesser d'ajouter des parametres. \nNouveau parametre : ")
+
+        print()
+        model_type = int(input("quel type de modèle souhaitez vous utiliser ? (1 ou 2)"))
+        while model_type>2 or model_type<1:
+            model_type = int(input("entrez un chiffre valide : 1 ou 2"))
+
+        print()
+        if model_type == 1:
+            testModel = input('quel embedding souhaitez vous utiliser ? \n (mpnet_base, patentsberta)')
+            while testModel != "mpnet_base" and testModel != "patents berta":
+                testModel = input('donnez un nom valide (mpnet_base ou patentsberta)')
+        elif model_type == 2:
+            testModel = input("quel modèle souhaitez vous utiliser ?")
+
+        print("\nLa recherche va etre effectuée avec ces parametres : \n contradiction : ", sentence, "parametres : ",
+              param_list, "\n type de modèle : ", model_type, "\n modèle/embedding : ", testModel)
+        validation = input("\nAppuyez sur entrée pour valider ou d'autres caractères pour recommencer")
+        print()
+    return [testModel], sentence, model_type, param_list
 
 
 if __name__ == "__main__":
     stop=False
     while not stop:
 
-        triz_parameters = {
-            1:"Weight of Moving Object", 
-            2:"Weight of Stationary Object",
-            3:"Length of Moving Object",
-            4:"Length of Stationary Object",
-            5:"Area of Moving Object",
-            6:"Area of Stationary Object",
-            7:"Volume of Moving Object",
-            8:"Volume of Stationary Object",
-            9:"Speed",
-            10:"Force Torque",
-            11:"Tension Pressure",
-            12:"Shape",
-            13:"Stability of Object",
-            14:"Strength",
-            15:"Durability of Moving Object",
-            16:"Durability of Stationary Object",
-            17:"Temperature",
-            18:"Brightness",
-            19:"Energy Spent by Moving Object",
-            20:"Energy Spent by Stationary Object",
-            21:"Power",
-            22:"Waste of Energy",
-            23:"Waste of Substance",
-            24:"Loss of Information",
-            25:"Waste of Time",
-            26:"Amount of Substance",
-            27:"Reliability",
-            28:"Accuracy of Measurement",
-            29:"Accuracy of Manufacturing",
-            30:"Harmful Factors Acting on Object",
-            31:"Harmful Side Effects",
-            32:"Manufacturability",
-            33:"Convenience of Use",
-            34:"Reparability",
-            35:"Adaptability",
-            36:"Complexity of Device",
-            37:"Complexity of Control",
-            38:"Level of Automation",
-            39:"Productivity",
-        }
         model_to_test, sentence, model_type, param_list = interface()
 
         print("Embeddings qui vont être testés : ", "  ".join(model_to_test))
