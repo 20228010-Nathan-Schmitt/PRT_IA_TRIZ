@@ -7,6 +7,8 @@ import getopt
 from distances.cosine import cos_sim
 from embeddings.embeddings import embeddings
 
+import torch
+
 def parse_args_finder(argv): # récupération des arguments dans l'appel de la fonction
     arg_sentence=0
     arg_embedding_names=[]
@@ -152,11 +154,9 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
         pairs_emb = np.empty((end-start, 2, database_emb.shape[1]))
         pairs_emb[:,0] = sentence_emb
         pairs_emb[:,1] = database_emb[start:end]
-        print(pairs_emb.shape)
         pairs_emb = torch.from_numpy(pairs_emb).float().to(device)
 
         pairs_output = model(pairs_emb).detach().cpu().numpy()
-        print(pairs_output.shape)
         results = np.concatenate((results,cos_sim(pairs_output)))
         print("Batch",i,"done")
     """pairs_emb = []
@@ -168,17 +168,16 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
 
 
     results = np.array(results).T
-    print(results)
 
-    print(np.average(results))
-    print(np.min(results))
-    print(np.max(results))
+    print("Min in array", np.min(results))
+    print("Avg of array", np.average(results))
+    print("Max in array", np.max(results))
 
     number_to_keep = 10
     ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
     ind = ind[np.argsort(results[ind])]
-    for index in ind:
-        print(index, results[index], id_[index])
+    for i,index in enumerate(ind):
+        print(number_to_keep-i,index, results[index], id_[index], sep=" \t")
 
     print("\n\n")
 
