@@ -7,19 +7,23 @@ import getopt
 from distances.cosine import cos_sim
 from embeddings.embeddings import embeddings
 
+import torch
 
-def parse_args_finder(argv):        # récupération des arguments dans l'appel de la fonction
-    arg_sentence = 0
-    arg_embedding_names = []
-    arg_help = "{0} --sentence 1 [<embedding_name1> <embedding_name2> ...]".format(argv[0])
+def parse_args_finder(argv): # récupération des arguments dans l'appel de la fonction
+    arg_sentence=0
+    arg_embedding_names=[]
+    arg_type=[]
+    arg_help = "{0} --type 1 --sentence 1 [<embedding_name1> <embedding_name2> ...]".format(argv[0])
 
     try:
-        opts, args = getopt.getopt(argv[1:], "hs:", ["help", "sentence="])
+        opts, args = getopt.getopt(argv[1:], "ht:s:", ["help", "sentence="])
         if len(args):
             arg_embedding_names = args
         for opt, arg in opts:
             if opt in ("-s", "--sentence"):
-                arg_sentence = int(arg)
+                arg_sentence=int(arg)
+            if opt in ("-t", "--type"):
+                arg_type=int(arg)
             if opt in ("-h", "--help"):
                 print(arg_help)
                 sys.exit(2)
@@ -27,7 +31,7 @@ def parse_args_finder(argv):        # récupération des arguments dans l'appel 
         print(arg_help)
         sys.exit(2)
 
-    return arg_embedding_names, arg_sentence
+    return arg_embedding_names, arg_sentence, arg_type
 
 
 def embed(sentence, embedding):             # calcul de l'embedding de la phrase de l'utilisateur
@@ -77,8 +81,7 @@ sentences = {
     9: "Having batteries that charge faster reduces the number of replacement batteries needed. But a faster charge increases the temperature and therefore the risk of fire"
 }
 
-
-def find(embedding_to_test, sentence_to_compare, triz_params):      # fonction finder proprement dite
+def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction finder proprement dite
     for embedding in embedding_to_test:                             # on cherche en utilisant une liste d'embeddings
         print(embedding)
 
@@ -89,7 +92,7 @@ def find(embedding_to_test, sentence_to_compare, triz_params):      # fonction f
         sentence_emb = embed(sentence_to_compare, embedding)        # calcul de l'embedding de la phrase utilisateur
         sentence_emb /= np.linalg.norm(sentence_emb)
 
-        batch_size = 55_000
+        batch_size=50_000
         results = np.array([])
         for i in range(database_emb.shape[0] // batch_size + 1):    # calcul des résultats par groupe de 55000 brevets
             print("Start batch", i)
@@ -122,10 +125,69 @@ def find(embedding_to_test, sentence_to_compare, triz_params):      # fonction f
         for i,index in enumerate(ind):                       # affichage final
             print(number_to_keep-i, index, results[index], id_[index])
         print("\n\n")
+        
+def find_type2(model_to_test, sentence_to_compare, triz_params):
+    MODEL_FOLDER = "my_models"
+    model_to_test = model_to_test[0]
+    print(model_to_test)
+    f = open(MODEL_FOLDER + "/"+model_to_test+"/" + model_to_test + "_embedding_names.txt", "r")
+    embedding = f.read()
+    print(embedding)
+
+    print("Start embeddings loading")
+    database_emb, id_ = load_database_embed(embedding, triz_params)
+    print("Embeddings loaded")
+
+    model = torch.load(MODEL_FOLDER + "/"+model_to_test+"/"+model_to_test)
+
+    sentence_emb = embed(sentence_to_compare, embedding)
+    sentence_emb /= np.linalg.norm(sentence_emb)
+
+    device = "cuda" if torch.cuda.is_available() else "cpu"
+
+    batch_size=50_000
+    results = np.array([])
+    for i in range(database_emb.shape[0]//batch_size +1):
+        print("Start batch",i)
+        start = i* batch_size
+        end = min(start+batch_size, database_emb.shape[0])
+        pairs_emb = np.empty((end-start, 2, database_emb.shape[1]))
+        pairs_emb[:,0] = sentence_emb
+        pairs_emb[:,1] = database_emb[start:end]
+        pairs_emb = torch.from_numpy(pairs_emb).float().to(device)
+
+        pairs_output = model(pairs_emb).detach().cpu().numpy()
+        results = np.concatenate((results,cos_sim(pairs_output)))
+        print("Batch",i,"done")
+    """pairs_emb = []
+    for database_sentence in database_emb:
+        pairs_emb.append([sentence_emb, database_sentence])
+    database_emb=None
+    sentence_emb=None
+    pairs_emb = np.array(pairs_emb)"""
+
+
+    results = np.array(results).T
+
+    print("Min in array", np.min(results))
+    print("Avg of array", np.average(results))
+    print("Max in array", np.max(results))
+
+    number_to_keep = 10
+    ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
+    ind = ind[np.argsort(results[ind])]
+    for i,index in enumerate(ind):
+        print(number_to_keep-i,index, results[index], id_[index], sep=" \t")
+
+    print("\n\n")
 
 
 if __name__ == "__main__":
-    embedding_to_test, sentence = parse_args_finder(sys.argv)
+    model_to_test, sentence, model_type = parse_args_finder(sys.argv)
+    
+    print("Embeddings qui vont être testés : ", "  ".join(model_to_test))
+    if model_type==1:
+        find_type1(model_to_test,sentences[sentence], ["Power", "Harmful Side Effects"])
+    elif model_type==2:
+        find_type2(model_to_test, sentences[sentence], ["Speed", "Temperature"])
 
-    print("Embeddings qui vont être testés : ", "  ".join(embedding_to_test))
-    find(embedding_to_test, sentences[sentence], ["Speed", "Temperature"])
