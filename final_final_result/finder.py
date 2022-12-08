@@ -78,8 +78,39 @@ sentences = {
     6: "For CAD applications, it can be long and tedious to manually display the two or three dimensions of each component in a new design. It can also be difficult for designers who choose the right combination of components for the first time.",
     7: "L'intrusion d'animaux et de plantes dans le système photovoltaïque est l'une des causes de la dégradation des performances et des temps d'arrêt du système. Certaines techniques existantes de pliage du métal impliquent un contact de surface important et une friction de glissement entre la machine et le matériau, ce qui les rend inadaptées à une utilisation manuelle.",
     8: "A higher voltage is needed to power the circuit. However it increase electromagnetic emmission and causes interference. ",
-    9: "Having batteries that charge faster reduces the number of replacement batteries needed. But a faster charge increases the temperature and therefore the risk of fire"
+    9: "Having batteries that charge faster reduces the number of replacement batteries needed. But a faster charge increases the temperature and therefore the risk of fire",
+    10: "1"
 }
+
+def get_best_n(results, number_to_show):
+    ind = np.argpartition(results, -number_to_show)[-number_to_show:]   # classement des résultats conservés par performance
+    return ind[np.argsort(results[ind])][::-1]
+
+
+def show_results(results, id):
+    results = np.array(results).T           # mise en forme des résultats
+
+    print("======DEBUG======")
+    print("score moyen", np.average(results))
+    print("score min", np.min(results))
+    print("score max", np.max(results))
+    print("=================")
+    print()
+
+    number_to_show = 10
+    print("======RESULTATS======")
+    ind = get_best_n(results, number_to_show)
+    for i,index in enumerate(ind): 
+        print("{}\tscore:{:.8f} - brevet : {}".format(i+1, results[index], id[index]))
+
+    while input("Entre quelquechose pour afficher la suite : ")!="":
+        number_to_show+=10
+        ind = get_best_n(results, number_to_show)
+        for i,index in enumerate(ind):
+            if i>= number_to_show-10:
+                print("{}\tscore:{:.8f} - brevet : {}".format(i+1, results[index], id[index]))
+    print("Au revoir ❤️")
+
 
 def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction finder proprement dite
     for embedding in embedding_to_test:                             # on cherche en utilisant une liste d'embeddings
@@ -109,22 +140,8 @@ def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction f
         database_emb=None
         sentence_emb=None
         pairs_emb = np.array(pairs_emb)"""
+        show_results(results, id_)
 
-        results = np.array(results).T           # mise en forme des résultats
-        print(results)
-
-        print("score moyen", np.average(results))
-        print("score min", np.min(results))
-        print("score max", np.max(results))
-
-        number_to_keep = 10                     # nombre de résultats à afficher pour l'utilisateur
-        ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]   # classement des résultats conservés par performance
-        ind = ind[np.argsort(results[ind])]
-        print("\n résultats : rangs 10 à 1")
-        print("\nindex       score       id\n")
-        for i,index in enumerate(ind):                       # affichage final
-            print(number_to_keep-i, index, results[index], id_[index])
-        print("\n\n")
         
 def find_type2(model_to_test, sentence_to_compare, triz_params):
     MODEL_FOLDER = "my_models"
@@ -167,19 +184,7 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
     pairs_emb = np.array(pairs_emb)"""
 
 
-    results = np.array(results).T
-
-    print("Min in array", np.min(results))
-    print("Avg of array", np.average(results))
-    print("Max in array", np.max(results))
-
-    number_to_keep = 10
-    ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
-    ind = ind[np.argsort(results[ind])]
-    for i,index in enumerate(ind):
-        print(number_to_keep-i,index, results[index], id_[index], sep=" \t")
-
-    print("\n\n")
+    show_results(results, id_)
 
 
 if __name__ == "__main__":
@@ -190,4 +195,3 @@ if __name__ == "__main__":
         find_type1(model_to_test,sentences[sentence], ["Power", "Harmful Side Effects"])
     elif model_type==2:
         find_type2(model_to_test, sentences[sentence], ["Speed", "Temperature"])
-
