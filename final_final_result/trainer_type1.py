@@ -21,10 +21,11 @@ def parse_args_trainer(argv):
     arg_output = ""
     arg_embedding_name = ""
 
-    #aide d
+    #aide des commandes à afficher à l'utilisateur
     arg_help = "{0} [--loss loss_name] [--epoch 10] -o <output_name> <embedding_name>".format(argv[0])
 
     try:
+        #récupération des paramètres envoyés 
         opts, args = getopt.getopt(argv[1:], "hl:e:o:", ["help", "loss=", "epochs=", "output="])
         if len(args):
             arg_embedding_name = args[0]
@@ -39,9 +40,11 @@ def parse_args_trainer(argv):
             elif opt in ("-o", "--output"):
                 arg_output = arg
     except:
+        #si l'utilisateur a fait une erreur, on lui montre ce qu'il doit faire
         print(arg_help)
         sys.exit(2)
 
+    #on regarde quel paramètre(s) manque(nt)
     missing_param = False
     if arg_output == "":
         print("output parameter is missing")
@@ -49,16 +52,26 @@ def parse_args_trainer(argv):
     if arg_embedding_name == "":
         print("embedding_name parameter is missing")
         missing_param = True
-    if missing_param:
+    if missing_param: #si un paramètre manque, on arrete tout
         sys.exit(2)
     return arg_loss, arg_epochs, arg_output, arg_embedding_name
 
 
 def print_eval(score, epoch, step):
+    """Affichage du résultat des evaluation"""
     print("Epoch {} - Step {} : {}".format(epoch, step, score))
 
 
 def train(sentence_file, model_name,  output_model, loss_name, epochs):
+    """fonction d'entrainement
+    
+    Arguments:
+    sentence_file -- fichier des phrases d'entrainement
+    model_name -- model sentece_transformers à affiner
+    output_model -- nom du model entrainé
+    loss_name -- nom de la fonction loss à utiliser : cosine, contrastive ou MNR 
+    epochs -- nombre d'epochs 
+    """
     BATCH_SIZE = 8
     TRAINING_DATA_SIZE = 8192
     TEST_DATA_SIZE = 8192
@@ -81,11 +94,11 @@ def train(sentence_file, model_name,  output_model, loss_name, epochs):
         print("sentence_file can't be empty")
         sys.exit(2)
 
+    #chargement du model dans le GPU (ou CPU)
     device = "cuda" if torch.cuda.is_available() else "cpu"
-
     model = SentenceTransformer(model_name, device=device)
 
-    # convert loss_name to loss
+    # convertit loss_name en loss
     if loss_name == "" or loss_name == "cosine":
         train_loss = losses.CosineSimilarityLoss(model)
     elif loss_name == "contrastive":
