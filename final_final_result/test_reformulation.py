@@ -46,52 +46,55 @@ def load_test_sentence():
 
     return [(sentence["_id"], sentence["contradiction"]) for sentence in response["hits"]]
 
+
 def find_best_f1_and_threshold(scores, labels, high_score_more_similar: bool):
-        assert len(scores) == len(labels)
+    assert len(scores) == len(labels)
 
-        scores = np.asarray(scores)
-        labels = np.asarray(labels)
+    scores = np.asarray(scores)
+    labels = np.asarray(labels)
 
-        rows = list(zip(scores, labels))
+    rows = list(zip(scores, labels))
 
-        rows = sorted(rows, key=lambda x: x[0], reverse=high_score_more_similar)
+    rows = sorted(rows, key=lambda x: x[0], reverse=high_score_more_similar)
 
-        best_f1 = best_precision = best_recall = 0
-        threshold = 0
-        nextract = 0
-        ncorrect = 0
-        total_num_duplicates = sum(labels)
+    best_f1 = best_precision = best_recall = 0
+    threshold = 0
+    nextract = 0
+    ncorrect = 0
+    total_num_duplicates = sum(labels)
 
-        for i in range(len(rows)-1):
-            score, label = rows[i]
-            nextract += 1
+    for i in range(len(rows) - 1):
+        score, label = rows[i]
+        nextract += 1
 
-            if label == 1:
-                ncorrect += 1
+        if label == 1:
+            ncorrect += 1
 
-            if ncorrect > 0:
-                precision = ncorrect / nextract
-                recall = ncorrect / total_num_duplicates
-                f1 = 2 * precision * recall / (precision + recall)
-                if f1 > best_f1:
-                    best_f1 = f1
-                    best_precision = precision
-                    best_recall = recall
-                    threshold = (rows[i][0] + rows[i + 1][0]) / 2
+        if ncorrect > 0:
+            precision = ncorrect / nextract
+            recall = ncorrect / total_num_duplicates
+            f1 = 2 * precision * recall / (precision + recall)
+            if f1 > best_f1:
+                best_f1 = f1
+                best_precision = precision
+                best_recall = recall
+                threshold = (rows[i][0] + rows[i + 1][0]) / 2
 
-        return best_f1, best_precision, best_recall, threshold
+    return best_f1, best_precision, best_recall, threshold
 
-def test(embedding_to_test, model_type):
 
+def test():
+    '''
     # check for incorrect values
     if model_type != 1 and model_type != 2 and model_type != 3:
         print("Incorrect type")
         sys.exit(2)
+    '''
 
     test_sentences = load_test_sentence()
     sentence_ids, sentences = zip(*test_sentences)
 
-    for embedding in embedding_to_test:
+    for embedding in "simCSE":
         print(embedding)
         result_list = []
         all_results = []
@@ -100,7 +103,8 @@ def test(embedding_to_test, model_type):
         # chargement des embeddings
         database_emb, id_ = load_embed("save/embedding_mesure_", embedding, "save/ids_mesure.npy")
 
-        #on souhaite calculer le score d'exact match en considérant successivement qu'exact signifie retrouver le brevet original dans les 5 premiers et en premier
+        # on souhaite calculer le score d'exact match en considérant successivement qu'exact signifie retrouver le
+        # brevet original dans les 5 premiers et en premier
         EM_1 = 0
         EM_5 = 0
 
@@ -116,7 +120,7 @@ def test(embedding_to_test, model_type):
                 pairs_emb.append([sentence_emb, database_sentence])
             pairs_emb = np.array(pairs_emb)
 
-            if model_type==1 or model_type==2:
+            if model_type == 1 or model_type == 2:
                 # compute cosine distance for each pair
                 results = cos_sim(pairs_emb)
                 results = np.array(results).T
@@ -133,34 +137,33 @@ def test(embedding_to_test, model_type):
                     EM_1 += 1
             result_list.append(rank_orignal_sentence)
 
-            #on sauvegarde les similaritées calculées et theorique pour le calcul de f1            
-            all_results+=list(results)
-            all_labels+=[0 if j!=id_rank else 1 for j in range(results.shape[0])]
+            # on sauvegarde les similaritées calculées et theorique pour le calcul de f1
+            all_results += list(results)
+            all_labels += [0 if j != id_rank else 1 for j in range(results.shape[0])]
         F1score, _, _, F1_threshold = find_best_f1_and_threshold(all_results, all_labels, True)
 
-        #compute metrics
-        MRR = np.mean(np.reciprocal(np.array(result_list)+1))
+        # compute metrics
+        MRR = np.mean(np.reciprocal(np.array(result_list) + 1))
 
         print(embedding + ":")
-        print("MRR =",MRR)
-        print("F1 score =",F1score ,"(",F1_threshold,")")
-        print("Exact match in 5 =",EM_5)
-        print("Exact match in 1 =",EM_1)
+        print("MRR =", MRR)
+        print("F1 score =", F1score, "(", F1_threshold, ")")
+        print("Exact match in 5 =", EM_5)
+        print("Exact match in 1 =", EM_1)
 
-        f = open("test_results/metrics_"+embedding+".txt", "w")
-        f.write("MRR = "+str(MRR)+"\n")
-        f.write("F1 score = "+str(F1score) +" ("+str(F1_threshold)+")"+"\n")
-        f.write("Exact match in 5 = "+str(EM_5)+"\n")
-        f.write("Exact match in 1 = "+str(EM_1)+"\n")
+        f = open("test_results/metrics_" + embedding + ".txt", "w")
+        f.write("MRR = " + str(MRR) + "\n")
+        f.write("F1 score = " + str(F1score) + " (" + str(F1_threshold) + ")" + "\n")
+        f.write("Exact match in 5 = " + str(EM_5) + "\n")
+        f.write("Exact match in 1 = " + str(EM_1) + "\n")
         f.close()
 
-
-        #plot histogram
-        plt.hist(result_list, bins=range(0, 1+np.amax(result_list)))
+        # plot histogram
+        plt.hist(result_list, bins=range(0, 1 + np.amax(result_list)))
         plt.xlabel('Rank')
         plt.ylabel('Occurences')
-        plt.title(embedding + "   avg="+str(np.average(result_list)) + "   med="+str(np.median(result_list)))
-        plt.savefig("test_results/"+embedding+".png", dpi=300)
+        plt.title(embedding + "   avg=" + str(np.average(result_list)) + "   med=" + str(np.median(result_list)))
+        plt.savefig("test_results/" + embedding + ".png", dpi=300)
         plt.close('all')
 
 

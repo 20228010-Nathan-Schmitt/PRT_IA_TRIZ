@@ -3,20 +3,21 @@ import numpy as np
 import os
 import sys
 
+
 def load_local_database(filename="response_1000.json"):
-    #import json file as dictionary
+    # import json file as dictionary
     try:
-        f=open(filename, "r", encoding="utf8")
+        f = open(filename, "r", encoding="utf8")
         response = json.load(f)
-        f.close()    
+        f.close()
     except:
         print("Can't load file ", filename)
         sys.exit(2)
-    
-    #extract only id, sentences and triz parameters fromeach patent
+
+    # extract only id, sentences and triz parameters from each patent
 
     patents = []
-    if filename=="databases/all_database.json":
+    if filename == "databases/all_database.json":
         for patent in response:
             patents.append((
                 patent["id"],
@@ -28,11 +29,13 @@ def load_local_database(filename="response_1000.json"):
         for patent in response["hits"]["hits"]:
             patents.append((
                 patent["_id"],
-                patent["fields"]["F_SENTS"][0] + " " +patent["fields"]["S_SENTS"][0], #contradiction
+                patent["fields"]["F_SENTS"][0] + " " + patent["fields"]["S_SENTS"][0],  # contradiction
                 patent["fields"]["F_TRIZ_PARAMS"],
                 patent["fields"]["S_TRIZ_PARAMS"],
             ))
-    return np.array(patents,dtype=[("id", "U32"),("sentence",np.unicode,1024),("F_TRIZ_PARAMS",object), ("S_TRIZ_PARAMS",object)])
+    return np.array(patents, dtype=[("id", "U32"), ("sentence", np.unicode, 1024), ("F_TRIZ_PARAMS", object),
+                                    ("S_TRIZ_PARAMS", object)])
+
 
 def make_pairs_to_compare(dataset):
     ids = dataset["id"]
@@ -58,9 +61,11 @@ def make_pairs_to_compare(dataset):
                 list(patent1_triz_s.intersection(patent2_triz_s)))
 
             similarities_int.append(int(not (not size_intersection_f or not size_intersection_s)))
-            similarities_float.append((size_intersection_f+ size_intersection_s) / (max(len(patent1_triz_f), len(patent2_triz_f))+ max(len(patent1_triz_s), len(patent2_triz_s))))
+            similarities_float.append((size_intersection_f + size_intersection_s) / (
+                        max(len(patent1_triz_f), len(patent2_triz_f)) + max(len(patent1_triz_s), len(patent2_triz_s))))
 
-    return np.array(pairs), np.array(similarities_int),np.array(similarities_float).astype("f4"), ids
+    return np.array(pairs), np.array(similarities_int), np.array(similarities_float).astype("f4"), ids
+
 
 def load_embed(base_name, embedding, filename_ids):
     ids = []
