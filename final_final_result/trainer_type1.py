@@ -13,28 +13,27 @@ from sentence_transformers.evaluation import SimilarityFunction, EmbeddingSimila
 
 
 def parse_args_trainer(argv):
-    arg_type = ""
+    """récupère les arguments envoyé en ligne de commande"""
+
+    #tous les arguments à renvoyer en sortie
     arg_loss = ""
-    arg_layers = []
     arg_epochs = ""
     arg_output = ""
     arg_embedding_name = ""
-    arg_help = "{0} -t <type (1/2)> [-l <layer1_layer2>] -o <output_name> <embedding_name>".format(argv[0])
+
+    #aide d
+    arg_help = "{0} [--loss loss_name] [--epoch 10] -o <output_name> <embedding_name>".format(argv[0])
 
     try:
-        opts, args = getopt.getopt(argv[1:], "ht:L:l:e:o:", ["help", "type=", "loss=", "layers=", "epochs=", "output="])
+        opts, args = getopt.getopt(argv[1:], "hl:e:o:", ["help", "loss=", "epochs=", "output="])
         if len(args):
             arg_embedding_name = args[0]
         for opt, arg in opts:
             if opt in ("-h", "--help"):
                 print(arg_help)
                 sys.exit(2)
-            elif opt in ("-t", "--type"):
-                arg_type = int(arg)
-            elif opt in ("-L", "--loss"):
+            elif opt in ("-l", "--loss"):
                 arg_loss = arg
-            elif opt in ("-l", "--layers"):
-                arg_layers = [int(i) for i in arg.split("_")]
             elif opt in ("-e", "--epochs"):
                 arg_epochs = int(arg)
             elif opt in ("-o", "--output"):
@@ -44,9 +43,6 @@ def parse_args_trainer(argv):
         sys.exit(2)
 
     missing_param = False
-    if arg_type == "":
-        print("type parameter is missing")
-        missing_param = True
     if arg_output == "":
         print("output parameter is missing")
         missing_param = True
@@ -55,27 +51,21 @@ def parse_args_trainer(argv):
         missing_param = True
     if missing_param:
         sys.exit(2)
-    return arg_type, arg_loss, arg_layers, arg_epochs, arg_output, arg_embedding_name
+    return arg_loss, arg_epochs, arg_output, arg_embedding_name
 
 
 def print_eval(score, epoch, step):
     print("Epoch {} - Step {} : {}".format(epoch, step, score))
 
 
-def train(sentence_file, model_name,  output_model, model_type, loss_name, layers, epochs):
+def train(sentence_file, model_name,  output_model, loss_name, epochs):
     BATCH_SIZE = 8
     TRAINING_DATA_SIZE = 8192
     TEST_DATA_SIZE = 8192
     OUTPUT_FOLDER = "my_models/"
 
     # check for incorrect values
-    if model_type != 1 and model_type != 2:
-        print("Incorrect type")
-        sys.exit(2)
-    if model_type == 2 and not len(layers):
-        print("Type 2 must have at least one layer")
-        sys.exit(2)
-    if loss_name != "" and not (loss_name == "cosine" or loss_name == "contrastive"):
+    if loss_name != "" and not (loss_name == "cosine" or loss_name == "contrastive" or loss_name == "MNR"):
         print("unknown loss_name (either cosine, contrastive or none)")
         sys.exit(2)
     if type(epochs) is not int or epochs <= 0:
@@ -93,26 +83,15 @@ def train(sentence_file, model_name,  output_model, model_type, loss_name, layer
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    # convert type to model
-    if model_type == 1:
-        model = SentenceTransformer(model_name, device=device)
-    elif model_type == 2:
-        word_embedding_model = models.Transformer(model_name, max_seq_length=256)
-        pooling_model = models.Pooling(word_embedding_model.get_word_embedding_dimension())
-
-        denses_layers = [
-            models.Dense(in_features=pooling_model.get_sentence_embedding_dimension(), out_features=layers[0], activation_function=nn.Tanh())
-        ]
-        for layer_output in layers[1:]:
-            denses_layers.append(models.Dense(in_features=denses_layers[-1].get_sentence_embedding_dimension(), out_features=layer_output, activation_function=nn.Tanh()))
-
-        model = SentenceTransformer(modules=[word_embedding_model, pooling_model]+denses_layers, device=device)
+    model = SentenceTransformer(model_name, device=device)
 
     # convert loss_name to loss
     if loss_name == "" or loss_name == "cosine":
         train_loss = losses.CosineSimilarityLoss(model)
     elif loss_name == "contrastive":
         train_loss = losses.ContrastiveLoss(model)
+    elif loss_name == "MNR":
+        train_loss = losses.MultipleNegativesRankingLoss(model)
 
     # load sentences
     dataset = load_local_database(sentence_file)
@@ -125,8 +104,14 @@ def train(sentence_file, model_name,  output_model, model_type, loss_name, layer
     sentences2 = []
     test_data = []
     for i in range(len(pairs)):
-        train_data.append(InputExample(texts=[sentences[pairs[i][0]], sentences[pairs[i][1]]], label=similarities_int[i]))
         test_data.append((sentences[pairs[i][0]], sentences[pairs[i][1]], similarities_int[i]))
+        if loss_name == "MNR":
+            if similarities_int[i]:
+                train_data.append(InputExample(texts=[sentences[pairs[i][0]], sentences[pairs[i][1]]]))
+        else:
+            train_data.append(InputExample(texts=[sentences[pairs[i][0]], sentences[pairs[i][1]]], label=similarities_int[i]))
+
+
     random.shuffle(train_data)
     random.shuffle(test_data)
     dataloader = DataLoader(train_data, batch_size=BATCH_SIZE, shuffle=True)
@@ -144,6 +129,6 @@ def train(sentence_file, model_name,  output_model, model_type, loss_name, layer
 
 if __name__ == "__main__":
     # parse input
-    model_type, loss, layers, epochs, output, embedding_name = parse_args_trainer(sys.argv)
+    loss, epochs, output, embedding_name = parse_args_trainer(sys.argv)
 
-    train("databases/response_1000.json", embedding_name, output, model_type, loss, layers, epochs)
+    train("databases/response_1000.json", embedding_name, output, loss, epochs)
