@@ -108,11 +108,13 @@ def train(sentence_file, embedding,  output_model, loss_name, layers, epochs):
 
     denses_layers = [
         nn.Linear(sentences_emb.shape[1], layers[0]),
-        nn.ReLU()
     ]
     for i in range(1,len(layers)):
-        denses_layers.append(nn.Linear(layers[i-1], layers[i]))
         denses_layers.append(nn.ReLU())
+        #denses_layers.append(nn.Sigmoid())
+        #denses_layers.append(nn.GELU())
+        denses_layers.append(nn.Linear(layers[i-1], layers[i]))
+    denses_layers.append(nn.Tanh())
     model = nn.Sequential(*denses_layers)
     print(model)
     model.to(device)
