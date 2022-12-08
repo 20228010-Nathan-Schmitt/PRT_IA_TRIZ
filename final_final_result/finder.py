@@ -9,10 +9,11 @@ from embeddings.embeddings import embeddings
 
 import torch
 
-def parse_args_finder(argv): # récupération des arguments dans l'appel de la fonction
-    arg_sentence=0
-    arg_embedding_names=[]
-    arg_type=[]
+
+def parse_args_finder(argv):  # récupération des arguments dans l'appel de la fonction
+    arg_sentence = 0
+    arg_embedding_names = []
+    arg_type = []
     arg_help = "{0} --type 1 --sentence 1 [<embedding_name1> <embedding_name2> ...]".format(argv[0])
 
     try:
@@ -21,9 +22,9 @@ def parse_args_finder(argv): # récupération des arguments dans l'appel de la f
             arg_embedding_names = args
         for opt, arg in opts:
             if opt in ("-s", "--sentence"):
-                arg_sentence=int(arg)
+                arg_sentence = int(arg)
             if opt in ("-t", "--type"):
-                arg_type=int(arg)
+                arg_type = int(arg)
             if opt in ("-h", "--help"):
                 print(arg_help)
                 sys.exit(2)
@@ -34,31 +35,31 @@ def parse_args_finder(argv): # récupération des arguments dans l'appel de la f
     return arg_embedding_names, arg_sentence, arg_type
 
 
-def embed(sentence, embedding):             # calcul de l'embedding de la phrase de l'utilisateur
+def embed(sentence, embedding):  # calcul de l'embedding de la phrase de l'utilisateur
     sentences_emb = embeddings[embedding](sentence, once=True)
     return sentences_emb
 
 
-def load_database_embed(embedding, triz_params):        # chargement des embeddings pré-enregistrés des brevets
+def load_database_embed(embedding, triz_params):  # chargement des embeddings pré-enregistrés des brevets
     ids = []
 
     # load triz parameter filters
     f_filters = np.load("databases/f_parameters_list.npy", allow_pickle=True).item()
     s_filters = np.load("databases/s_parameters_list.npy", allow_pickle=True).item()
 
-    triz_filter = np.ones_like(f_filters["Speed"])      # création d'un tableau récapitulant les parametres TRIZ
+    triz_filter = np.ones_like(f_filters["Speed"])  # création d'un tableau récapitulant les parametres TRIZ
     for param in triz_params:
         triz_filter *= np.logical_or(f_filters[param], s_filters[param])
     triz_filter = triz_filter > 0.5
 
-    filename_ids = "save/ids.npy"                       # chargement fichier id des brevets
+    filename_ids = "save/ids.npy"  # chargement fichier id des brevets
     if os.path.isfile(filename_ids):
         ids = np.load(filename_ids)[triz_filter]
     else:
         print("Id file not found")
         0 / 0
 
-    filename = "save/embedding_" + embedding + ".npy"   # chargement fichier embedding des brevets
+    filename = "save/embedding_" + embedding + ".npy"  # chargement fichier embedding des brevets
     if os.path.isfile(filename):
         current_embedding = np.load(filename, mmap_mode="r")[triz_filter]
         database_sentences_emb = current_embedding.astype(float)
@@ -68,7 +69,9 @@ def load_database_embed(embedding, triz_params):        # chargement des embeddi
         0 / 0
     return sentences_emb, ids
 
-        # définition de phrases d'exemples
+    # définition de phrases d'exemples
+
+
 sentences = {
     1: "Batteries need to be bigger but it will be heavier",
     2: "Big wheels are better for comfort but it will be harder to push.",
@@ -81,20 +84,21 @@ sentences = {
     9: "Having batteries that charge faster reduces the number of replacement batteries needed. But a faster charge increases the temperature and therefore the risk of fire"
 }
 
-def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction finder proprement dite
-    for embedding in embedding_to_test:                             # on cherche en utilisant une liste d'embeddings
+
+def find_type1(embedding_to_test, sentence_to_compare, triz_params):  # fonction finder proprement dite
+    for embedding in embedding_to_test:  # on cherche en utilisant une liste d'embeddings
         print(embedding)
 
         print("Start embeddings loading")
         database_emb, id_ = load_database_embed(embedding, triz_params)
         print("Embeddings loaded")
 
-        sentence_emb = embed(sentence_to_compare, embedding)        # calcul de l'embedding de la phrase utilisateur
+        sentence_emb = embed(sentence_to_compare, embedding)  # calcul de l'embedding de la phrase utilisateur
         sentence_emb /= np.linalg.norm(sentence_emb)
 
-        batch_size=50_000
+        batch_size = 50_000
         results = np.array([])
-        for i in range(database_emb.shape[0] // batch_size + 1):    # calcul des résultats par groupe de 55000 brevets
+        for i in range(database_emb.shape[0] // batch_size + 1):  # calcul des résultats par groupe de 55000 brevets
             print("Start batch", i)
             start = i * batch_size
             end = min(start + batch_size, database_emb.shape[0])
@@ -110,27 +114,29 @@ def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction f
         sentence_emb=None
         pairs_emb = np.array(pairs_emb)"""
 
-        results = np.array(results).T           # mise en forme des résultats
+        results = np.array(results).T  # mise en forme des résultats
         print(results)
 
         print("score moyen", np.average(results))
         print("score min", np.min(results))
         print("score max", np.max(results))
 
-        number_to_keep = 10                     # nombre de résultats à afficher pour l'utilisateur
-        ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]   # classement des résultats conservés par performance
+        number_to_keep = 10  # nombre de résultats à afficher pour l'utilisateur
+        ind = np.argpartition(results, -number_to_keep)[
+              -number_to_keep:]  # classement des résultats conservés par performance
         ind = ind[np.argsort(results[ind])]
         print("\n résultats : rangs 10 à 1")
         print("\nindex       score       id\n")
-        for i,index in enumerate(ind):                       # affichage final
-            print(number_to_keep-i, index, results[index], id_[index])
+        for i, index in enumerate(ind):  # affichage final
+            print(number_to_keep - i, index, results[index], id_[index])
         print("\n\n")
-        
+
+
 def find_type2(model_to_test, sentence_to_compare, triz_params):
     MODEL_FOLDER = "my_models"
     model_to_test = model_to_test[0]
     print(model_to_test)
-    f = open(MODEL_FOLDER + "/"+model_to_test+"/" + model_to_test + "_embedding_names.txt", "r")
+    f = open(MODEL_FOLDER + "/" + model_to_test + "/" + model_to_test + "_embedding_names.txt", "r")
     embedding = f.read()
     print(embedding)
 
@@ -138,34 +144,33 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
     database_emb, id_ = load_database_embed(embedding, triz_params)
     print("Embeddings loaded")
 
-    model = torch.load(MODEL_FOLDER + "/"+model_to_test+"/"+model_to_test)
+    model = torch.load(MODEL_FOLDER + "/" + model_to_test + "/" + model_to_test)
 
     sentence_emb = embed(sentence_to_compare, embedding)
     sentence_emb /= np.linalg.norm(sentence_emb)
 
     device = "cuda" if torch.cuda.is_available() else "cpu"
 
-    batch_size=50_000
+    batch_size = 50_000
     results = np.array([])
-    for i in range(database_emb.shape[0]//batch_size +1):
-        print("Start batch",i)
-        start = i* batch_size
-        end = min(start+batch_size, database_emb.shape[0])
-        pairs_emb = np.empty((end-start, 2, database_emb.shape[1]))
-        pairs_emb[:,0] = sentence_emb
-        pairs_emb[:,1] = database_emb[start:end]
+    for i in range(database_emb.shape[0] // batch_size + 1):
+        print("Start batch", i)
+        start = i * batch_size
+        end = min(start + batch_size, database_emb.shape[0])
+        pairs_emb = np.empty((end - start, 2, database_emb.shape[1]))
+        pairs_emb[:, 0] = sentence_emb
+        pairs_emb[:, 1] = database_emb[start:end]
         pairs_emb = torch.from_numpy(pairs_emb).float().to(device)
 
         pairs_output = model(pairs_emb).detach().cpu().numpy()
-        results = np.concatenate((results,cos_sim(pairs_output)))
-        print("Batch",i,"done")
+        results = np.concatenate((results, cos_sim(pairs_output)))
+        print("Batch", i, "done")
     """pairs_emb = []
     for database_sentence in database_emb:
         pairs_emb.append([sentence_emb, database_sentence])
     database_emb=None
     sentence_emb=None
     pairs_emb = np.array(pairs_emb)"""
-
 
     results = np.array(results).T
 
@@ -176,18 +181,52 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
     number_to_keep = 10
     ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
     ind = ind[np.argsort(results[ind])]
-    for i,index in enumerate(ind):
-        print(number_to_keep-i,index, results[index], id_[index], sep=" \t")
+    for i, index in enumerate(ind):
+        print(number_to_keep - i, index, results[index], id_[index], sep=" \t")
 
     print("\n\n")
 
 
-if __name__ == "__main__":
-    model_to_test, sentence, model_type = parse_args_finder(sys.argv)
-    
-    print("Embeddings qui vont être testés : ", "  ".join(model_to_test))
-    if model_type==1:
-        find_type1(model_to_test,sentences[sentence], ["Power", "Harmful Side Effects"])
-    elif model_type==2:
-        find_type2(model_to_test, sentences[sentence], ["Speed", "Temperature"])
+def interface():
+    print("Bonjour.")
+    validation = "False"
+    while validation != "":
+        sentence = input("Enoncez votre problème (contradiction) :")
 
+        param = "1"
+        param_list = []
+        while param != "":
+            print()
+            param = input("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
+                          "\nIl doit y avoir au moins un parametre \n"
+                          "appuyez sur entrée pour cesser d'ajouter des parametres : ")
+            if param != "": param_list.append(param)
+
+        print()
+        model_type = int(input("quel type de modèle souhaitez vous utiliser ? (1 ou 2)"))
+        while model_type>2 or model_type<1:
+            model_type = int(input("entrez un chiffre valide : 1 ou 2"))
+
+        print()
+        if model_type == 1:
+            testModel = input('quel embedding souhaitez vous utiliser ? \n (mpnet_base, patentsberta)')
+            while testModel != "mpnet_base" and testModel != "patents berta":
+                testModel = input('donnez un nom valide (mpnet_base ou patentsberta)')
+        elif model_type == 2:
+            testModel = input("quel modèle souhaitez vous utiliser ?")
+
+        print("\nLa recherche va etre effectuée avec ces parametres : \n contradiction : ", sentence, "parametres : ",
+              param_list, "\n type de modèle : ", model_type, "\n modèle/embedding : ", testModel)
+        validation = input("\nAppuyez sur entrée pour valider ou d'autres caractères pour recommencer")
+        print()
+    return [testModel], sentence, model_type, param_list
+
+
+if __name__ == "__main__":
+    model_to_test, sentence, model_type, param_list = interface()
+
+    print("Embeddings qui vont être testés : ", "  ".join(model_to_test))
+    if model_type == 1:
+        find_type1(model_to_test, sentence, param_list)
+    elif model_type == 2:
+        find_type2(model_to_test, sentence, param_list)
