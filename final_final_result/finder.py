@@ -92,7 +92,7 @@ def interface():
 
         param = input("entrez le nombre correspondant au premier parametre souhaité : ")
         while param != "":
-            param_list.append(triz_parameters[param])
+            param_list.append(triz_parameters[int(param)])
             param = input("faites entrée pour cesser d'ajouter des parametres. \nNouveau parametre : ")
 
         print()
@@ -186,9 +186,7 @@ def show_results(results, id):
     ind = get_best_n(results, number_to_show)
     for i,index in enumerate(ind): 
         print("{}\tscore:{:.8f} - brevet : {}".format(i+1, results[index], id[index]))
-    print("yo")
-    input()
-    print("ya")
+
     while input("Entre quelquechose pour afficher la suite : ")!="":
         number_to_show+=10
         ind = get_best_n(results, number_to_show)
@@ -196,7 +194,6 @@ def show_results(results, id):
             if i>= number_to_show-10:
                 print("{}\tscore:{:.8f} - brevet : {}".format(i+1, results[index], id[index]))
     print("Au revoir ❤️")
-
 
 def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction finder proprement dite
     for embedding in embedding_to_test:                             # on cherche en utilisant une liste d'embeddings
@@ -269,56 +266,7 @@ def find_type2(model_to_test, sentence_to_compare, triz_params):
     sentence_emb=None
     pairs_emb = np.array(pairs_emb)"""
 
-    results = np.array(results).T
-
-    print("Min in array", np.min(results))
-    print("Avg of array", np.average(results))
-    print("Max in array", np.max(results))
-
-    number_to_keep = 10
-    ind = np.argpartition(results, -number_to_keep)[-number_to_keep:]
-    ind = ind[np.argsort(results[ind])]
-    for i, index in enumerate(ind):
-        print(number_to_keep - i, index, results[index], id_[index], sep=" \t")
-
-    print("\n\n")
-
-
-def interface():
-    print("Bonjour.")
-    validation = "False"
-    while validation != "":
-        sentence = input("Enoncez votre problème (contradiction) :")
-
-        param = "1"
-        param_list = []
-        print("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
-                      "\nIl doit y avoir au moins un parametre \n")
-        print("Voici la liste des parametres : \n")
-
-        param = input("entrez le nombre correspondant au premier parametre souhaité : ")
-        while param != "":
-            param_list.append(triz_parameters[param])
-            param = input("faites entrée pour cesser d'ajouter des parametres. \nNouveau parametre : ")
-
-        print()
-        model_type = int(input("quel type de modèle souhaitez vous utiliser ? (1 ou 2)"))
-        while model_type>2 or model_type<1:
-            model_type = int(input("entrez un chiffre valide : 1 ou 2"))
-
-        print()
-        if model_type == 1:
-            testModel = input('quel embedding souhaitez vous utiliser ? \n (mpnet_base, patentsberta)')
-            while testModel != "mpnet_base" and testModel != "patents berta":
-                testModel = input('donnez un nom valide (mpnet_base ou patentsberta)')
-        elif model_type == 2:
-            testModel = input("quel modèle souhaitez vous utiliser ?")
-
-        print("\nLa recherche va etre effectuée avec ces parametres : \n contradiction : ", sentence, "parametres : ",
-              param_list, "\n type de modèle : ", model_type, "\n modèle/embedding : ", testModel)
-        validation = input("\nAppuyez sur entrée pour valider ou d'autres caractères pour recommencer")
-        print()
-    return [testModel], sentence, model_type, param_list
+    show_results(results, id_)
 
 
 if __name__ == "__main__":
