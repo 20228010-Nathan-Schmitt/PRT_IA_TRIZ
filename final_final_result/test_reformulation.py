@@ -10,7 +10,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 
 
-def parse_args_embedder(argv):
+def parse_args_embedder(argv):  # récup arguments de la fonction
     arg_type = ""
     arg_embedding_names = []
     arg_help = "{0} --type [<embedding_name1> <embedding_name2> ...]".format(argv[0])
@@ -39,7 +39,7 @@ def parse_args_embedder(argv):
     return arg_embedding_names, arg_type
 
 
-def load_test_sentence():
+def load_test_sentence():  # chargement des phrases pour le test
     f = open("databases/test_sentences.json", "r", encoding="utf8")
     response = json.load(f)
     f.close()
@@ -48,6 +48,8 @@ def load_test_sentence():
 
 
 def find_best_f1_and_threshold(scores, labels, high_score_more_similar: bool):
+    # calcul du score F1 et recherche du seuil qui le maximise
+
     assert len(scores) == len(labels)
 
     scores = np.asarray(scores)
@@ -63,7 +65,7 @@ def find_best_f1_and_threshold(scores, labels, high_score_more_similar: bool):
     ncorrect = 0
     total_num_duplicates = sum(labels)
 
-    for i in range(len(rows) - 1):
+    for i in range(len(rows) - 1):      # boucle de recherche du F1 maximal
         score, label = rows[i]
         nextract += 1
 
@@ -91,7 +93,7 @@ def test():
         sys.exit(2)
     '''
 
-    test_sentences = load_test_sentence()
+    test_sentences = load_test_sentence()           # chargement de la base des phrases reformulées pour le test
     sentence_ids, sentences = zip(*test_sentences)
 
     for embedding in "simCSE":
