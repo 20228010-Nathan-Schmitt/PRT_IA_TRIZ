@@ -195,12 +195,14 @@ def interface():
 
         param = "1"
         param_list = []
+        print("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
+                      "\nIl doit y avoir au moins un parametre \n")
+        print("Voici la liste des parametres : \n")
+
+        param = input("entrez le nombre correspondant au premier parametre souhaité : ")
         while param != "":
-            print()
-            param = input("Ajoutez un parametre TRIZ à votre contradiction (peu importe qu'il soit amélioré ou déterioré)"
-                          "\nIl doit y avoir au moins un parametre \n"
-                          "appuyez sur entrée pour cesser d'ajouter des parametres : ")
-            if param != "": param_list.append(param)
+            param_list.append(triz_parameters[param])
+            param = input("faites entrée pour cesser d'ajouter des parametres. \nNouveau parametre : ")
 
         print()
         model_type = int(input("quel type de modèle souhaitez vous utiliser ? (1 ou 2)"))
