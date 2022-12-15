@@ -193,7 +193,6 @@ def show_results(results, id):
         for i,index in enumerate(ind):
             if i>= number_to_show-10:
                 print("{}\tscore:{:.8f} - brevet : {}".format(i+1, results[index], id[index]))
-    print("Au revoir ❤️")
 
 def find_type1(embedding_to_test, sentence_to_compare, triz_params):# fonction finder proprement dite
     for embedding in embedding_to_test:                             # on cherche en utilisant une liste d'embeddings
@@ -282,3 +281,4 @@ if __name__ == "__main__":
             find_type2(model_to_test, sentence, param_list)
 
         stop = (input("Entre quelquechose pour refaire une recherche") == "" )
+    print("Au revoir ❤️")
