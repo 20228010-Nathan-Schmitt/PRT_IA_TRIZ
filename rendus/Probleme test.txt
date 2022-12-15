@@ -1,0 +1,5 @@
+Constat : 
+Notre test est pas du tout  pertinent pour qualifier nos modeles.
+
+Idées :
+Proposer des contradictions à nous et on doit dire si elles sont similaires selon nous. Ce sera plus subtile qu'en ne tenant compte que des parametres en commun. Mais ca va de nouveau faire le biais de ne rapprocher que ce qui est dans le même domaine de problèmes.
