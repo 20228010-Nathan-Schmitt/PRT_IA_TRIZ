@@ -77,7 +77,7 @@ def distance_between_pairs(embedding, distance, sentences, pairs):
     return distance_between_embeddings
 
 
-def train(sentence_file, model_names,  output_model, layers_size, epochs):
+def train(sentence_file, model_names,  output_model, layers_size, epochs):     # definition de la routine d'entrainement
     BATCH_SIZE = 128
     OUTPUT_FOLDER = "my_models/"
     LEARNING_RATE = 0.01
@@ -96,7 +96,7 @@ def train(sentence_file, model_names,  output_model, layers_size, epochs):
         print("sentence_file can't be empty")
         sys.exit(2)
 
-    device = "cuda" if torch.cuda.is_available() else "cpu"
+    device = "cuda" if torch.cuda.is_available() else "cpu"     # utilisation du GPU si disponible
 
     # construct distances between pairs and their similarities
     dataset = load_local_database(sentence_file)
@@ -115,7 +115,7 @@ def train(sentence_file, model_names,  output_model, layers_size, epochs):
     kwargs = {'num_workers': 0, 'pin_memory': False} if device == 'cuda' else {}
     dataloader = DataLoader(dataset, batch_size=BATCH_SIZE, shuffle=True, **kwargs)
 
-    layers = []
+    layers = []         # definition du MLP et des fonctions d'activation pour chaque layer
     last_layer_size = distance_between_embeddings.shape[1]
     for layer in layers_size:
         layers.append(nn.Linear(last_layer_size, layer))
@@ -124,7 +124,7 @@ def train(sentence_file, model_names,  output_model, layers_size, epochs):
     model = nn.Sequential(*layers)
     model.to(device)
 
-    loss_function = nn.MSELoss()
+    loss_function = nn.MSELoss()        # definition de la fonction de perte
     optimizer = torch.optim.Adam(model.parameters(), lr=LEARNING_RATE)
 
     losses = []
@@ -133,12 +133,12 @@ def train(sentence_file, model_names,  output_model, layers_size, epochs):
     print("Loss : ", loss.item())
     losses.append(loss.item())
 
-    for epoch in range(epochs):
+    for epoch in range(epochs):                         # entrainement pendant x epochs
         print("Epoch ", epoch)
         for inputs, outputs in dataloader:
-            pred_y = model(inputs)
-            loss = loss_function(pred_y, outputs)
-            model.zero_grad()
+            pred_y = model(inputs)                      # prediction
+            loss = loss_function(pred_y, outputs)       # calcul de pertes
+            model.zero_grad()                           # descente de gradient
             loss.backward()
 
             optimizer.step()
@@ -147,7 +147,7 @@ def train(sentence_file, model_names,  output_model, layers_size, epochs):
         print("Loss : ", loss.item())
         losses.append(loss.item())
 
-    os.mkdir("./"+OUTPUT_FOLDER+"/"+output_model)
+    os.mkdir("./"+OUTPUT_FOLDER+"/"+output_model)       # définition d'un dossier et sauvegarde de modèle
     torch.save(model, OUTPUT_FOLDER + "/"+output_model+"/"+output_model)
 
     f = open(OUTPUT_FOLDER + "/"+output_model+"/" + output_model + "_embedding_names.txt", "w")
